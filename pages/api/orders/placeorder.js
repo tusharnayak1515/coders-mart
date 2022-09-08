@@ -6,6 +6,7 @@ import joi from "joi";
 import Seller from "../../../models/Seller";
 import User from "../../../models/User";
 import Order from "../../../models/Order";
+import Product from "../../../models/Product";
 
 const schema = joi.object({
     products: joi.array().min(1).required().messages({
@@ -15,7 +16,7 @@ const schema = joi.object({
     destination: joi.object().keys({
         street: joi.string().required(),
         city: joi.string().required(),
-        destrict: joi.string().required(),
+        district: joi.string().required(),
         state: joi.string().required(),
         country: joi.string().required(),
         pincode: joi.number().required()
@@ -43,21 +44,32 @@ const handler = async (req, res)=> {
                 return res.json({success, error: "User not found!"})
             }
 
+            let myproducts = [];
+            for (let i = 0; i < products.length; i++) {
+                let p = await Product.findById(products[i].toString());
+                if(!p) {
+                    success = false;
+                    return res.json({success, error: "Product not found!"});
+                }
+                myproducts.push(p);
+            }
+
             let price = 0;
-            products.forEach((product)=> {
+            myproducts.forEach((product)=> {
                 price += product.price;
             });
 
-            products.forEach(async (product)=> {
+            for (let i = 0; i < myproducts.length; i++) {
+                let product = myproducts[i];
                 let sellerId = product.seller.toString();
                 let seller = await Seller.findById(sellerId);
-                let earning = seller.earning;
-                seller = await Seller.findByIdAndUpdate(sellerId, {earning: (earning+product.price)}, {new: true});
-            });
+                let earning = seller.earning + product.price;
+                seller = await Seller.findByIdAndUpdate(sellerId, {earning: earning}, {new: true});
+            }
 
             let date = new Date();
 
-            const neworder = await Order.create({
+            await Order.create({
                 products,
                 destination,
                 price,
@@ -76,4 +88,4 @@ const handler = async (req, res)=> {
     }
 }
  
-export default fetchUser(grantAccess("createOwn","products",handler));
+export default fetchUser(grantAccess("createOwn","orders",handler));
