@@ -48,7 +48,7 @@ const handler = async (req, res)=> {
             seller = await Seller.findByIdAndUpdate(sellerId, {name: name, email: email}, {new: true})
                 .select("-password");
 
-            setCookie("cm_user_profile",JSON.stringify(user), {req, res, maxAge: 60*60*24*7});
+            setCookie("cm_user_profile",JSON.stringify(seller), {req, res, maxAge: 60*60*24*7});
             
             success = true;
             return res.status(201).json({success});

@@ -42,7 +42,7 @@ const handler = async (req, res)=> {
             const mailOptions = {
                 from: process.env.NODE_MAILER_EMAIL,
                 to: email,
-                subject: "Verification Code for password reset of your coders-hub account!",
+                subject: "Verification Code for password reset of your coders-mart account!",
                 text: myotp.otp
             }
             

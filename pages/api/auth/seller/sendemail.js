@@ -31,7 +31,7 @@ const handler = async (req, res)=> {
                 return res.json({success, error: "This email is not linked to any account!"});
             }
 
-            const code = Math.floor(user.createdAt + Math.random()*1000) + Math.floor(Math.random()*9000);
+            const code = Math.floor(seller.createdAt + Math.random()*1000) + Math.floor(Math.random()*9000);
             const salt = await bcrypt.genSalt(10);
             const otp = await bcrypt.hash(code.toString(),salt);
             const myotp = await Otp.create({
@@ -42,7 +42,7 @@ const handler = async (req, res)=> {
             const mailOptions = {
                 from: process.env.NODE_MAILER_EMAIL,
                 to: email,
-                subject: "Verification Code for password reset of your coders-hub account!",
+                subject: "Verification Code for password reset of your coders-mart account!",
                 text: myotp.otp
             }
             

@@ -9,7 +9,7 @@ import grantAccess from "../../../../middlewares/grantAccess";
 import Seller from "../../../../models/Seller";
 
 const schema = joi.object({
-    oldPassword: joiPassword
+    oldpassword: joiPassword
             .string()
             .min(8)
             .minOfUppercase(1)
@@ -19,16 +19,16 @@ const schema = joi.object({
             .noWhiteSpaces()
             .required()
             .messages({
-                'oldPassword.min': '{#label} should contain at least {#min} characters!',
-                'oldPassword.minOfUppercase': '{#label} should contain at least {#min} uppercase character!',
-                'oldPassword.minOfSpecialCharacters':
+                'oldpassword.min': '{#label} should contain at least {#min} characters!',
+                'oldpassword.minOfUppercase': '{#label} should contain at least {#min} uppercase character!',
+                'oldpassword.minOfSpecialCharacters':
                       '{#label} should contain at least {#min} special character!',
-                'oldPassword.minOfLowercase': '{#label} should contain at least {#min} lowercase character!',
-                'oldPassword.minOfNumeric': '{#label} should contain at least {#min} numeric character!',
-                'oldPassword.noWhiteSpaces': '{#label} should not contain white spaces!',
-                'oldPassword.required': '{#label} cannot be empty!',
+                'oldpassword.minOfLowercase': '{#label} should contain at least {#min} lowercase character!',
+                'oldpassword.minOfNumeric': '{#label} should contain at least {#min} numeric character!',
+                'oldpassword.noWhiteSpaces': '{#label} should not contain white spaces!',
+                'oldpassword.required': '{#label} cannot be empty!',
             }),
-    newPassword: joiPassword
+    newpassword: joiPassword
             .string()
             .min(8)
             .minOfUppercase(1)
@@ -38,16 +38,16 @@ const schema = joi.object({
             .noWhiteSpaces()
             .required()
             .messages({
-                'newPassword.min': '{#label} should contain at least {#min} characters!',
-                'newPassword.minOfUppercase': '{#label} should contain at least {#min} uppercase character!',
-                'newPassword.minOfSpecialCharacters':
+                'newpassword.min': '{#label} should contain at least {#min} characters!',
+                'newpassword.minOfUppercase': '{#label} should contain at least {#min} uppercase character!',
+                'newpassword.minOfSpecialCharacters':
                       '{#label} should contain at least {#min} special character!',
-                'newPassword.minOfLowercase': '{#label} should contain at least {#min} lowercase character!',
-                'newPassword.minOfNumeric': '{#label} should contain at least {#min} numeric character!',
-                'newPassword.noWhiteSpaces': '{#label} should not contain white spaces!',
-                'newPassword.required': '{#label} cannot be empty!',
+                'newpassword.minOfLowercase': '{#label} should contain at least {#min} lowercase character!',
+                'newpassword.minOfNumeric': '{#label} should contain at least {#min} numeric character!',
+                'newpassword.noWhiteSpaces': '{#label} should not contain white spaces!',
+                'newpassword.required': '{#label} cannot be empty!',
             }),
-    confirmPassword: joiPassword
+    confirmpassword: joiPassword
             .string()
             .min(8)
             .minOfUppercase(1)
@@ -57,14 +57,14 @@ const schema = joi.object({
             .noWhiteSpaces()
             .required()
             .messages({
-                'confirmPassword.min': '{#label} should contain at least {#min} characters!',
-                'confirmPassword.minOfUppercase': '{#label} should contain at least {#min} uppercase character!',
-                'confirmPassword.minOfSpecialCharacters':
+                'confirmpassword.min': '{#label} should contain at least {#min} characters!',
+                'confirmpassword.minOfUppercase': '{#label} should contain at least {#min} uppercase character!',
+                'confirmpassword.minOfSpecialCharacters':
                       '{#label} should contain at least {#min} special character!',
-                'confirmPassword.minOfLowercase': '{#label} should contain at least {#min} lowercase character!',
-                'confirmPassword.minOfNumeric': '{#label} should contain at least {#min} numeric character!',
-                'confirmPassword.noWhiteSpaces': '{#label} should not contain white spaces!',
-                'confirmPassword.required': '{#label} cannot be empty!',
+                'confirmpassword.minOfLowercase': '{#label} should contain at least {#min} lowercase character!',
+                'confirmpassword.minOfNumeric': '{#label} should contain at least {#min} numeric character!',
+                'confirmpassword.noWhiteSpaces': '{#label} should not contain white spaces!',
+                'confirmpassword.required': '{#label} cannot be empty!',
             }),
 });
 
@@ -74,7 +74,7 @@ const handler = async (req, res)=> {
         let success = false;
         try {
             const sellerId = req.user.id;
-            const {oldPassword,newPassword,confirmPassword} = req.body;
+            const {oldpassword,newpassword,confirmpassword} = req.body;
             const {error} = schema.validate(req.body);
             if(error) {
                 success = false;
@@ -87,30 +87,30 @@ const handler = async (req, res)=> {
                 return res.json({success, error: "Seller not found!"});
             }
 
-            if(oldPassword === newPassword) {
+            if(oldpassword === newpassword) {
                 success = false;
                 return res.json({success, error: "New password should be different from old password!"});
             }
 
-            if(newPassword !== confirmPassword) {
+            if(newpassword !== confirmpassword) {
                 success = false;
                 return res.json({success, error: "New password and confirm password do not match!"});
             }
             
-            const passwordCompare = await bcrypt.compare(oldPassword, user.password);
+            const passwordCompare = await bcrypt.compare(oldpassword, seller.password);
             if(!passwordCompare) {
                 success = false;
                 return res.json({success, error: "Old password is incorrect!"});
             }
 
             const salt = await bcrypt.genSalt(10);
-            const securedPassword = await bcrypt.hash(newPassword, salt);
+            const securedPassword = await bcrypt.hash(newpassword, salt);
 
             seller = await Seller.findByIdAndUpdate(sellerId, {password: securedPassword}, {new: true})
                 .select("-password");
 
             success = true;
-            return res.status(200).json({success, seller});
+            return res.status(200).json({success});
         } catch (error) {
             success = false;
             return res.status(500).json({success, error: error.message});
