@@ -68,6 +68,15 @@ const handler = async (req, res)=> {
                         seller: sellerId
                     }
                 }
+                else {
+                    success = false;
+                    if(!gender in ["men","women","unisex"]) {
+                        return res.json({success, error: "Invalid gender!"});
+                    }
+                    else {
+                        return res.json({success, error: "Invalid size!"});
+                    }
+                }
             }
             else {
                 productDetails = {

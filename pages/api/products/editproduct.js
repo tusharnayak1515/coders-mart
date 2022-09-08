@@ -68,16 +68,27 @@ const handler = async (req, res)=> {
 
             let myproduct = null;
             if(category === "clothing") {
-                myproduct = {
-                    id: id,
-                    description: description,
-                    brand: brand,
-                    price: parseInt(price),
-                    category: category,
-                    quantity: product.quantity + quantity,
-                    gender: gender,
-                    size: size,
-                    image: image
+                if((gender in ["men","women","unisex"]) && (size in ["xs","s","m","l","xl","xxl","free"])){
+                    myproduct = {
+                        id: id,
+                        description: description,
+                        brand: brand,
+                        price: parseInt(price),
+                        category: category,
+                        quantity: product.quantity + quantity,
+                        gender: gender,
+                        size: size,
+                        image: image
+                    }
+                }
+                else {
+                    success = false;
+                    if(!gender in ["men","women","unisex"]) {
+                        return res.json({success, error: "Invalid gender!"});
+                    }
+                    else {
+                        return res.json({success, error: "Invalid size!"});
+                    }
                 }
             }
             else {
