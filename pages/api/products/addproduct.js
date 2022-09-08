@@ -54,17 +54,19 @@ const handler = async (req, res)=> {
             let productDetails = null;
 
             if(category === "clothing") {
-                productDetails = {
-                    name,
-                    description,
-                    brand,
-                    price: parseInt(price),
-                    category,
-                    quantity: quantity,
-                    gender: gender,
-                    size: size,
-                    image: image ? image : "https://cdn1.vectorstock.com/i/thumb-large/46/50/missing-picture-page-for-website-design-or-mobile-vector-27814650.jpg",
-                    seller: sellerId
+                if((gender in ["men","women","unisex"]) && (size in ["xs","s","m","l","xl","xxl","free"])){
+                    productDetails = {
+                        name,
+                        description,
+                        brand,
+                        price: parseInt(price),
+                        category,
+                        quantity: quantity,
+                        gender: gender,
+                        size: size,
+                        image: image ? image : "https://cdn1.vectorstock.com/i/thumb-large/46/50/missing-picture-page-for-website-design-or-mobile-vector-27814650.jpg",
+                        seller: sellerId
+                    }
                 }
             }
             else {
