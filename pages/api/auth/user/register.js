@@ -8,6 +8,7 @@ import connectToMongo from "../../../../db";
 const secret = process.env.JWT_SECRET;
 
 import User from "../../../../models/User";
+import Cart from "../../../../models/Cart";
 
 const schema = joi.object({
     name: joi.string().min(3).max(25).required().messages({
@@ -65,6 +66,11 @@ const handler = async (req, res)=> {
                 name,
                 email,
                 password: hashedPassword
+            });
+
+            const cart = await Cart.create({
+                products: [],
+                user: user._id.toString()
             });
 
             const data = {

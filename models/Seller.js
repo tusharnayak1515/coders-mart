@@ -4,11 +4,11 @@ const {Schema} = mongoose;
 const SellerSchema = new Schema({
     name: {
         type: String,
-        require: true
+        required: true
     },
     email: {
         type: String,
-        require: true
+        required: true
     },
     phone: {
         type: Number,
@@ -16,7 +16,7 @@ const SellerSchema = new Schema({
     },
     password: {
         type: String,
-        require: true
+        required: true
     },
     address: {
         street: {

@@ -110,7 +110,7 @@ const handler = async (req, res)=> {
                 .select("-password");
 
             success = true;
-            return res.status(200).json({success, user});
+            return res.status(200).json({success, seller});
         } catch (error) {
             success = false;
             return res.status(500).json({success, error: error.message});

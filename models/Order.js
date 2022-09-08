@@ -11,36 +11,40 @@ const OrderSchema = new Schema({
     destination: {
         street: {
             type: String,
-            default: null
+            required: true
         },
         city: {
             type: String,
-            default: null
+            required: true
         },
         district: {
             type: String,
-            default: null
+            required: true
         },
         state: {
             type: String,
-            default: null
+            required: true
         },
         country: {
             type: String,
-            default: null
+            required: true
         },
         pincode: {
             type: Number,
-            default: null
+            required: true
         }
     },
     price: {
         type: Number,
-        require: true
+        required: true
     },
     date: {
         type: Date,
-        require: true
+        required: true
+    },
+    status: {
+        type: String,
+        default: "pending"
     },
     user: {
         type: Schema.Types.ObjectId,

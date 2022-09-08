@@ -4,12 +4,18 @@ const {Schema} = mongoose;
 const ReviewSchema = new Schema({
     ratings: {
         type: Number,
-        require: true
+        required: true
     },
     review: {
         type: String,
         default: null
     },
+    likes: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "User"
+        }
+    ],
     product: {
         type: Schema.Types.ObjectId,
         ref: "Product"

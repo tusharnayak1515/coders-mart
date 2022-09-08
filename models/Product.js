@@ -4,11 +4,11 @@ const {Schema} = mongoose;
 const ProductSchema = new Schema({
     name: {
         type: String,
-        require: true
+        required: true
     },
     description: {
         type: String,
-        require: true
+        required: true
     },
     brand: {
         type: String,
@@ -16,15 +16,15 @@ const ProductSchema = new Schema({
     },
     price : {
         type: Number,
-        require: true
+        required: true
     },
     category: {
         type: String,
-        require: true
+        required: true
     },
     quantity: {
         type: Number,
-        require: true
+        required: true
     },
     gender: {
         type: String,
@@ -34,24 +34,10 @@ const ProductSchema = new Schema({
         type: String,
         enum: ["xs","s","m","l","xl","xxl","free"]
     },
-    images: [
-        {
-            type: String,
-            default: null
-        }
-    ],
-    likes: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "User"
-        }
-    ],
-    reviews: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "Review"
-        }
-    ],
+    image: {
+        type: String,
+        default: "https://cdn1.vectorstock.com/i/thumb-large/46/50/missing-picture-page-for-website-design-or-mobile-vector-27814650.jpg"
+    },
     seller: {
         type: Schema.Types.ObjectId,
         ref: "Seller"
