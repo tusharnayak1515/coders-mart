@@ -44,7 +44,12 @@ const handler = async (req, res)=> {
 
             let cart = await Cart.findOne({user: userId});
 
-            cart = await Cart.findByIdAndUpdate(cart._id.toString(), {$pull: {products: product}}, {new: true});
+            if(!cart.products.includes(product._id)) {
+                success = false;
+                return res.json({success, error: "This product is not present in the cart!"})
+            }
+
+            cart = await Cart.findByIdAndUpdate(cart._id.toString(), {$pull: {products: id}}, {new: true});
 
             success = true;
             return res.status(200).json({success, cart});

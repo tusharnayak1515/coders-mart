@@ -7,6 +7,7 @@ import Seller from "../../../models/Seller";
 import User from "../../../models/User";
 import Order from "../../../models/Order";
 import Product from "../../../models/Product";
+import Cart from "../../../models/Cart";
 
 const schema = joi.object({
     products: joi.array().min(1).required().messages({
@@ -44,12 +45,17 @@ const handler = async (req, res)=> {
                 return res.json({success, error: "User not found!"})
             }
 
+            let cart = await Cart.findOne({user: userId});
+
             let myproducts = [];
             for (let i = 0; i < products.length; i++) {
                 let p = await Product.findById(products[i].toString());
                 if(!p) {
                     success = false;
                     return res.json({success, error: "Product not found!"});
+                }
+                if(cart.products.includes(products[i])) {
+                    cart = await Cart.findByIdAndUpdate(cart._id.toString(), {$pull: {products: products[i].toString()}}, {new: true});
                 }
                 myproducts.push(p);
             }

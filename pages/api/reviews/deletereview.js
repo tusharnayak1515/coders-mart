@@ -3,6 +3,7 @@ import fetchUser from "../../../middlewares/fetchUser";
 import grantAccess from "../../../middlewares/grantAccess";
 
 import Review from "../../../models/Review";
+import User from "../../../models/User";
 
 const handler = async (req, res)=> {
     connectToMongo();
