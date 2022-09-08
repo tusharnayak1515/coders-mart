@@ -51,18 +51,36 @@ const handler = async (req, res)=> {
                 return res.json({success, error: "Seller not found!"})
             }
 
-            const newproduct = await Product.create({
-                name,
-                description,
-                brand,
-                price: parseInt(price),
-                category,
-                quantity: quantity,
-                gender: gender ? gender : null,
-                size: size ? size : null,
-                image: image ? image : "https://cdn1.vectorstock.com/i/thumb-large/46/50/missing-picture-page-for-website-design-or-mobile-vector-27814650.jpg",
-                seller: sellerId
-            });
+            let productDetails = null;
+
+            if(category === "clothing") {
+                productDetails = {
+                    name,
+                    description,
+                    brand,
+                    price: parseInt(price),
+                    category,
+                    quantity: quantity,
+                    gender: gender,
+                    size: size,
+                    image: image ? image : "https://cdn1.vectorstock.com/i/thumb-large/46/50/missing-picture-page-for-website-design-or-mobile-vector-27814650.jpg",
+                    seller: sellerId
+                }
+            }
+            else {
+                productDetails = {
+                    name,
+                    description,
+                    brand,
+                    price: parseInt(price),
+                    category,
+                    quantity: quantity,
+                    image: image ? image : "https://cdn1.vectorstock.com/i/thumb-large/46/50/missing-picture-page-for-website-design-or-mobile-vector-27814650.jpg",
+                    seller: sellerId
+                }
+            }
+
+            const newproduct = await Product.create(productDetails);
             
             const products = await Product.find()
                 .populate("seller", "_id name");

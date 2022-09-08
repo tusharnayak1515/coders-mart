@@ -74,7 +74,7 @@ const handler = async (req, res)=> {
                     brand: brand,
                     price: parseInt(price),
                     category: category,
-                    quantity: quantity,
+                    quantity: product.quantity + quantity,
                     gender: gender,
                     size: size,
                     image: image
@@ -87,7 +87,7 @@ const handler = async (req, res)=> {
                     brand: brand,
                     price: parseInt(price),
                     category: category,
-                    quantity: quantity,
+                    quantity: product.quantity + quantity,
                     image: image
                 }
             }

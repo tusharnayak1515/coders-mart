@@ -20,6 +20,7 @@ const ProductSchema = new Schema({
     },
     category: {
         type: String,
+        enum: ["electronics","eyecare","books","clothing"],
         required: true
     },
     quantity: {
@@ -28,7 +29,8 @@ const ProductSchema = new Schema({
     },
     gender: {
         type: String,
-        enum: ["men","women","unisex"]
+        enum: ["men","women","unisex"],
+        default: "unisex"
     },
     size: {
         type: String,
