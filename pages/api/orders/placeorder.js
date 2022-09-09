@@ -86,7 +86,7 @@ const handler = async (req, res)=> {
             const orders = await Order.find({user: userId});
 
             success = true;
-            return res.status(200).json({success, orders});
+            return res.status(200).json({success, orders, cart});
         } catch (error) {
             success = false;
             return res.status(500).json({success, error: error.message});

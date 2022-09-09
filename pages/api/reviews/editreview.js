@@ -56,7 +56,6 @@ const handler = async (req, res)=> {
             }
 
             myreview = await Review.findByIdAndUpdate(id, {ratings: ratings, review: review}, {new: true});
-
             
             const reviews = await Review.find({product: productId})
                 .populate("user", "_id name");

@@ -15,7 +15,18 @@ const schema = joi.object({
     email: joi.string().email().required().messages({
         'email.email': 'Enter a valid email!',
         'email.required': '{#email} cannot be empty!'
-    })
+    }),
+    address: joi.object().keys({
+        street: joi.string(),
+        city: joi.string(),
+        district: joi.string(),
+        state: joi.string(),
+        country: joi.string(),
+        pincode: joi.number()
+    }).required().messages({
+        'address.required': '{#label} cannot be empty!',
+    }),
+    phone: joi.number().optional()
 });
 
 const handler = async (req, res)=> {
@@ -24,8 +35,8 @@ const handler = async (req, res)=> {
         let success = false;
         try {
             const sellerId = req.user.id;
-            const {name,email} = req.body;
-            const {error} = schema.validate({name,email});
+            const {name,email,phone,address} = req.body;
+            const {error} = schema.validate(req.body);
             if(error) {
                 success = false;
                 return res.status(422).json({success, error: error.details[0].message});

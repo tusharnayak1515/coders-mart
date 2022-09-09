@@ -19,7 +19,13 @@ const handler = async (req, res)=> {
                 return res.json({success, error: "User not found"});
             }
 
-            const review = await Review.findById(reviewId)
+            let review = await Review.findById(reviewId);
+            if(!review) {
+                success = false;
+                return res.json({success, error: "Review not found!"})
+            }
+            
+            review = await Review.findById(reviewId)
                 .populate("user", "_id name");
 
             success = true;

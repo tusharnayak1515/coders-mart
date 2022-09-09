@@ -3,6 +3,7 @@ import fetchUser from "../../../middlewares/fetchUser";
 import grantAccess from "../../../middlewares/grantAccess";
 
 import User from "../../../models/User";
+import Product from "../../../models/Product";
 import Review from "../../../models/Review";
 
 const handler = async (req, res)=> {
@@ -17,6 +18,12 @@ const handler = async (req, res)=> {
             if(!user) {
                 success = false;
                 return res.json({success, error: "User not found"});
+            }
+
+            const product = await Product.findById(productId);
+            if(!product) {
+                success = false;
+                return res.json({success, error: "Product not found"});
             }
 
             const reviews = await Review.find({product: productId})

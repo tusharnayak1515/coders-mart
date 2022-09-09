@@ -58,7 +58,7 @@ const handler = async (req, res)=> {
                 .populate("user", "_id name");
 
             success = true;
-            return res.status(200).json({success, reviews});
+            return res.status(200).json({success, reviews, myreview});
         } catch (error) {
             success = false;
             return res.status(500).json({success, error: error.message});
