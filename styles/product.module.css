@@ -23,6 +23,11 @@
 
 .product .product_image {
     position: relative;
-    min-height: 6rem;
+    height: 6rem;
     width: 90%;
+    margin-bottom: 0.5rem;
+}
+
+.product p {
+    text-align: center;
 }

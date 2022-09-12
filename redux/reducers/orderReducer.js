@@ -11,6 +11,7 @@ if(typeof window !== "undefined") {
 
 const initState = {
     orders: isOrders,
+    order: null,
     isLoading: false,
 }
 
@@ -32,6 +33,20 @@ const orderReducer = (state=initState,action)=> {
         return {
             ...state,
             orders: orders,
+            isLoading: false
+        }
+    }
+    else if(action.type === "get-order") {
+        const {order,error} = action.payload;
+        if(error) {
+            return {
+                ...state,
+                isLoading: false
+            }
+        }
+        return {
+            ...state,
+            order: order,
             isLoading: false
         }
     }

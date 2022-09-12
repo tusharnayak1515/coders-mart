@@ -1,6 +1,7 @@
 import React, { useEffect} from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import * as cookie from "cookie";
 import { wrapper } from "../../redux/store";
@@ -54,7 +55,7 @@ const Profile = () => {
 
       <div className={styles.profile_top_div}>
         <h3 className={styles.greet}>Hey! {profile?.name.split(" ")[0]}</h3>
-        <button className={styles.user_orders_btn}>Orders</button>
+        <Link href="/user/orders"><button className={styles.user_orders_btn}>Orders</button></Link>
       </div>
 
       <div className={styles.account_settings_div}>

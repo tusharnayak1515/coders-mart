@@ -1552,6 +1552,60 @@ export const getAllOrders = (token)=> async (dispatch)=> {
     } 
 }
 
+export const getOrder = ({id,token})=> async (dispatch)=> {
+    dispatch({
+        type: "order-loading"
+    });
+
+    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    try {
+        const res = await axios.get(`${url}/api/orders/getorder?order=${id}`, {headers: {cm_user_token: token}});
+
+        if(res.data.success) {
+            dispatch({
+                type: "get-order",
+                payload: {
+                    order: res.data.order,
+                }
+            });
+        }
+
+        if(res.data.error) {
+            dispatch({
+                type: "get-order",
+                payload: {
+                    error: res.data.error
+                }
+            });
+            toast.error(res.data.error, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+    } catch (error) {
+        dispatch({
+            type: "get-order",
+            payload: {
+              error: error,
+            }
+        });
+        toast.error(error, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    } 
+}
+
 export const placeOrder = ({products,destination})=> async (dispatch)=> {
     dispatch({
         type: "order-loading"

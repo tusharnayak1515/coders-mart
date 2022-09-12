@@ -1,0 +1,25 @@
+.order {
+    width: 100%;
+    /* background-color: orange; */
+}
+
+.order .orderItem {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.1rem solid lightgrey;
+    /* background-color: orchid; */
+}
+
+.order .orderItem .orderItem_img_div {
+    position: relative;
+    height: 4.5rem;
+    width: 4.5rem;
+}
+
+.order .orderItem .order_action_btn {
+    color: grey;
+    font-size: 1.3rem;
+}

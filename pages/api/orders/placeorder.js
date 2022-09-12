@@ -71,6 +71,7 @@ const handler = async (req, res)=> {
                 let seller = await Seller.findById(sellerId);
                 let earning = seller.earning + product.price;
                 seller = await Seller.findByIdAndUpdate(sellerId, {earning: earning}, {new: true});
+                product = await Product.findByIdAndUpdate(product._id.toString(), {quantity: product.quantity - 1}, {new: true});
             }
 
             let date = new Date();
@@ -83,7 +84,9 @@ const handler = async (req, res)=> {
                 user: userId
             });
             
-            const orders = await Order.find({user: userId});
+            const orders = await Order.find({user: userId})
+                .populate("products")
+                .populate("user", "_id name phone email");
 
             success = true;
             return res.status(200).json({success, orders, cart});

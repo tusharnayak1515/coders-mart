@@ -11,27 +11,30 @@ const handler = async (req, res)=> {
         let success = false;
         try {
             const userId = req.user.id;
-            let orders = await Order.find({user: userId});
-            
+            const orderId = req.query.order;
             let user = await User.findById(userId);
             if(!user) {
                 success = false;
                 return res.json({success, error: "User not found!"})
             }
 
-            orders.forEach( async (order)=> {
-                let date = new Date();
-                if(new Date(date.getTime()) - order.date >= 0) {
-                    await Order.findByIdAndUpdate(order._id.toString(), {status: "delivered"}, {new: true});
-                }
-            });
+            let order = await Order.findById(orderId);
+            if(!order) {
+                success = false;
+                return res.json({success, error: "Order not found!"})
+            }
 
-            orders = await Order.find({user: userId})
+            let date = new Date();
+            if(new Date(date.getTime()) - order.date >= 0) {
+                await Order.findByIdAndUpdate(order._id.toString(), {status: "delivered"}, {new: true});
+            }
+
+            order = await Order.findById(orderId)
                 .populate("products")
                 .populate("user", "_id name phone email");
 
             success = true;
-            return res.status(200).json({success, orders});
+            return res.status(200).json({success, order});
         } catch (error) {
             success = false;
             return res.status(500).json({success, error: error.message});
