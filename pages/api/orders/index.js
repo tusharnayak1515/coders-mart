@@ -28,7 +28,8 @@ const handler = async (req, res)=> {
 
             orders = await Order.find({user: userId})
                 .populate("products")
-                .populate("user", "_id name phone email");
+                .populate("user", "_id name phone email")
+                .sort("-createdAt");
 
             success = true;
             return res.status(200).json({success, orders});

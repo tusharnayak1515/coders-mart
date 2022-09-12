@@ -62,7 +62,7 @@ const ProductPage = () => {
             <div className={styles.product_details_div}>
                 <h3 className={styles.product_name}>{product?.name}</h3>
                 <p className={styles.product_description}>{product?.description}</p>
-                <h1 className={styles.product_price}>₹{product?.price}</h1>
+                <h2 className={styles.product_price}>₹{product?.price}</h2>
                 <p className={styles.deliveryText}>FREE Delivery</p>
                 <Rating ratings={ratings} reviews={reviews} />
             </div>
@@ -71,6 +71,10 @@ const ProductPage = () => {
         <DeliveryDate delivery_date={delivery_date} />
 
         <Reviews />
+
+        <div className={styles.add_to_cart_div}>
+          <button>Add To Cart</button>
+        </div>
     </div>
   )
 }

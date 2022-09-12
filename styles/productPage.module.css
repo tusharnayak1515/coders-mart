@@ -81,3 +81,27 @@
 .productPage .product_details_div .product_rating_div .rating_count {
     color: grey;
 }
+
+.productPage .add_to_cart_div {
+    position: sticky;
+    bottom: 0;
+    height: 7vh;
+    width: 100%;
+    border-top: 0.1rem solid limegreen;
+}
+
+.productPage .add_to_cart_div button {
+    height: 100%;
+    width: 100%;
+    color: white;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    border: none;
+    background-color: limegreen;
+}
+
+.productPage .add_to_cart_div button:hover {
+    color: green;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+}
