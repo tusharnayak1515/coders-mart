@@ -4,6 +4,7 @@ import grantAccess from "../../../middlewares/grantAccess";
 import joi from "joi";
 
 import Product from "../../../models/Product";
+import Order from "../../../models/Order";
 import User from "../../../models/User";
 import Review from "../../../models/Review";
 
@@ -47,6 +48,24 @@ const handler = async (req, res)=> {
             if(!product) {
                 success = false;
                 return res.json({success, error: "Product not found!"});
+            }
+
+            let orders  = await Order.find({user: userId});
+
+            let isOrdered = false;
+
+            for (let i = 0; i < orders.length; i++) {
+                for (let j = 0; j < orders[i].products.length; j++) {
+                    if(orders[i].products[j].toString() === productId) {
+                        isOrdered = true;
+                        break;
+                    }
+                }
+            }
+
+            if(!isOrdered) {
+                success = false;
+                return res.json({success, error: "You cannot review the product that you haven't purchased!"});
             }
 
             const newReview = await Review.create({

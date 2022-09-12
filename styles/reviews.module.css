@@ -1,0 +1,27 @@
+.reviews {
+    width: 100%;
+    background-color: white;
+}
+
+.reviews .reviews_top_div {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: red; */
+}
+
+.reviews .reviews_top_div .reviews_head {
+    color: black;
+    font-weight: 600;
+    /* background-color: red; */
+}
+
+.reviews .reviews_top_div .rate_btn {
+    padding: 0.3rem 1rem;
+    color: green;
+    background-color: white;
+    border: 0.1rem solid limegreen;
+    border-radius: 0.3rem;
+}

@@ -77,6 +77,13 @@ const cartReducer = (state=initState,action)=> {
             isLoading: false
         }
     }
+    else if(action.type === "logout") {
+        return {
+            ...state,
+            cart: null,
+            isLoading: false
+        }
+    }
     else {
         return state;
     }

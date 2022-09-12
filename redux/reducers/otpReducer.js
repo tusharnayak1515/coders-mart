@@ -49,6 +49,13 @@ const otpReducer = (state=initState,action)=> {
             isLoading: false
         }
     }
+    else if(action.type === "logout") {
+        return {
+            ...state,
+            otp: null,
+            isLoading: false
+        }
+    }
     else {
         return state;
     }

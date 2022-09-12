@@ -67,7 +67,7 @@ const handler = async (req, res)=> {
             }
 
             const authToken = jwt.sign(data, secret);
-            setCookie("cm_user_token", authToken, {req, res, maxAge: 60*60*24*7});
+            setCookie("cm_seller_token", authToken, {req, res, maxAge: 60*60*24*7});
             
             success = true;
             return res.status(201).json({success});

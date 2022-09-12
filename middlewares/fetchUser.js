@@ -5,7 +5,11 @@ import { getCookie } from 'cookies-next';
 const fetchUser = (handler)=> {
     let success;
     return async (req,res)=> {
-        const token = getCookie("cm_user_token",{req, res}) || req.headers.cm_user_token;
+        let token = getCookie("cm_user_token",{req, res}) || req.headers.cm_user_token;
+        if(!token) {
+            token = getCookie("cm_seller_token",{req, res}) || req.headers.cm_seller_token;
+        }
+        
         if(!token) {
             success = false;
             return res.status(401).json({success, error: "You need to be logged in to access this route!"});

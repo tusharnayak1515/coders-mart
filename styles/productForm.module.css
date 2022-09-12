@@ -1,0 +1,100 @@
+.productForm {
+    height: 100%;
+    width: 100%;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* background-color: orchid; */
+}
+
+.productForm .product_form_div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* background-color: orangered; */
+}
+
+.productForm .product_form_div .pair_div {
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* background-color: orange; */
+}
+
+.productForm .product_form_div .pair_div label {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.productForm .product_form_div .pair_div input, .productForm .product_form_div .pair_div textarea, .productForm .product_form_div .pair_div select {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    border: 0.1rem solid lightgrey;
+    border-radius: 0.3rem;
+}
+
+.productForm .product_form_div .pair_div input:focus, .productForm .product_form_div .pair_div textarea:focus, .productForm .product_form_div .pair_div select:focus {
+    border: 0.1rem solid limegreen;
+}
+
+.productForm .product_form_div .pair_div textarea {
+    resize: none;
+    height: 25vh;
+}
+
+.productForm .product_form_div .pair_div .img_input {
+    display: none;
+}
+
+.productForm .product_form_div .pair_div .image_preview {
+    position: relative;
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.2rem;
+}
+
+.productForm .product_form_div .pair_div .image_preview .image_icon {
+    font-size: 5rem;
+}
+
+.productForm .product_form_div .pair_div .image_preview .remove_image_icon {
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    color: black;
+    z-index: 300;
+}
+
+.productForm .product_form_div .pair_div .image_preview .remove_image_icon:hover {
+    color: red;
+    transition: all 0.2s ease-in-out;
+}
+
+.productForm .product_form_div .btn_div {
+    width: 100%;
+    padding: 1rem;
+    border-top: 0.1rem solid lightgrey;
+}
+
+.productForm .product_form_div .btn_div .submit_btn {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    color: white;
+    font-size: 1.2rem;
+    border: 0.1rem solid limegreen;
+    border-radius: 0.3rem;
+    background-color: limegreen;
+}
+
+.productForm .product_form_div .btn_div .submit_btn:hover {
+    color: limegreen;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+}

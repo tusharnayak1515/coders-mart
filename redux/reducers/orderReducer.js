@@ -49,6 +49,13 @@ const orderReducer = (state=initState,action)=> {
             isLoading: false
         }
     }
+    else if(action.type === "logout") {
+        return {
+            ...state,
+            orders: null,
+            isLoading: false
+        }
+    }
     else {
         return state;
     }

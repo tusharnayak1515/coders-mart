@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { wrapper } from "../redux/store";
 import Nprogress from "nprogress";
 Nprogress.configure({ showSpinner: false, easing: 'ease', speed: 1000, parent: 'html' });
-const Navbar = dynamic(()=> import("../components/Navbar"));
+const TopNav = dynamic(()=> import("../components/TopNav"), {ssr: false});
 import { ToastContainer } from "react-toastify";
 
 import "../styles/globals.css";
@@ -39,8 +39,8 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navbar />
-      <Component {...pageProps} />
+      <TopNav />
+      {!loading && <Component {...pageProps} />}
       {domLoaded && <ToastContainer />}
     </>
   );

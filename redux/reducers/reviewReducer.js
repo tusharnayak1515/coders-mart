@@ -111,6 +111,14 @@ const reviewReducer = (state=initState,action)=> {
             isLoading: false
         }
     }
+    else if(action.type === "logout") {
+        return {
+            ...state,
+            reviews: null,
+            review: null,
+            isLoading: false
+        }
+    }
     else {
         return state;
     }

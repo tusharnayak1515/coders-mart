@@ -1,0 +1,112 @@
+.login_register {
+    height: 80vh;
+    width: 100%;
+    /* padding: 0 1rem; */
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* background-color: orange; */
+}
+
+.login_register .head {
+    width: 100%;
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+    color: black;
+    /* background-color: lime; */
+}
+
+.login_register .form_div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* background-color: red; */
+}
+
+.login_register .form_div .input_div {
+    width: 100%;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* border-bottom: 0.1rem solid lightgrey; */
+    /* background-color: orchid; */
+}
+
+.login_register .form_div .input_div input {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.7rem 1rem;
+    color: black;
+    font-size: 1.1rem;
+    border: 0.1rem solid lightgrey;
+    border-radius: 0.3rem;
+}
+
+.login_register .form_div .input_div input:focus {
+    border: 0.1rem solid #75fd92;
+}
+
+.login_register .form_div .input_div .forgot_password {
+    margin-bottom: 1rem;
+    align-self: flex-end;
+    color: green;
+    font-weight: bold;
+    cursor: pointer;
+    /* background-color: orange; */
+}
+
+.login_register .form_div .input_div .forgot_password:hover {
+    text-decoration: underline;
+    transition: all 0.2s ease-in-out;
+}
+
+.login_register .form_div .input_div .otherText {
+    color: black;
+    /* padding: 0 1rem; */
+    /* background-color: orchid; */
+}
+
+.login_register .form_div .input_div .otherLink {
+    color: green;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login_register .form_div .input_div .otherLink:hover {
+    color: rgb(0, 166, 0);
+    transition: all 0.2s ease-in-out;
+}
+
+.login_register .form_div .input_div .otherRole {
+    margin-top: 1rem;
+    color: black;
+    /* background-color: orchid; */
+}
+
+.login_register .form_div .btn_div {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 0.7rem;
+    border-top: 0.1rem solid lightgrey;
+    /* background-color: orangered; */
+}
+
+.login_register .form_div .btn_div button {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    color: white;
+    font-size: 1.1rem;
+    border: 0.1rem solid limegreen;
+    border-radius: 0.2rem;
+    background-color: limegreen;
+}
+
+.login_register .form_div .btn_div button:hover {
+    color: limegreen;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+}

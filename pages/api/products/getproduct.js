@@ -1,6 +1,7 @@
 import connectToMongo from "../../../db";
 
 import Product from "../../../models/Product";
+import Seller from "../../../models/Seller";
 
 const handler = async (req, res)=> {
     connectToMongo();

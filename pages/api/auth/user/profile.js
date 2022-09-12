@@ -23,7 +23,7 @@ const handler = async (req, res)=> {
             setCookie("cm_user_profile",JSON.stringify(user), {req, res, maxAge: 60*60*24*7});
             
             success = true;
-            return res.status(201).json({success});
+            return res.status(201).json({success,user});
 
         } catch (error) {
             success = false;

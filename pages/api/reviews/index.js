@@ -1,24 +1,15 @@
 import connectToMongo from "../../../db";
-import fetchUser from "../../../middlewares/fetchUser";
-import grantAccess from "../../../middlewares/grantAccess";
 
-import User from "../../../models/User";
 import Product from "../../../models/Product";
 import Review from "../../../models/Review";
+import User from "../../../models/User";
 
 const handler = async (req, res)=> {
     connectToMongo();
     if(req.method === "GET") {
         let success = false;
         try {
-            const userId = req.user.id;
             const productId = req.query.product;
-            
-            const user = await User.findById(userId);
-            if(!user) {
-                success = false;
-                return res.json({success, error: "User not found"});
-            }
 
             const product = await Product.findById(productId);
             if(!product) {
@@ -38,4 +29,4 @@ const handler = async (req, res)=> {
     }
 }
  
-export default fetchUser(grantAccess("readAny", "reviews", handler));
+export default handler;

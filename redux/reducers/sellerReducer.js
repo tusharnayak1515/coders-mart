@@ -3,18 +3,18 @@ import { getCookie } from "cookies-next";
 let isSeller = null;
 let isProfile = null;
 
-if(!getCookie("cm_user_token")) {
+if(!getCookie("cm_seller_token")) {
     isSeller = null;
 }
 else {
-    isSeller = getCookie("cm_user_token");
+    isSeller = getCookie("cm_seller_token");
 }
 
-if(!getCookie("cm_user_profile")) {
+if(!getCookie("cm_seller_profile")) {
     isProfile = null;
 }
 else {
-    isProfile = JSON.parse(getCookie("cm_user_profile"));
+    isProfile = JSON.parse(getCookie("cm_seller_profile"));
 }
 
 const initState = {
@@ -96,6 +96,14 @@ const sellerReducer = (state=initState,action)=> {
         }
         return {
             ...state,
+            isLoading: false
+        }
+    }
+    else if(action.type === "logout") {
+        return {
+            ...state,
+            seller: null,
+            profile: null,
             isLoading: false
         }
     }

@@ -1,0 +1,11 @@
+.products {
+    min-height: 100%;
+    width: 90%;
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: 0.1rem solid limegreen;
+    border-radius: 0.2rem;
+    background-color: white;
+    /* background-color: orchid; */
+}
