@@ -21,16 +21,18 @@ const rootReducer = combineReducers({
 
 const masterReducer = (state,action)=> {
     if(action.type === HYDRATE) {
+        // console.log("state: ",state.userReducer);
+        // console.log("action.payload: ",action.payload.userReducer);
         const nextState = {
             ...state,
             userReducer: {
                 user: state.userReducer.user ? state.userReducer.user : action.payload.userReducer.user,
-                profile: action.payload.userReducer.profile ? action.payload.userReducer.profile : state.userReducer.profile,
+                profile: state.userReducer.profile,
                 isLoading: state.userReducer.isLoading
             },
             sellerReducer: {
                 seller: state.sellerReducer.seller ? state.sellerReducer.seller : action.payload.sellerReducer.seller,
-                profile: action.payload.sellerReducer.profile ? action.payload.sellerReducer.profile : state.sellerReducer.profile,
+                profile: state.sellerReducer.profile,
                 isLoading: state.sellerReducer.isLoading
             },
             productReducer: {
@@ -56,6 +58,7 @@ const masterReducer = (state,action)=> {
                 isLoading: state.otpReducer.isLoading,
             },
         }
+        // console.log(nextState.userReducer);
         return nextState;
     }
     else {

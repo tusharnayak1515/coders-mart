@@ -37,7 +37,18 @@ const Register = () => {
       /\s/.test(password) === false
     ) {
       dispatch(actionCreators.userRegister(userDetails));
-    } else if (emailRegex.test(email) === false) {
+    } else if (name.length < 3 || name.length > 25) {
+      toast.warn("Name must be of minimum 3 and maximum 25 characters!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } 
+    else if (emailRegex.test(email) === false) {
       toast.warn("Enter a valid email!", {
         position: "top-right",
         autoClose: 3000,
@@ -47,7 +58,8 @@ const Register = () => {
         draggable: true,
         progress: undefined,
       });
-    } else {
+    }
+    else {
       toast.warn("Password cannot be empty and must not contain any spaces!", {
         position: "top-right",
         autoClose: 3000,

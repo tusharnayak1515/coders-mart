@@ -1,7 +1,6 @@
 import grantAccess from "../../../../middlewares/grantAccess";
 import fetchUser from "../../../../middlewares/fetchUser";
 import connectToMongo from "../../../../db";
-import { setCookie } from "cookies-next";
 import joi from "joi";
 
 import User from "../../../../models/User";
@@ -17,16 +16,18 @@ const schema = joi.object({
         'email.required': '{#email} cannot be empty!'
     }),
     address: joi.object().keys({
-        street: joi.string(),
-        city: joi.string(),
-        district: joi.string(),
-        state: joi.string(),
-        country: joi.string(),
-        pincode: joi.number()
+        street: joi.string().allow(""),
+        city: joi.string().allow(""),
+        district: joi.string().allow(""),
+        state: joi.string().allow(""),
+        country: joi.string().allow(""),
+        pincode: joi.number().allow("")
     }).required().messages({
-        'address.required': '{#label} cannot be empty!',
+        'address.required': '{#label} cannot be empty!'
     }),
-    phone: joi.number().optional()
+    phone: joi.number().messages({
+        'phone.number': '{#label} must be of type number!'
+    })
 });
 
 const handler = async (req, res)=> {
@@ -56,13 +57,11 @@ const handler = async (req, res)=> {
                 }
             }
 
-            user = await User.findByIdAndUpdate(userId, {name: name, email: email, phone: parseInt(phone), address: address}, {new: true})
+            user = await User.findByIdAndUpdate(userId, {name: name, email: email, phone: phone, address: address}, {new: true})
                 .select("-password");
-
-            setCookie("cm_user_profile",JSON.stringify(user), {req, res, maxAge: 60*60*24*7});
             
             success = true;
-            return res.status(201).json({success});
+            return res.status(201).json({success, user});
 
         } catch (error) {
             success = false;

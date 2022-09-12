@@ -325,6 +325,10 @@ export const userProfile = (token)=> async (dispatch)=> {
     const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
     try {
         const res = await axios.get(`${url}/api/auth/user/profile`,{headers: {cm_user_token: token}});
+        if(typeof window !== "undefined") {
+            localStorage.setItem("cm_user_profile", JSON.stringify(res.data.user));
+        }
+
         if(res.data.success) {
             dispatch({
                 type: "user-profile",
@@ -378,12 +382,13 @@ export const editUserProfile = ({name,email,phone,address})=> async (dispatch)=>
     const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
     try {
         const res = await axios.put(`${url}/api/auth/user/editprofile`,{name, email, phone, address});
+        localStorage.setItem("cm_user_profile", JSON.stringify(res.data.user));
 
         if(res.data.success) {
             dispatch({
                 type: "edit-user-profile",
                 payload: {
-                    profile: JSON.parse(getCookie("cm_user_profile"))
+                    profile: res.data.user
                 }
             });
             toast.success("Profile Updated Successfully!", {
@@ -777,6 +782,9 @@ export const sellerProfile = (token)=> async (dispatch)=> {
     const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
     try {
         const res = await axios.get(`${url}/api/auth/seller/profile`,{headers: {cm_user_token: token}});
+        if(typeof window !== "undefined") {
+            localStorage.setItem("cm_seller_profile", JSON.stringify(res.data.seller));
+        }
 
         if(res.data.success) {
             dispatch({
@@ -831,12 +839,15 @@ export const editSellerProfile = ({name,email,phone,address})=> async (dispatch)
     const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
     try {
         const res = await axios.put(`${url}/api/auth/seller/editprofile`,{name, email, phone, address});
+        if(typeof window !== "undefined") {
+            localStorage.setItem("cm_seller_profile", JSON.stringify(res.data.seller));
+        }
 
         if(res.data.success) {
             dispatch({
                 type: "edit-seller-profile",
                 payload: {
-                    profile: JSON.parse(getCookie("cm_seller_profile"))
+                    profile: res.data.seller
                 }
             });
             toast.success("Profile Updated Successfully!", {

@@ -10,11 +10,13 @@ else {
     isSeller = getCookie("cm_seller_token");
 }
 
-if(!getCookie("cm_seller_profile")) {
-    isProfile = null;
-}
-else {
-    isProfile = JSON.parse(getCookie("cm_seller_profile"));
+if(typeof window !== "undefined") {
+    if(!localStorage.getItem("cm_seller_profile")) {
+        isProfile = null;
+    }
+    else {
+        isProfile = JSON.parse(localStorage.getItem("cm_seller_profile"));
+    }
 }
 
 const initState = {

@@ -1,7 +1,6 @@
 import grantAccess from "../../../../middlewares/grantAccess";
 import fetchUser from "../../../../middlewares/fetchUser";
 import connectToMongo from "../../../../db";
-import { setCookie } from "cookies-next";
 import joi from "joi";
 
 import Seller from "../../../../models/Seller";
@@ -58,11 +57,9 @@ const handler = async (req, res)=> {
 
             seller = await Seller.findByIdAndUpdate(sellerId, {name: name, email: email}, {new: true})
                 .select("-password");
-
-            setCookie("cm_seller_profile",JSON.stringify(seller), {req, res, maxAge: 60*60*24*7});
             
             success = true;
-            return res.status(201).json({success});
+            return res.status(201).json({success, seller});
 
         } catch (error) {
             success = false;

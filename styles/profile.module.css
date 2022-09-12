@@ -1,0 +1,119 @@
+.profilePage {
+    min-height: 80vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgb(235, 235, 235);
+}
+
+.profilePage .profile_top_div {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    /* background-color: palevioletred; */
+}
+
+.profilePage .profile_top_div .greet {
+    color: black;
+    font-weight: 600;
+}
+
+.profilePage .profile_top_div .user_orders_btn {
+    padding: 0.3rem 0.5rem;
+    color: green;
+    font-size: 0.9rem;
+    border: 0.1rem solid limegreen;
+    border-radius: 0.2rem;
+    background-color: white;
+}
+
+.profilePage .profile_top_div .user_orders_btn:hover {
+    color: white;
+    background-color: limegreen;
+    transition: all 0.2s ease-in-out;
+}
+
+.profilePage .account_settings_div {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: white;
+}
+
+.profilePage .box_head {
+    margin-bottom: 1rem;
+    color: black;
+    font-weight: 600;
+}
+
+.profilePage .profile_flex_div {
+    width: 100%;
+    padding: 0.7rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: orange; */
+}
+
+.profilePage .profile_flex_div .left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profilePage .profile_flex_div .left .settings_icons {
+    margin-right: 1rem;
+    color: green;
+    font-size: 1.2rem;
+}
+
+.profilePage .profile_flex_div .settings_action_icons {
+    color: grey;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.profilePage .profile_flex_div .settings_action_icons:hover {
+    color: rgb(163, 163, 163);
+    transition: all 0.2s ease-in-out;
+}
+
+.profilePage .tc_div {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    background-color: white;
+}
+
+.profilePage .profile_bottom_div {
+    width: 100%;
+    padding: 1.5rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: white; */
+}
+
+.profilePage .profile_bottom_div .logout_btn {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    color: green;
+    font-size: 1.1rem;
+    border: 0.1rem solid limegreen;
+    border-radius: 0.3rem;
+    background-color: white;
+}
+
+.profilePage .profile_bottom_div .logout_btn:hover {
+    color: white;
+    background-color: limegreen;
+    transition: all 0.2s ease-in-out;
+}

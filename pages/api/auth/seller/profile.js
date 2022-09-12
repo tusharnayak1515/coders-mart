@@ -1,7 +1,6 @@
 import grantAccess from "../../../../middlewares/grantAccess";
 import fetchUser from "../../../../middlewares/fetchUser";
 import connectToMongo from "../../../../db";
-import { setCookie } from "cookies-next";
 
 import Seller from "../../../../models/Seller";
 
@@ -19,8 +18,6 @@ const handler = async (req, res)=> {
 
             seller = await Seller.findById(sellerId)
                 .select("-password");
-
-            setCookie("cm_seller_profile",JSON.stringify(seller), {req, res, maxAge: 60*60*24*7});
             
             success = true;
             return res.status(201).json({success, seller});
@@ -32,4 +29,4 @@ const handler = async (req, res)=> {
     }
 }
 
-export default fetchUser(grantAccess("updateOwn", "profile", handler));
+export default fetchUser(grantAccess("readOwn", "profile", handler));
