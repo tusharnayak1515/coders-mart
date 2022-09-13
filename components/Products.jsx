@@ -2,29 +2,32 @@ import React, { Fragment } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
-const Product = dynamic(()=> import("./Product"), {ssr: true});
+const Product = dynamic(() => import("./Product"), { ssr: true });
 import no_result from "../public/static/images/no_products.png";
 
 import styles from "../styles/products.module.css";
 
-const Products = ({searchedProducts}) => {
+const Products = ({ searchedProducts }) => {
   const dispatch = useDispatch();
-  const { products } = useSelector(state => state.productReducer,shallowEqual);
+  const { products } = useSelector(
+    (state) => state.productReducer,
+    shallowEqual
+  );
   return (
     <Fragment>
-      {(!searchedProducts && products) &&
+      {!searchedProducts && products && (
         <div className={styles.products}>
-          {products?.map((product,index) => {
-            if(index < 30) {
+          {products?.map((product, index) => {
+            if (index < 30) {
               return (
                 <Product key={product._id} product={product} index={index} />
-                );
+              );
             }
             return null;
           })}
         </div>
-      }
-      {searchedProducts && searchedProducts?.length === 0 ? 
+      )}
+      {searchedProducts && searchedProducts?.length === 0 ? (
         <div className={styles.no_result}>
           <div className={styles.no_result_img_div}>
             <Image src={no_result} alt="No results found" layout="fill" />
@@ -33,13 +36,17 @@ const Products = ({searchedProducts}) => {
           <h3>Sorry,no results found!</h3>
           <p>Please check the spelling or try searching for something else</p>
         </div>
-        :
-        <div className={styles.products}>
-          {searchedProducts?.map((product,index) => {
-            return <Product key={product._id} product={product} index={index} />
-          })}
-        </div>
-      }
+      ) : (
+        searchedProducts && (
+          <div className={styles.products}>
+            {searchedProducts?.map((product, index) => {
+              return (
+                <Product key={product._id} product={product} index={index} />
+              );
+            })}
+          </div>
+        )
+      )}
     </Fragment>
   );
 };
