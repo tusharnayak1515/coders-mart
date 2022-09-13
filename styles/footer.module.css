@@ -3,10 +3,11 @@
     width: 100%;
     margin-top: 2rem;
     padding: 1rem;
+    color: white;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: #75fd92;
+    background-color: rgb(0, 93, 0);
 }
 
 .footer .logo_div {
@@ -32,6 +33,7 @@
 
 .footer .footer_links .columnDiv p {
     width: 100%;
+    color: whitesmoke;
     display: flex;
     flex-wrap: wrap;
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
@@ -16,11 +16,22 @@ const TopNav = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.userReducer, shallowEqual);
   const { seller } = useSelector((state) => state.sellerReducer, shallowEqual);
+  const [name, setName] = useState("");
+
+  const onNameChange = (e)=> {
+    e.preventDefault();
+    setName(e.target.value);
+  }
 
   const onLogout = (e) => {
     e.preventDefault();
     dispatch(actionCreators.logout());
   };
+
+  const onSearch = (e)=> {
+    e.preventDefault();
+    router.push(`/products/search/${name}`)
+  }
 
   if (
     router.pathname === "/user/editprofile" ||
@@ -80,15 +91,15 @@ const TopNav = () => {
           )}
           {(user || seller) && (
             <a onClick={onLogout}>
-              <BiLogOut className={styles.menu_icons} />
+              <BiLogOut className={`${styles.menu_icons} ${styles.logout_btn}`} />
             </a>
           )}
         </div>
       </div>
 
-      <form className={styles.searchDiv}>
-        <input type="text" placeholder="Search Products" />
-        <IoMdSearch className={styles.searchIcon} />
+      <form className={styles.searchDiv} onSubmit={onSearch}>
+        <input type="text" placeholder="Search Products" value={name} onChange={onNameChange} />
+        <button className={styles.searchIcon}><IoMdSearch /></button>
       </form>
     </div>
   );

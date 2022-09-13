@@ -8,7 +8,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    border-bottom: 0.1rem solid lightgrey;
+    border-bottom: 0.1rem solid limegreen;
     z-index: 500;
     background-color: white;
     /* background-color: lime; */
@@ -24,7 +24,7 @@
 }
 
 .topnav .logoDiv .logo {
-    color: rgb(2, 2, 68);
+    color: green;
 }
 
 .topnav .logoDiv .menuDiv {
@@ -36,6 +36,10 @@
     margin-right: 1rem;
     color: green;
     font-size: 1.3rem;
+}
+
+.topnav .logoDiv .menuDiv .logout_btn {
+    font-size: 1.4rem;
 }
 
 .topnav .logoDiv .menuDiv .menu_icons:hover {
@@ -52,9 +56,9 @@
 .topnav .searchDiv input {
     width: 100%;
     padding: 0.5rem 1rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
     border: 0.1rem solid grey;
-    border-radius: 0.5rem;
+    border-radius: 0.2rem;
 }
 
 .topnav .searchDiv input:focus {
@@ -63,12 +67,17 @@
 
 .topnav .searchIcon {
     position: absolute;
-    top: 20%;
+    top: 15%;
     right: 3%;
     margin: auto 0;
     color: grey;
     font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
     cursor: pointer;
+    background-color: white;
     /* background-color: red; */
 }
 

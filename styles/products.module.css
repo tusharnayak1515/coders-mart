@@ -1,6 +1,6 @@
 .products {
     min-height: 100%;
-    width: 90%;
+    width: 95%;
     margin-top: 1rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -8,4 +8,32 @@
     border-radius: 0.2rem;
     background-color: white;
     /* background-color: orchid; */
+}
+
+.no_result {
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.no_result .no_result_img_div {
+    position: relative;
+    height: 12rem;
+    width: 12rem;
+}
+
+.no_result h3 {
+    color: black;
+    font-weight: 500;
+}
+
+.no_result p {
+    width: 90%;
+    text-align: center;
+    color: grey;
+    font-size: 0.9rem;
 }

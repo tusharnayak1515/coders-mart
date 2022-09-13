@@ -21,7 +21,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-bottom: 0.1rem solid lightgrey;
+  border-bottom: 0.1rem solid limegreen;
   background-color: white;
   /* background-color: greenyellow; */
 }

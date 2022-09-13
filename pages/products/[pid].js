@@ -67,26 +67,26 @@ const ProductPage = () => {
   return (
     <div className={styles.productPage}>
         <Head>
-            <title>{product?.name}</title>
-            <meta
-            name="description"
-            content="Coders-Mart is an e-commerce webapp made using NEXT JS."
-            />
-            <meta name="keywords" content={`nextjs, e-commerce, coders-mart, ${product?.name}`} />
+          <title>{product?.name}</title>
+          <meta
+          name="description"
+          content="Coders-Mart is an e-commerce webapp made using NEXT JS."
+          />
+          <meta name="keywords" content={`nextjs, e-commerce, coders-mart, ${product?.name}`} />
         </Head>
 
         <div className={styles.product_topDiv}>
-            <div className={styles.product_img_div}>
-                <Image src={product?.image} alt={product?.name} layout="fill" />
-            </div>
+          <div className={styles.product_img_div}>
+            <Image src={product?.image} alt={product?.name} layout="fill" />
+          </div>
 
-            <div className={styles.product_details_div}>
-                <h3 className={styles.product_name}>{product?.name}</h3>
-                <p className={styles.product_description}>{product?.description}</p>
-                <h2 className={styles.product_price}>₹{product?.price}</h2>
-                <p className={styles.deliveryText}>FREE Delivery</p>
-                <Rating ratings={ratings} reviews={reviews} />
-            </div>
+          <div className={styles.product_details_div}>
+            <h3 className={styles.product_name}>{product?.name}</h3>
+            <p className={styles.product_description}>{product?.description}</p>
+            <h2 className={styles.product_price}>₹{product?.price}</h2>
+            <p className={styles.deliveryText}>FREE Delivery</p>
+            <Rating ratings={ratings} reviews={reviews} />
+          </div>
         </div>
 
         <DeliveryDate delivery_date={delivery_date} />

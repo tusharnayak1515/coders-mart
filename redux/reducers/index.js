@@ -38,6 +38,7 @@ const masterReducer = (state,action)=> {
             productReducer: {
                 products: [...new Set(action.payload.productReducer.products, state.productReducer.products)],
                 product: state.productReducer.product ? state.productReducer.product : action.payload.productReducer.product,
+                searchedProducts: action.payload.productReducer.searchedProducts ? action.payload.productReducer.searchedProducts : state.productReducer.searchedProducts,
                 isLoading: state.productReducer.isLoading
             },
             cartReducer: {

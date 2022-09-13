@@ -11,6 +11,7 @@ if(typeof window !== "undefined") {
 
 const initState = {
     products: isProducts,
+    searchedProducts: null,
     product: null,
     isLoading: false,
 }
@@ -36,6 +37,20 @@ const productReducer = (state=initState,action)=> {
             isLoading: false
         }
     }
+    else if(action.type === "search-products") {
+        const {searchedProducts,error} = action.payload;
+        if(error) {
+            return {
+                ...state,
+                isLoading: false
+            }
+        }
+        return {
+            ...state,
+            searchedProducts: searchedProducts,
+            isLoading: false
+        }
+    }
     else if(action.type === "get-product") {
         const {product,error} = action.payload;
         if(error) {
@@ -54,6 +69,13 @@ const productReducer = (state=initState,action)=> {
         return {
             ...state,
             product: null,
+            isLoading: false
+        }
+    }
+    else if(action.type === "reset-searched-products") {
+        return {
+            ...state,
+            searchedProducts: null,
             isLoading: false
         }
     }

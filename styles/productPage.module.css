@@ -9,7 +9,7 @@
 
 .productPage .product_topDiv {
     width: 100%;
-    margin: 0.5rem 0;
+    margin-bottom: 0.5rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -19,7 +19,7 @@
 .productPage .product_img_div {
     position: relative;
     height: 20rem;
-    width: 90%;
+    width: 95%;
     margin: 0.5rem auto;
     margin-bottom: 1rem;
     padding: 0.5rem 1rem;

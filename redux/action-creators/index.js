@@ -1019,6 +1019,60 @@ export const getallProducts = ()=> async (dispatch)=> {
     } 
 }
 
+export const searchedProducts = (name)=> async (dispatch)=> {
+    dispatch({
+        type: "product-loading"
+    });
+
+    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    try {
+        const res = await axios.get(`${url}/api/products/searchproduct?name=${name}`);
+
+        if(res.data.success) {
+            dispatch({
+                type: "search-products",
+                payload: {
+                    searchedProducts: res.data.searchedProducts,
+                }
+            });
+        }
+
+        if(res.data.error) {
+            dispatch({
+                type: "search-products",
+                payload: {
+                    error: res.data.error
+                }
+            });
+            toast.error(res.data.error, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+    } catch (error) {
+        dispatch({
+            type: "search-products",
+            payload: {
+              error: error,
+            }
+        });
+        toast.error(error, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    } 
+}
+
 export const getProduct = (id)=> async (dispatch)=> {
     dispatch({
         type: "product-loading"
@@ -1076,6 +1130,12 @@ export const getProduct = (id)=> async (dispatch)=> {
 export const resetProduct = ()=> async(dispatch)=> {
     dispatch({
         type: "reset-product"
+    });
+}
+
+export const resetSearchedProducts = ()=> async(dispatch)=> {
+    dispatch({
+        type: "reset-searched-products"
     });
 }
 

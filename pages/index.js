@@ -6,7 +6,7 @@ import { wrapper } from "../redux/store";
 import { actionCreators } from "../redux";
 import { useDispatch } from "react-redux";
 const Products = dynamic(()=> import("../components/Products"), {ssr: true});
-const Footer = dynamic(()=> import("../components/Footer"), {ssr: false});
+const Footer = dynamic(()=> import("../components/Footer"), {ssr: true});
 
 import electronics from "../public/static/images/electronics.jpg";
 import eyeware from "../public/static/images/eyewear.jpg";
@@ -31,7 +31,6 @@ export default function Home() {
           content="Coders-Mart is an e-commerce webapp made using NEXT JS."
         />
         <meta name="keywords" content="nextjs, e-commerce, coders-mart" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>

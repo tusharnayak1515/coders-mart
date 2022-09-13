@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps }) {
         {loading && <title>Coders Mart</title>}
         <meta name="description" content="Coders-Mart is an e-commerce webapp made using NEXT JS." />
         <meta name="keywords" content="nextjs, e-commerce, coders-mart" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.png" />
       </Head>
 
       <TopNav />
