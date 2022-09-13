@@ -4,7 +4,7 @@
     margin-top: 1rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    border: 0.1rem solid limegreen;
+    grid-gap: 0.5rem;
     border-radius: 0.2rem;
     background-color: white;
     /* background-color: orchid; */
@@ -36,4 +36,22 @@
     text-align: center;
     color: grey;
     font-size: 0.9rem;
+}
+
+/* Media Queries */
+
+@media only screen and (min-width: 411px) and (max-width: 480px) {
+
+    .products {
+        width: 90%;
+        /* background-color: orchid; */
+    }
+}
+
+@media only screen and (min-width: 721px) and (max-width: 900px) {
+
+    .products {
+        width: 95%;
+        grid-template-columns: repeat(3, 1fr);
+    }
 }

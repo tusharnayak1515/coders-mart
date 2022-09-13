@@ -85,3 +85,45 @@
     color: darkgrey;
     transition: all 0.2s ease-in-out;
 }
+
+/* Media Queries */
+
+@media only screen and (min-width: 481px) and (max-width: 600px) {
+
+    .topnav .logoDiv .logo {
+        font-size: 1.7rem;
+    }
+
+    .topnav .logoDiv .menuDiv .menu_icons {
+        font-size: 1.5rem;
+    }
+    
+    .topnav .logoDiv .menuDiv .logout_btn {
+        font-size: 1.6rem;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+
+    .topnav .logoDiv .logo {
+        font-size: 2rem;
+    }
+
+    .topnav .logoDiv .menuDiv .menu_icons {
+        font-size: 1.6rem;
+    }
+    
+    .topnav .logoDiv .menuDiv .logout_btn {
+        font-size: 1.7rem;
+    }
+
+    .topnav .searchDiv input {
+        padding: 0.7rem 1rem;
+    }
+
+    .topnav .searchIcon {
+        top: 23%;
+        right: 3%;
+        /* background-color: red; */
+    }
+}
