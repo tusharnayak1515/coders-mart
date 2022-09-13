@@ -18,7 +18,7 @@ const Orders = () => {
 
   useEffect(()=> {
     if(!user) {
-        router.replace("/user/login");
+        router.replace("/");
     }
     else {
         dispatch(actionCreators.getAllOrders());

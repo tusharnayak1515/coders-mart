@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
@@ -11,19 +12,29 @@ const DeliveryDate = dynamic(()=> import("../../components/DeliveryDate"), {ssr:
 const Reviews = dynamic(()=> import("../../components/Reviews"), {ssr: false});
 
 import styles from "../../styles/productPage.module.css";
-import Head from 'next/head';
 
 const ProductPage = () => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const {user} = useSelector(state=>state.userReducer,shallowEqual);
-  const {seller} = useSelector(state=>state.sellerReducer,shallowEqual);
+  const {profile} = useSelector(state=>state.userReducer,shallowEqual);
   const {product} = useSelector(state=>state.productReducer,shallowEqual);
+  const {cart} = useSelector(state=>state.cartReducer,shallowEqual);
   const {reviews} = useSelector(state=>state.reviewReducer,shallowEqual);
   const [ratings, setRatings] = useState(0);
+  const [isInCart, setIsInCart] = useState(false);
 
   const date = new Date();
   const delivery_date = new Date(date.getTime() + (5 * 24 * 60 * 60 * 1000));
+
+  const addToCart = (e)=> {
+    e.preventDefault();
+    dispatch(actionCreators.addToCart(product?._id));
+  }
+
+  const goToCart = (e)=> {
+    e.preventDefault();
+    router.push("/user/cart");
+  }
 
   useEffect(()=> {
     let total = 0;
@@ -35,11 +46,21 @@ const ProductPage = () => {
   }, [reviews?.length]);
 
   useEffect(()=> {
-    if(user) {
-        dispatch(actionCreators.userProfile());
+    let counter = 0;
+    for (let i = 0; i < cart?.products.length; i++) {
+      if(cart?.products[i]._id === product?._id) {
+        counter += 1;
+        setIsInCart(true);
+      }
     }
-    else if(seller) {
-        dispatch(actionCreators.sellerProfile());
+    if(counter === 0) {
+      setIsInCart(false);
+    }
+  }, [cart?.products.length]);
+
+  useEffect(()=> {
+    return ()=> {
+      dispatch(actionCreators.resetProduct());
     }
   }, []);
 
@@ -72,9 +93,9 @@ const ProductPage = () => {
 
         <Reviews />
 
-        <div className={styles.add_to_cart_div}>
-          <button>Add To Cart</button>
-        </div>
+        {profile && <div className={styles.add_to_cart_div}>
+          <button onClick={isInCart ? goToCart : addToCart}>{isInCart ? 'Go To Cart' : 'Add To Cart'}</button>
+        </div>}
     </div>
   )
 }
@@ -89,8 +110,9 @@ export const getServerSideProps = wrapper.getServerSideProps((store)=> async (co
     const cookieObj = cookie.parse(mycookie);
     if (cookieObj.cm_user_token) {
       await store.dispatch(actionCreators.userProfile(cookieObj.cm_user_token));
+      await store.dispatch(actionCreators.getCart(cookieObj.cm_user_token));
     }
     else if(cookieObj.cm_seller_token) {
-        await store.dispatch(actionCreators.sellerProfile(cookieObj.cm_seller_token));
+      await store.dispatch(actionCreators.sellerProfile(cookieObj.cm_seller_token));
     }
 });

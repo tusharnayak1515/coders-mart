@@ -49,7 +49,8 @@ const handler = async (req, res)=> {
                 return res.json({success, error: "This product is not present in the cart!"})
             }
 
-            cart = await Cart.findByIdAndUpdate(cart._id.toString(), {$pull: {products: id}}, {new: true});
+            cart = await Cart.findByIdAndUpdate(cart._id.toString(), {$pull: {products: id}}, {new: true})
+                .populate("products");
 
             success = true;
             return res.status(200).json({success, cart});

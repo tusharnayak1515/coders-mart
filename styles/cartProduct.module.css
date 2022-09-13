@@ -1,0 +1,99 @@
+.cartProductDetails {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 0.1rem solid lightgrey;
+    /* background-color: orange; */
+}
+
+.cartProductDetails .cartProduct {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /* border-bottom: 0.1rem solid lightgrey; */
+    /* background-color: pink; */
+}
+
+.cartProductDetails .cartProduct .cartProduct_img_div {
+    position: relative;
+    height: 7rem;
+    width: 7rem;
+    margin-right: 1rem;
+    border: 0.1rem solid limegreen;
+}
+
+.cartProductDetails .cartProduct .product_info_div {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* background-color: orange; */
+}
+
+.cartProductDetails .cartProduct .product_info_div p {
+    color: black;
+}
+
+.cartProductDetails .cartProduct .product_info_div .cartProduct_name {
+    font-weight: bold;
+}
+
+.cartProductDetails .cartProduct .product_info_div .cartProduct_description {
+    margin-bottom: 0.5rem;
+    color: rgb(90, 90, 90);
+    font-size: 0.9rem;
+}
+
+.cartProductDetails .cartProduct .product_info_div .cartProduct_size {
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+}
+
+.cartProductDetails .cartProduct .product_info_div .cartProduct_size span {
+    font-weight: normal;
+}
+
+.cartProductDetails .cartProduct .product_info_div .cartProduct_price {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.cartProductDetails .cartProduct .product_info_div .cartProduct_delivery {
+    font-size: 0.85rem;
+}
+
+.cartProductDetails .cartProduct .product_info_div .cartProduct_delivery span {
+    color: green;
+    font-weight: bold;
+}
+
+.cartProductDetails .remove_product_div {
+    width: 100%;
+    margin-bottom: 0.3rem;
+    padding-right: 0.5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* background-color: orange; */
+}
+
+.cartProductDetails .remove_product_div .remove_product_btn {
+    /* width: 40%; */
+    padding: 0.6rem 2rem;
+    color: white;
+    font-size: 1rem;
+    border: 0.1rem solid red;
+    border-radius: 0.3rem;
+    background-color: orangered;
+    /* background-color: orange; */
+}
+
+.cartProductDetails .remove_product_div .remove_product_btn:hover {
+    color: red;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+    /* background-color: orange; */
+}

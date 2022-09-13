@@ -10,7 +10,7 @@ const handler = async (req, res)=> {
         let success = false;
         try {
             const userId = req.user.id;
-            const cart = await Cart.find({user: userId})
+            const cart = await Cart.findOne({user: userId})
                 .populate("products");
 
             success = true;

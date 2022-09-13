@@ -44,7 +44,8 @@ const handler = async (req, res)=> {
 
             let cart = await Cart.findOne({user: userId});
 
-            cart = await Cart.findByIdAndUpdate(cart._id.toString(), {$push: {products: product}}, {new: true});
+            cart = await Cart.findByIdAndUpdate(cart._id.toString(), {$push: {products: product}}, {new: true})
+                .populate("products");
 
             success = true;
             return res.status(200).json({success, cart});

@@ -56,12 +56,12 @@ const OrderDetails = () => {
       <div className={styles.order_status_div}>
         <div className={styles.status_pair}>
           <p className={styles.order_text}>Order Confirmed</p>
-          <p className={styles.order_dates}>{`${orderDate.getDate()}/${orderDate.getMonth()}/${orderDate.getFullYear()}`}</p>
+          <p className={styles.order_dates}>{`${orderDate.getDate()}/${orderDate.getMonth()+1}/${orderDate.getFullYear()}`}</p>
         </div>
 
         <div className={styles.status_pair}>
           <p className={styles.order_text}>Delivery</p>
-          <p className={styles.order_dates}>{`${deliveryDate.getDate()}/${deliveryDate.getMonth()}/${deliveryDate.getFullYear()}`}</p>
+          <p className={styles.order_dates}>{`${deliveryDate.getDate()}/${deliveryDate.getMonth()+1}/${deliveryDate.getFullYear()}`}</p>
         </div>
         
         <p>Status: {order?.status}</p>

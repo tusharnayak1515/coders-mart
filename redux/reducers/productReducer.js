@@ -50,6 +50,13 @@ const productReducer = (state=initState,action)=> {
             isLoading: false
         }
     }
+    else if(action.type === "reset-product") {
+        return {
+            ...state,
+            product: null,
+            isLoading: false
+        }
+    }
     else if(action.type === "add-product") {
         const {products,error} = action.payload;
         if(error) {

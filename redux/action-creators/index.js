@@ -1073,6 +1073,12 @@ export const getProduct = (id)=> async (dispatch)=> {
     } 
 }
 
+export const resetProduct = ()=> async(dispatch)=> {
+    dispatch({
+        type: "reset-product"
+    });
+}
+
 export const addProduct = ({name,description,brand,price,category,quantity,gender,size,image})=> async (dispatch)=> {
     dispatch({
         type: "product-loading"

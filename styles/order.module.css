@@ -15,11 +15,26 @@
 
 .order .orderItem .orderItem_img_div {
     position: relative;
-    height: 4.5rem;
-    width: 4.5rem;
+    height: 5rem;
+    width: 5rem;
+    border: 0.1rem solid limegreen;
+}
+
+.order .orderItem .order_status {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /* background-color: lime; */
 }
 
 .order .orderItem .order_action_btn {
     color: grey;
     font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.order .orderItem .order_action_btn:hover {
+    color: rgb(158, 158, 158);
 }

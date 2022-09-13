@@ -89,6 +89,9 @@ const handler = async (req, res)=> {
                 .populate("user", "_id name phone email")
                 .sort("-createdAt");
 
+            cart = await Cart.findOne({user: userId})
+                .populate("products");
+
             success = true;
             return res.status(200).json({success, orders, cart});
         } catch (error) {

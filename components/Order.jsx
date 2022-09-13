@@ -22,10 +22,12 @@ const Order = ({ order }) => {
             <div className={styles.orderItem_img_div}>
               <Image src={p.image} alt={p.name} layout="fill" />
             </div>
+
             <div className={styles.order_status}>
                 <p>Status: {order.status}</p>
                 <p>{p.name}</p>
             </div>
+            
             <FaAngleRight className={styles.order_action_btn} onClick={(e)=> onOrderClick(e,p._id)} />
           </div>
         );
