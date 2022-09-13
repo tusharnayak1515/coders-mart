@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { wrapper } from '../../../redux/store';
@@ -10,7 +9,6 @@ const Products = dynamic(()=> import("../../../components/Products"));
 import styles from "../../../styles/searchPage.module.css";
 
 const SearchPage = () => {
-  const router = useRouter();
   const dispatch = useDispatch();
   const {searchedProducts} = useSelector(state=> state.productReducer,shallowEqual);
 
@@ -39,5 +37,7 @@ export default SearchPage;
 
 export const getServerSideProps = wrapper.getServerSideProps((store)=> async (context)=> {
     const {params} = context;
-    await store.dispatch(actionCreators.searchedProducts(params.pname))
+    if(params.pname !== "") {
+        await store.dispatch(actionCreators.searchedProducts(params.pname));
+    }
 });
