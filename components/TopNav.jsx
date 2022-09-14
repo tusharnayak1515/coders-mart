@@ -50,6 +50,12 @@ const TopNav = () => {
         <Link href="/">
           <h2 className={styles.logo}>Coders-Mart</h2>
         </Link>
+
+        <form className={styles.searchDiv} onSubmit={onSearch}>
+          <input type="text" placeholder="Search Products" value={name} onChange={onNameChange} />
+          <button className={styles.searchIcon}><IoMdSearch /></button>
+        </form>
+        
         <div className={styles.menuDiv}>
           {user && (
             <Link href="/user/cart">

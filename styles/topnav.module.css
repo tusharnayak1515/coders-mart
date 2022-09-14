@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     border-bottom: 0.1rem solid lightgrey;
     z-index: 500;
     background-color: white;
@@ -25,6 +25,7 @@
 
 .topnav .logoDiv .logo {
     color: green;
+    cursor: pointer;
 }
 
 .topnav .logoDiv .menuDiv {
@@ -45,6 +46,11 @@
 .topnav .logoDiv .menuDiv .menu_icons:hover {
     color: limegreen;
     transition: all 0.2s ease-in-out;
+}
+
+.topnav .logoDiv .searchDiv {
+    display: none;
+    /* background-color: orange; */
 }
 
 .topnav .searchDiv {
@@ -130,6 +136,11 @@
 
 @media only screen and (min-width: 901px) {
 
+    .topnav {
+        min-height: 0;
+        height: 12vh;
+    }
+
     .topnav .logoDiv .logo {
         font-size: 2rem;
     }
@@ -142,11 +153,31 @@
         font-size: 1.8rem;
     }
 
-    .topnav .searchDiv input {
-        padding: 0.7rem 1rem;
+    .topnav .searchDiv {
+        display: none;
+        /* background-color: orange; */
+    }
+    
+    .topnav .logoDiv .searchDiv {
+        display: block;
+        position: relative;
+        width: 50%;
+        /* background-color: orange; */
     }
 
-    .topnav .searchIcon {
+    .topnav .logoDiv .searchDiv input {
+        width: 100%;
+        padding: 0.6rem 1rem;
+        font-size: 1rem;
+        border: 0.1rem solid grey;
+        border-radius: 0.3rem;
+    }
+    
+    .topnav .logoDiv .searchDiv input:focus {
+        border: 0.1rem solid limegreen;
+    }
+
+    .topnav .logoDiv .searchDiv .searchIcon {
         top: 23%;
         right: 3%;
         /* background-color: red; */

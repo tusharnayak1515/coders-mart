@@ -7,7 +7,7 @@ import { actionCreators } from "../redux";
 import { useDispatch } from "react-redux";
 const Products = dynamic(()=> import("../components/Products"), {ssr: true});
 const Footer = dynamic(()=> import("../components/Footer"), {ssr: true});
-const AdCarousel = dynamic(()=> import("../components/AdCarousel"), {ssr: true});
+import AdCarousel from "../components/AdCarousel";
 
 import electronics from "../public/static/images/electronics.jpg";
 import eyeware from "../public/static/images/eyewear.jpg";

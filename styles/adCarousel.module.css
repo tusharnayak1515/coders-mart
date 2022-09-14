@@ -1,17 +1,29 @@
 .adCarousel {
     height: 25vh;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
+    background-color: white;
     /* background-color: orange; */
-    /* background: url("/static/images/carousel1.webp") center center no-repeat;
-    background-size: contain; */
+}
+
+.adCarousel .slider_container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    white-space: nowrap;
+    transition: all 1s ease-in-out;
 }
 
 .adCarousel .slider_div {
     position: relative;
-    height: 100%;
+    height: 25vh;
     width: 100%;
-    margin: auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Media Queries */
@@ -21,11 +33,19 @@
     .adCarousel {
         height: 30vh;
     }
+
+    .adCarousel .slider_div {
+        height: 30vh;
+    }
 }
 
 @media only screen and (min-width: 601px) and (max-width: 720px) {
 
     .adCarousel {
+        height: 37vh;
+    }
+
+    .adCarousel .slider_div {
         height: 37vh;
     }
 }
@@ -35,17 +55,20 @@
     .adCarousel {
         height: 40vh;
     }
+
+    .adCarousel .slider_div {
+        height: 40vh;
+    }
 }
 
 @media only screen and (min-width: 901px) and (max-width: 1000px) {
 
     .adCarousel {
         height: 50vh;
-        padding: 1rem;
     }
 
     .adCarousel .slider_div {
-        width: 90%;
+        height: 50vh;
     }
 }
 
@@ -53,22 +76,20 @@
 
     .adCarousel {
         height: 55vh;
-        padding: 1rem;
     }
 
     .adCarousel .slider_div {
-        width: 90%;
+        height: 55vh;
     }
 }
 
 @media only screen and (min-width: 1201px) {
 
     .adCarousel {
-        height: 60vh;
-        padding: 1rem;
+        height: 65vh;
     }
 
     .adCarousel .slider_div {
-        width: 90%;
+        height: 65vh;
     }
 }
