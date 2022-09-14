@@ -4,15 +4,19 @@ import Image from 'next/image';
 
 import styles from "../styles/product.module.css";
 
-const Product = ({product,index}) => {
+const Product = ({product}) => {
   return (
     <Link href={`/products/${product._id}`}>
-      <div className={`${styles.product} ${index %2 === 0 ? styles.producteven : styles.productodd}`}>
-        <div className={styles.product_image}>
-            <Image src={product.image} alt={product.name} layout="fill" />
+      <a>
+        <div className={styles.product}>
+          <div className={styles.product_image}>
+              <Image src={product.image} alt={product.name} layout="fill" />
+          </div>
+          {/* {product.name.length < 15 ? <p className={styles.product_name}>{product.name}</p> : <p className={styles.product_name}>{product.name.substring(0,15)}...</p>} */}
+          <p className={styles.product_name}>{product.name}</p>
+          <h5>₹ {product.price}</h5>
         </div>
-        <p>{product.name}</p>
-      </div>
+      </a>
     </Link>
     
   )

@@ -1,15 +1,21 @@
 .product {
     height: 100%;
     width: 100%;
-    padding: 1rem;
+    padding: 0.7rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     border: 0.1rem solid limegreen;
-    border-collapse: collapse;
+    border-radius: 0.2rem;
     cursor: pointer;
     /* background-color: orange; */
+}
+
+.product:hover {
+    /* scale: 1.05; */
+    box-shadow: 0.01rem 0.01rem 0.5rem 0.2rem lightgrey;
+    transition: all 0.2s ease-in-out;
 }
 
 /* .producteven {
@@ -23,66 +29,88 @@
 
 .product .product_image {
     position: relative;
-    height: 7rem;
-    width: 8rem;
+    height: 9rem;
+    width: 100%;
     /* border: 0.1rem solid limegreen; */
     margin-bottom: 0.5rem;
 }
 
-.product p {
-    text-align: center;
+.product .product_name {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    /* text-align: center; */
+    font-weight: 500;
+    /* background-color: orange; */
+}
+
+.product h5 {
+    font-weight: 600;
 }
 
 /* Media Queries */
 
-@media only screen and (min-width: 431px) and (max-width: 480px) {
+@media only screen and (min-width: 481px) and (max-width: 600px) {
+
+    .product {
+        padding: 0.3rem;
+    }
 
     .product .product_image {
         height: 7rem;
     }
 }
 
-@media only screen and (min-width: 481px) and (max-width: 600px) {
-
-    .product .product_image {
-        height: 9rem;
-        width: 9rem;
-        margin-bottom: 1rem;
-    }
-}
-
 @media only screen and (min-width: 601px) and (max-width: 720px) {
 
+    .product {
+        padding: 0.5rem;
+    }
+
     .product .product_image {
-        height: 10rem;
-        width: 9rem;
-        margin-bottom: 1rem;
+        height: 8rem;
     }
 }
 
 @media only screen and (min-width: 721px) and (max-width: 900px) {
 
     .product .product_image {
-        height: 10rem;
-        width: 10rem;
-        margin-bottom: 1rem;
+        height: 8rem;
     }
 }
 
 @media only screen and (min-width: 901px) and (max-width: 1100px) {
 
+    .product {
+        border: none;
+    }
+
     .product .product_image {
-        height: 12rem;
-        width: 12rem;
-        margin-bottom: 1rem;
+        height: 8rem;
     }
 }
 
-@media only screen and (min-width: 1101px) {
+@media only screen and (min-width: 1101px) and (max-width: 1200px) {
+
+    .product {
+        padding: 1rem;
+        border: none;
+    }
 
     .product .product_image {
-        height: 14rem;
-        width: 15rem;
+        height: 9rem;
+    }
+}
+
+@media only screen and (min-width: 1201px) {
+
+    .product {
+        padding: 1rem;
+        border: none;
+    }
+
+    .product .product_image {
+        height: 12rem;
         margin-bottom: 1rem;
     }
 }

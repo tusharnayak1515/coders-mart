@@ -42,6 +42,21 @@
   width: 3rem;
 }
 
+.main .categoriesDiv .categoryItem p {
+  color: black;
+  font-weight: 500;
+}
+
+.main .products_header {
+  width: 90%;
+  margin-top: 1rem;
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* background-color: orange; */
+}
+
 /* Media Queries */
 
 @media only screen and (min-width: 480px) {
@@ -54,6 +69,14 @@
   .main .categoriesDiv .categoryItem .imgDiv {
     height: 4rem;
     width: 4rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+
+  .main .products_header {
+    width: 95%;
+    /* background-color: orange; */
   }
 }
 

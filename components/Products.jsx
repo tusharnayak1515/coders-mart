@@ -7,7 +7,7 @@ import no_result from "../public/static/images/no_products.png";
 
 import styles from "../styles/products.module.css";
 
-const Products = ({ searchedProducts }) => {
+const Products = ({ limit, searchedProducts }) => {
   const dispatch = useDispatch();
   const { products } = useSelector(
     (state) => state.productReducer,
@@ -15,15 +15,24 @@ const Products = ({ searchedProducts }) => {
   );
   return (
     <Fragment>
-      {!searchedProducts && products && (
+      {(!searchedProducts && products && limit) && (
         <div className={styles.products}>
           {products?.map((product, index) => {
-            if (index < 30) {
+            if (index < limit) {
               return (
                 <Product key={product._id} product={product} index={index} />
               );
             }
             return null;
+          })}
+        </div>
+      )}
+      {(!searchedProducts && products && !limit) && (
+        <div className={styles.products}>
+          {products?.map((product) => {
+            return (
+              <Product key={product._id} product={product} />
+            );
           })}
         </div>
       )}

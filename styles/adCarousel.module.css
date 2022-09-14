@@ -1,0 +1,74 @@
+.adCarousel {
+    height: 25vh;
+    width: 100%;
+    overflow: hidden;
+    /* background-color: orange; */
+    /* background: url("/static/images/carousel1.webp") center center no-repeat;
+    background-size: contain; */
+}
+
+.adCarousel .slider_div {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+}
+
+/* Media Queries */
+
+@media only screen and (min-width: 481px) and (max-width: 600px) {
+
+    .adCarousel {
+        height: 30vh;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 720px) {
+
+    .adCarousel {
+        height: 37vh;
+    }
+}
+
+@media only screen and (min-width: 721px) and (max-width: 900px) {
+
+    .adCarousel {
+        height: 40vh;
+    }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1000px) {
+
+    .adCarousel {
+        height: 50vh;
+        padding: 1rem;
+    }
+
+    .adCarousel .slider_div {
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 1001px) and (max-width: 1200px) {
+
+    .adCarousel {
+        height: 55vh;
+        padding: 1rem;
+    }
+
+    .adCarousel .slider_div {
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 1201px) {
+
+    .adCarousel {
+        height: 60vh;
+        padding: 1rem;
+    }
+
+    .adCarousel .slider_div {
+        width: 90%;
+    }
+}

@@ -7,6 +7,7 @@ import { actionCreators } from "../redux";
 import { useDispatch } from "react-redux";
 const Products = dynamic(()=> import("../components/Products"), {ssr: true});
 const Footer = dynamic(()=> import("../components/Footer"), {ssr: true});
+const AdCarousel = dynamic(()=> import("../components/AdCarousel"), {ssr: true});
 
 import electronics from "../public/static/images/electronics.jpg";
 import eyeware from "../public/static/images/eyewear.jpg";
@@ -64,7 +65,11 @@ export default function Home() {
           </div>
         </div>
 
-        <Products />
+        <AdCarousel />
+
+        <h2 className={styles.products_header}>Latest Releases</h2>
+
+        <Products limit={30} />
 
         <Footer />
       </main>
