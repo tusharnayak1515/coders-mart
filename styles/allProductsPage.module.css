@@ -1,0 +1,23 @@
+.allProductsPage {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    /* background-color: red; */
+}
+
+.allProductsPage .header {
+    text-align: center;
+    margin: 2rem 0;
+    font-weight: 500;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 480px) {
+    
+    .allProductsPage .header {
+        margin: 1.5rem 0;
+    }
+}

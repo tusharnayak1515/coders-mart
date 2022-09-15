@@ -11,7 +11,6 @@ if(typeof window !== "undefined") {
 
 const initState = {
     products: isProducts,
-    searchedProducts: null,
     product: null,
     isLoading: false,
 }
@@ -38,7 +37,7 @@ const productReducer = (state=initState,action)=> {
         }
     }
     else if(action.type === "search-products") {
-        const {searchedProducts,error} = action.payload;
+        const {products,error} = action.payload;
         if(error) {
             return {
                 ...state,
@@ -47,7 +46,21 @@ const productReducer = (state=initState,action)=> {
         }
         return {
             ...state,
-            searchedProducts: searchedProducts,
+            products: products,
+            isLoading: false
+        }
+    }
+    else if(action.type === "get-categorised-products") {
+        const {products,error} = action.payload;
+        if(error) {
+            return {
+                ...state,
+                isLoading: false
+            }
+        }
+        return {
+            ...state,
+            products: products,
             isLoading: false
         }
     }
@@ -76,6 +89,13 @@ const productReducer = (state=initState,action)=> {
         return {
             ...state,
             searchedProducts: null,
+            isLoading: false
+        }
+    }
+    else if(action.type === "reset-categorised-products") {
+        return {
+            ...state,
+            categorisedProducts: null,
             isLoading: false
         }
     }

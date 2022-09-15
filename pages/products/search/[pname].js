@@ -10,13 +10,13 @@ import styles from "../../../styles/searchPage.module.css";
 
 const SearchPage = () => {
   const dispatch = useDispatch();
-  const {searchedProducts} = useSelector(state=> state.productReducer,shallowEqual);
+  const {products} = useSelector(state=> state.productReducer,shallowEqual);
 
-  useEffect(()=> {
-    return ()=> {
-        dispatch(actionCreators.resetProduct());
-    }
-  }, []);
+  // useEffect(()=> {
+  //   return ()=> {
+  //       dispatch(actionCreators.resetSearchedProducts());
+  //   }
+  // }, []);
 
   return (
     <div className={styles.searchPage}>
@@ -28,7 +28,7 @@ const SearchPage = () => {
             />
             <meta name="keywords" content={`nextjs, e-commerce, coders-mart`} />
         </Head>
-        <Products searchedProducts={searchedProducts} /> 
+        <Products searchedProducts={products} /> 
     </div>
   )
 }

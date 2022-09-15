@@ -47,8 +47,24 @@
     margin-bottom: 0.5rem;
 }
 
+.productPage .product_details_div .product_size {
+    color: black;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.productPage .product_details_div .product_size span {
+    font-weight: normal;
+}
+
 .productPage .product_details_div .product_price {
     color: black;
+    font-weight: 500;
+}
+
+.productPage .product_details_div .product_quantity {
+    margin: 0.5rem 0;
+    color: grey;
     font-weight: 500;
 }
 

@@ -6,7 +6,7 @@ import styles from "../styles/product.module.css";
 
 const Product = ({product}) => {
   return (
-    <Link href={`/products/${product._id}`}>
+    <Link href={`/products/product/${product._id}`}>
       <a>
         <div className={styles.product}>
           <div className={styles.product_image}>

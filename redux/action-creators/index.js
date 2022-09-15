@@ -504,11 +504,11 @@ export const changeUserPassword = ({oldpassword, newpassword, confirmpassword})=
 export const logout = ()=> async (dispatch)=> {
     localStorage.removeItem("cm_user_cart");
     localStorage.removeItem("cm_user_orders");
+    localStorage.removeItem("cm_user_profile");
+    localStorage.removeItem("cm_seller_profile");
     localStorage.removeItem("cm_otp");
     deleteCookie("cm_user_token");
-    deleteCookie("cm_user_profile");
     deleteCookie("cm_seller_token");
-    deleteCookie("cm_seller_profile");
     dispatch({
         type: "logout"
     });
@@ -1027,12 +1027,15 @@ export const searchedProducts = (name)=> async (dispatch)=> {
     const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
     try {
         const res = await axios.get(`${url}/api/products/searchproduct?name=${name}`);
+        if(typeof window !== "undefined") {
+            localStorage.setItem("cm_products", JSON.stringify(res.data.searchedProducts));
+        }
 
         if(res.data.success) {
             dispatch({
                 type: "search-products",
                 payload: {
-                    searchedProducts: res.data.searchedProducts,
+                    products: res.data.searchedProducts,
                 }
             });
         }
@@ -1057,6 +1060,63 @@ export const searchedProducts = (name)=> async (dispatch)=> {
     } catch (error) {
         dispatch({
             type: "search-products",
+            payload: {
+              error: error,
+            }
+        });
+        toast.error(error, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    } 
+}
+
+export const getCategorisedProducts = (category)=> async (dispatch)=> {
+    dispatch({
+        type: "product-loading"
+    });
+
+    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    try {
+        const res = await axios.get(`${url}/api/products/getproducts?category=${category}`);
+        if(typeof window !== "undefined") {
+            localStorage.setItem("cm_products", JSON.stringify(res.data.categorisedProducts));
+        }
+
+        if(res.data.success) {
+            dispatch({
+                type: "get-categorised-products",
+                payload: {
+                    products: res.data.categorisedProducts,
+                }
+            });
+        }
+
+        if(res.data.error) {
+            dispatch({
+                type: "get-categorised-products",
+                payload: {
+                    error: res.data.error
+                }
+            });
+            toast.error(res.data.error, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+    } catch (error) {
+        dispatch({
+            type: "get-categorised-products",
             payload: {
               error: error,
             }
@@ -1136,6 +1196,12 @@ export const resetProduct = ()=> async(dispatch)=> {
 export const resetSearchedProducts = ()=> async(dispatch)=> {
     dispatch({
         type: "reset-searched-products"
+    });
+}
+
+export const resetCategorisedProducts = ()=> async(dispatch)=> {
+    dispatch({
+        type: "reset-categorised-products"
     });
 }
 

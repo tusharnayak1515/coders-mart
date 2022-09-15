@@ -48,7 +48,7 @@ const TopNav = () => {
     <div className={styles.topnav}>
       <div className={styles.logoDiv}>
         <Link href="/">
-          <h2 className={styles.logo}>Coders-Mart</h2>
+          <h2 className={styles.logo}>CodersMart</h2>
         </Link>
 
         <form className={styles.searchDiv} onSubmit={onSearch}>

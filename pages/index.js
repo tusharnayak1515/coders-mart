@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import dynamic from "next/dynamic";
 import { wrapper } from "../redux/store";
 import { actionCreators } from "../redux";
-import { useDispatch } from "react-redux";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 const Products = dynamic(()=> import("../components/Products"), {ssr: true});
 const Footer = dynamic(()=> import("../components/Footer"), {ssr: true});
 import AdCarousel from "../components/AdCarousel";
@@ -18,6 +19,7 @@ import styles from "../styles/Home.module.css";
 
 export default function Home() {
   const dispatch = useDispatch();
+  const {products} = useSelector(state=> state.productReducer,shallowEqual);
 
   useEffect(()=> {
     dispatch(actionCreators.getallProducts());
@@ -36,41 +38,49 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className={styles.categoriesDiv}>
-          <div className={styles.categoryItem}>
-            <div className={styles.imgDiv}>
-              <Image src={electronics} alt="Electronics" layout="fill" />
+          <Link href="/products/category/electronics">
+            <div className={styles.categoryItem}>
+              <div className={styles.imgDiv}>
+                <Image src={electronics} alt="Electronics" layout="fill" />
+              </div>
+              <p>Electronics</p>
             </div>
-            <p>Electronics</p>
-          </div>
+          </Link>
 
-          <div className={styles.categoryItem}>
-            <div className={styles.imgDiv}>
-              <Image src={eyeware} alt="Eyeware" layout="fill" />
+          <Link href="/products/category/eyeware">
+            <div className={styles.categoryItem}>
+              <div className={styles.imgDiv}>
+                <Image src={eyeware} alt="Eyeware" layout="fill" />
+              </div>
+              <p>Eyecare</p>
             </div>
-            <p>Eyecare</p>
-          </div>
+          </Link>
 
-          <div className={styles.categoryItem}>
-            <div className={styles.imgDiv}>
-              <Image src={books} alt="Books" layout="fill" />
+          <Link href="/products/category/books">
+            <div className={styles.categoryItem}>
+              <div className={styles.imgDiv}>
+                <Image src={books} alt="Books" layout="fill" />
+              </div>
+              <p>Books</p>
             </div>
-            <p>Books</p>
-          </div>
+          </Link>
 
-          <div className={styles.categoryItem}>
-            <div className={styles.imgDiv}>
-              <Image src={clothing} alt="Clothing" layout="fill" />
+          <Link href="/products/category/clothing">
+            <div className={styles.categoryItem}>
+              <div className={styles.imgDiv}>
+                <Image src={clothing} alt="Clothing" layout="fill" />
+              </div>
+              <p>Clothing</p>
             </div>
-            <p>Clothing</p>
-          </div>
+          </Link>
         </div>
 
         <AdCarousel />
-
-        <h2 className={styles.products_header}>Latest Releases</h2>
-
-        <Products limit={30} />
-
+        <div className={styles.heading_div}>
+          <h2 className={styles.products_header}>Latest Releases</h2>
+          <Link href="/products"><a className={styles.view_all}>View All</a></Link>
+        </div>
+        <Products products={products} limit={30} />
         <Footer />
       </main>
     </div>

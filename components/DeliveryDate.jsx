@@ -8,9 +8,11 @@ import styles from "../styles/deliveryDate.module.css";
 
 TimeAgo.addLocale(en);
 
-const DeliveryDate = ({delivery_date}) => {
+const DeliveryDate = () => {
   const timeAgo = new TimeAgo('en-US');
   const {user, profile} = useSelector(state=> state.userReducer,shallowEqual);
+  const date = new Date();
+  const delivery_date = new Date(date.getTime() + (5 * 24 * 60 * 60 * 1000));
 
   return (
     <div className={styles.delivery_details_div}>

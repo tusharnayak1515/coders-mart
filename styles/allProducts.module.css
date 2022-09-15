@@ -1,0 +1,82 @@
+.allProducts {
+    height: 100%;
+    width: 99.5%;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-column-gap: 5rem;
+    grid-row-gap: 5rem;
+    border: 0.1rem solid lightgrey;
+    background-color: white;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 480px) {
+
+    .allProducts {
+        width: 100%;
+        padding: 0;
+        grid-template-columns: repeat(2,1fr);
+        grid-column-gap: 0.1rem;
+        grid-row-gap: 0.1rem;
+        background-color: lightgrey;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 600px) {
+
+    .allProducts {
+        width: 100%;
+        padding: 0;
+        grid-template-columns: repeat(3,1fr);
+        grid-column-gap: 0.1rem;
+        grid-row-gap: 0.1rem;
+        background-color: lightgrey;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 720px) {
+
+    .allProducts {
+        width: 100%;
+        padding: 0;
+        grid-template-columns: repeat(3,1fr);
+        grid-column-gap: 0.1rem;
+        grid-row-gap: 0.1rem;
+        background-color: lightgrey;
+    }
+}
+
+@media only screen and (min-width: 721px) and (max-width: 900px) {
+
+    .allProducts {
+        width: 100%;
+        padding: 0;
+        grid-template-columns: repeat(4,1fr);
+        grid-column-gap: 0.1rem;
+        grid-row-gap: 0.1rem;
+        background-color: lightgrey;
+    }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1000px) {
+
+    .allProducts {
+        width: 100%;
+        grid-template-columns: repeat(4,1fr);
+        grid-column-gap: 1.5rem;
+        grid-row-gap: 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 1001px) and (max-width: 1200px) {
+    
+    .allProducts {
+        width: 100%;
+        grid-template-columns: repeat(5,1fr);
+        grid-column-gap: 1.5rem;
+        grid-row-gap: 1.5rem;
+    }
+}

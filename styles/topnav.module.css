@@ -8,10 +8,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-bottom: 0.1rem solid lightgrey;
+    /* border-bottom: 0.1rem solid lightgrey; */
     z-index: 500;
     background-color: white;
-    /* background-color: lime; */
+    background-color: green;
 }
 
 .topnav .logoDiv {
@@ -24,7 +24,7 @@
 }
 
 .topnav .logoDiv .logo {
-    color: green;
+    color: white;
     cursor: pointer;
 }
 
@@ -35,8 +35,9 @@
 
 .topnav .logoDiv .menuDiv .menu_icons {
     margin-right: 1rem;
-    color: green;
+    color: white;
     font-size: 1.3rem;
+    cursor: pointer;
 }
 
 .topnav .logoDiv .menuDiv .logout_btn {
@@ -63,13 +64,13 @@
     width: 100%;
     padding: 0.5rem 1rem;
     font-size: 1rem;
-    border: 0.1rem solid grey;
+    border: none;
     border-radius: 0.2rem;
 }
 
-.topnav .searchDiv input:focus {
+/* .topnav .searchDiv input:focus {
     border: 0.1rem solid limegreen;
-}
+} */
 
 .topnav .searchIcon {
     position: absolute;
@@ -137,16 +138,24 @@
 @media only screen and (min-width: 901px) {
 
     .topnav {
+        flex-direction: row;
+        align-items: center;
         min-height: 0;
-        height: 12vh;
+        height: 10vh;
+    }
+
+    .topnav .logoDiv {
+        margin: 0;
+        justify-content: space-around;
     }
 
     .topnav .logoDiv .logo {
-        font-size: 2rem;
+        font-size: 1.7rem;
     }
 
     .topnav .logoDiv .menuDiv .menu_icons {
         font-size: 1.6rem;
+        margin: 0 1rem;
     }
     
     .topnav .logoDiv .menuDiv .logout_btn {
@@ -161,25 +170,25 @@
     .topnav .logoDiv .searchDiv {
         display: block;
         position: relative;
-        width: 50%;
+        width: 30%;
         /* background-color: orange; */
     }
 
     .topnav .logoDiv .searchDiv input {
         width: 100%;
-        padding: 0.6rem 1rem;
+        padding: 0.5rem 1rem;
         font-size: 1rem;
-        border: 0.1rem solid grey;
-        border-radius: 0.3rem;
+        border: none;
+        border-radius: 0.2rem;
     }
     
-    .topnav .logoDiv .searchDiv input:focus {
+    /* .topnav .logoDiv .searchDiv input:focus {
         border: 0.1rem solid limegreen;
-    }
+    } */
 
     .topnav .logoDiv .searchDiv .searchIcon {
-        top: 23%;
-        right: 3%;
+        top: 15%;
+        right: 2%;
         /* background-color: red; */
     }
 }

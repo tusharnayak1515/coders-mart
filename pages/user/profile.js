@@ -54,7 +54,7 @@ const Profile = () => {
       </Head>
 
       <div className={styles.profile_top_div}>
-        <h3 className={styles.greet}>Hey! {profile?.name.split(" ")[0]}</h3>
+        {user && <h3 className={styles.greet}>Hey! {profile?.name.split(" ")[0]}</h3>}
         <Link href="/user/orders"><button className={styles.user_orders_btn}>Orders</button></Link>
       </div>
 

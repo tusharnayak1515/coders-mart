@@ -5,35 +5,60 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import * as cookie from "cookie";
-import { wrapper } from '../../redux/store';
-import { actionCreators } from '../../redux';
-const Rating = dynamic(()=> import("../../components/Rating"), {ssr: false});
-const DeliveryDate = dynamic(()=> import("../../components/DeliveryDate"), {ssr: false});
-const Reviews = dynamic(()=> import("../../components/Reviews"), {ssr: false});
+import { wrapper } from '../../../redux/store';
+import { actionCreators } from '../../../redux';
+import { toast } from 'react-toastify';
+const Rating = dynamic(()=> import("../../../components/Rating"), {ssr: false});
+const DeliveryDate = dynamic(()=> import("../../../components/DeliveryDate"), {ssr: false});
+const Reviews = dynamic(()=> import("../../../components/Reviews"), {ssr: false});
+const CartButtonDiv = dynamic(()=> import("../../../components/CartButtonDiv"), {ssr: false});
 
-import styles from "../../styles/productPage.module.css";
+import styles from "../../../styles/productPage.module.css";
 
 const ProductPage = () => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const {profile} = useSelector(state=>state.userReducer,shallowEqual);
+  const {user} = useSelector(state=>state.userReducer,shallowEqual);
   const {product} = useSelector(state=>state.productReducer,shallowEqual);
   const {cart} = useSelector(state=>state.cartReducer,shallowEqual);
   const {reviews} = useSelector(state=>state.reviewReducer,shallowEqual);
   const [ratings, setRatings] = useState(0);
   const [isInCart, setIsInCart] = useState(false);
 
-  const date = new Date();
-  const delivery_date = new Date(date.getTime() + (5 * 24 * 60 * 60 * 1000));
-
   const addToCart = (e)=> {
     e.preventDefault();
-    dispatch(actionCreators.addToCart(product?._id));
+    if(!user) {
+      toast.warn("You need to be logged in to perform this task!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+    else {
+      dispatch(actionCreators.addToCart(product?._id));
+    }
   }
 
   const goToCart = (e)=> {
     e.preventDefault();
-    router.push("/user/cart");
+    if(!user) {
+      toast.warn("You need to be logged in to perform this task!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+    else {
+      router.push("/user/cart");
+    }
   }
 
   useEffect(()=> {
@@ -47,16 +72,18 @@ const ProductPage = () => {
 
   useEffect(()=> {
     let counter = 0;
-    for (let i = 0; i < cart?.products.length; i++) {
-      if(cart?.products[i]._id === product?._id) {
-        counter += 1;
-        setIsInCart(true);
+    if(user) {
+      for (let i = 0; i < cart?.products.length; i++) {
+        if(cart?.products[i]._id === product?._id) {
+          counter += 1;
+          setIsInCart(true);
+        }
+      }
+      if(counter === 0) {
+        setIsInCart(false);
       }
     }
-    if(counter === 0) {
-      setIsInCart(false);
-    }
-  }, [cart?.products.length]);
+  }, [user, cart?.products.length]);
 
   useEffect(()=> {
     return ()=> {
@@ -77,25 +104,25 @@ const ProductPage = () => {
 
         <div className={styles.product_topDiv}>
           <div className={styles.product_img_div}>
-            <Image src={product?.image} alt={product?.name} layout="fill" />
+            {product && <Image src={product?.image} alt={product?.name} layout="fill" />}
           </div>
 
           <div className={styles.product_details_div}>
             <h3 className={styles.product_name}>{product?.name}</h3>
             <p className={styles.product_description}>{product?.description}</p>
+            {product?.size && <h3 className={styles.product_size}>Size: <span>{product?.size}</span></h3>}
             <h2 className={styles.product_price}>₹{product?.price}</h2>
+            <h3 className={styles.product_quantity}>Hurry! Only {product?.quantity} left!</h3>
             <p className={styles.deliveryText}>FREE Delivery</p>
             <Rating ratings={ratings} reviews={reviews} />
           </div>
         </div>
 
-        <DeliveryDate delivery_date={delivery_date} />
+        <DeliveryDate />
 
         <Reviews />
 
-        {profile && <div className={styles.add_to_cart_div}>
-          <button onClick={isInCart ? goToCart : addToCart}>{isInCart ? 'Go To Cart' : 'Add To Cart'}</button>
-        </div>}
+        {user && <CartButtonDiv isInCart={isInCart} addToCart={addToCart} goToCart={goToCart} />}
     </div>
   )
 }
@@ -111,6 +138,7 @@ export const getServerSideProps = wrapper.getServerSideProps((store)=> async (co
     if (cookieObj.cm_user_token) {
       await store.dispatch(actionCreators.userProfile(cookieObj.cm_user_token));
       await store.dispatch(actionCreators.getCart(cookieObj.cm_user_token));
+      await store.dispatch(actionCreators.getAllOrders(cookieObj.cm_user_token));
     }
     else if(cookieObj.cm_seller_token) {
       await store.dispatch(actionCreators.sellerProfile(cookieObj.cm_seller_token));

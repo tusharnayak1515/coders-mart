@@ -16,4 +16,4 @@ const Rating = ({ratings, reviews}) => {
   )
 }
 
-export default Rating
+export default Rating;

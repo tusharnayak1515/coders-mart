@@ -54,7 +54,7 @@ const handler = async (req, res)=> {
             let productDetails = null;
 
             if(category === "clothing") {
-                if((gender in ["men","women","unisex"]) && (size in ["xs","s","m","l","xl","xxl","free"])){
+                if((["men","women","unisex"].indexOf(gender) !== -1) && (["xs","s","m","l","xl","xxl","free"].indexOf(size) !== -1)){
                     productDetails = {
                         name,
                         description,

@@ -1,18 +1,12 @@
 import React, { Fragment } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { shallowEqual, useDispatch, useSelector } from "react-redux";
 const Product = dynamic(() => import("./Product"), { ssr: true });
 import no_result from "../public/static/images/no_products.png";
 
 import styles from "../styles/products.module.css";
 
-const Products = ({ limit, searchedProducts }) => {
-  const dispatch = useDispatch();
-  const { products } = useSelector(
-    (state) => state.productReducer,
-    shallowEqual
-  );
+const Products = ({ limit, searchedProducts, categorisedProducts, products }) => {
   return (
     <Fragment>
       {(!searchedProducts && products && limit) && (
@@ -56,6 +50,14 @@ const Products = ({ limit, searchedProducts }) => {
           </div>
         )
       )}
+
+      {categorisedProducts && <div className={styles.products}>
+        {categorisedProducts?.map((product) => {
+          return (
+            <Product key={product._id} product={product} />
+          );
+        })}
+      </div>}
     </Fragment>
   );
 };
