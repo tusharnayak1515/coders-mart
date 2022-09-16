@@ -12,6 +12,7 @@ const Register = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.userReducer, shallowEqual);
+  const { seller } = useSelector((state) => state.sellerReducer, shallowEqual);
   const [userDetails, setUserDetails] = useState({
     name: "",
     email: "",
@@ -76,7 +77,10 @@ const Register = () => {
     if (user) {
       router.replace("/");
     }
-  }, [user, router]);
+    else if(seller) {
+      router.replace("/seller/dashboard");
+    }
+  }, [user, seller, router]);
 
   return (
     <div className={styles.login_register}>
@@ -114,19 +118,22 @@ const Register = () => {
             onChange={onChangeHandler}
           />
 
-          <p className={styles.otherText} style={{ alignSelf: "flex-end" }}>
-            Have an account?{" "}
-            <Link href="/user/login">
-              <span className={styles.otherLink}>Login</span>
-            </Link>
-          </p>
+          <div className={styles.flex_div}>
+            <p className={styles.otherText} style={{ alignSelf: "flex-end" }}>
+              Old User?{" "}
+              <Link href="/user/login">
+                <span className={styles.otherLink}>Login</span>
+              </Link>
+            </p>
 
-          <p className={styles.otherRole}>
-            Sell with Us?{" "}
-            <Link href="/seller/register">
-              <span className={styles.otherLink}>Register</span>
-            </Link>
-          </p>
+            <p className={styles.otherRole}>
+              Sell with Us?{" "}
+              <Link href="/seller/register">
+                <span className={styles.otherLink}>Register</span>
+              </Link>
+            </p>
+          </div>
+          
         </div>
 
         <div className={styles.btn_div}>

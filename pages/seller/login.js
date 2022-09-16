@@ -56,7 +56,7 @@ const Login = () => {
 
   useEffect(() => {
     if (seller) {
-      router.replace("/");
+      router.replace("/seller/dashboard");
     }
   }, [seller, router]);
 
@@ -71,7 +71,7 @@ const Login = () => {
         <meta name="keywords" content="nextjs, e-commerce, coders-mart" />
       </Head>
 
-      <h3 className={styles.head}>Log in for the best experience</h3>
+      <h3 className={styles.head}>Log in to track your sales &amp; earnings!</h3>
       <form className={styles.form_div} onSubmit={onSubmitHandler}>
         <div className={styles.input_div}>
           <input
@@ -93,12 +93,21 @@ const Login = () => {
             <p className={styles.forgot_password}>Forgot Password?</p>
           </Link>
 
-          <p className={styles.otherText}>
-            New Seller?{" "}
-            <Link href="/seller/register">
-              <span className={styles.otherLink}>Register</span>
-            </Link>
-          </p>
+          <div className={styles.flex_div}>
+            <p className={styles.otherText}>
+              New Seller?{" "}
+              <Link href="/seller/register">
+                <span className={styles.otherLink}>Register</span>
+              </Link>
+            </p>
+
+            <p className={styles.otherText}>
+              Login as User?{" "}
+              <Link href="/user/login">
+                <span className={styles.otherLink}>Login</span>
+              </Link>
+            </p>
+          </div>
         </div>
 
         <div className={styles.btn_div}>

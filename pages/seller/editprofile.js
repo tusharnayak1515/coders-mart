@@ -14,8 +14,8 @@ import styles from "../../styles/editprofile.module.css";
 const Editprofile = () => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const {user, profile} = useSelector(state=> state.userReducer,shallowEqual);
-  const { seller } = useSelector(state => state.sellerReducer,shallowEqual);
+  const {user} = useSelector(state=> state.userReducer,shallowEqual);
+  const { seller, profile } = useSelector(state => state.sellerReducer,shallowEqual);
   const [userDetails, setUserDetails] = useState({
     name: profile?.name,
     email: profile?.email,
@@ -41,7 +41,7 @@ const Editprofile = () => {
     const {name, email} = userDetails;
     const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
     if((name.length >= 3 && name.length <= 25) && emailRegex.test(email)) {
-        dispatch(actionCreators.editUserProfile(userDetails));
+        dispatch(actionCreators.editSellerProfile(userDetails));
         router.back();
     }
     else {
@@ -76,11 +76,11 @@ const Editprofile = () => {
   }
 
   useEffect(() => {
-    if(seller) {
-      router.replace("/seller/editprofile");
+    if(user) {
+      router.replace("/user/editprofile");
     }
-    else if (!seller && !user) {
-      router.replace("/");
+    else if (!seller) {
+      router.replace("/seller/login");
     }
   }, [user, seller, router]);
 
@@ -138,8 +138,8 @@ export const getServerSideProps = wrapper.getServerSideProps(
     (store) => async (context) => {
       const mycookie = context?.req?.headers?.cookie || "";
       const cookieObj = cookie.parse(mycookie);
-      if (cookieObj.cm_user_token) {
-        await store.dispatch(actionCreators.userProfile(cookieObj.cm_user_token));
+      if (cookieObj.cm_seller_token) {
+        await store.dispatch(actionCreators.sellerProfile(cookieObj.cm_seller_token));
       }
     }
 );

@@ -12,6 +12,7 @@ const Login = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.userReducer, shallowEqual);
+  const { seller } = useSelector((state) => state.sellerReducer, shallowEqual);
   const [userDetails, setUserDetails] = useState({ email: "", password: "" });
 
   const onChangeHandler = (e) => {
@@ -58,7 +59,10 @@ const Login = () => {
     if (user) {
       router.replace("/");
     }
-  }, [user, router]);
+    else if (seller) {
+      router.replace("/seller/dashboard");
+    }
+  }, [user, seller, router]);
 
   return (
     <div className={styles.login_register}>
@@ -93,12 +97,22 @@ const Login = () => {
             <p className={styles.forgot_password}>Forgot Password?</p>
           </Link>
 
-          <p className={styles.otherText}>
-            New User?{" "}
-            <Link href="/user/register">
-              <span className={styles.otherLink}>Register</span>
-            </Link>
-          </p>
+          <div className={styles.flex_div}>
+            <p className={styles.otherText}>
+              New User?{" "}
+              <Link href="/user/register">
+                <span className={styles.otherLink}>Register</span>
+              </Link>
+            </p>
+
+            <p className={styles.otherText}>
+              Login as Seller?{" "}
+              <Link href="/seller/login">
+                <span className={styles.otherLink}>Login</span>
+              </Link>
+            </p>
+          </div>
+
         </div>
 
         <div className={styles.btn_div}>

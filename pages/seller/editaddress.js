@@ -13,11 +13,8 @@ import styles from "../../styles/editAddress.module.css";
 const Editaddress = () => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const { user, profile } = useSelector(
-    (state) => state.userReducer,
-    shallowEqual
-  );
-  const { seller } = useSelector(state => state.sellerReducer,shallowEqual);
+  const { user } = useSelector(state => state.userReducer,shallowEqual);
+  const { seller, profile } = useSelector(state => state.sellerReducer,shallowEqual);
   const [userDetails, setUserDetails] = useState({
     name: profile?.name,
     email: profile?.email,
@@ -59,7 +56,7 @@ const Editaddress = () => {
       pincode &&
       pincode.toString().length === 6
     ) {
-      dispatch(actionCreators.editUserProfile(userDetails));
+      dispatch(actionCreators.editSellerProfile(userDetails));
       router.back();
     } else {
       if (street !== null && street.length <= 0) {
@@ -132,11 +129,11 @@ const Editaddress = () => {
   };
 
   useEffect(() => {
-    if(seller) {
-      router.replace("/seller/editaddress");
+    if(user) {
+      router.replace("/user/editaddress");
     }
-    else if (!seller && !user) {
-      router.replace("/");
+    else if (!seller) {
+      router.replace("/seller/login");
     }
   }, [user, seller, router]);
 
@@ -245,8 +242,8 @@ export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async (context) => {
     const mycookie = context?.req?.headers?.cookie || "";
     const cookieObj = cookie.parse(mycookie);
-    if (cookieObj.cm_user_token) {
-      await store.dispatch(actionCreators.userProfile(cookieObj.cm_user_token));
+    if (cookieObj.cm_seller_token) {
+      await store.dispatch(actionCreators.sellerProfile(cookieObj.cm_seller_token));
     }
   }
 );

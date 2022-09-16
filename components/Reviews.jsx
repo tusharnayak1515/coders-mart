@@ -53,7 +53,7 @@ const Reviews = () => {
       });
     }
     else {
-      alert("yes");
+      router.push(`/reviews/${product?._id}`);
     }
   }
 

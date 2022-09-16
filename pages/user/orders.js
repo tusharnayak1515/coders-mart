@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
-import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import { useSelector, shallowEqual } from 'react-redux';
 import * as cookie from "cookie";
 import { actionCreators } from '../../redux';
 import { wrapper } from '../../redux/store';
@@ -12,18 +12,18 @@ import styles from "../../styles/orders.module.css";
 
 const Orders = () => {
   const router = useRouter();
-  const dispatch = useDispatch();
   const {user} = useSelector(state=> state.userReducer,shallowEqual);
+  const {seller} = useSelector(state=> state.sellerReducer,shallowEqual);
   const {orders} = useSelector(state=> state.orderReducer,shallowEqual);
 
   useEffect(()=> {
-    if(!user) {
-        router.replace("/");
+    if(seller) {
+      router.replace("/seller/dashboard");
     }
-    else {
-        dispatch(actionCreators.getAllOrders());
+    else if (!seller && !user) {
+      router.replace("/");
     }
-  }, []);
+  }, [user, seller, router]);
 
   return (
     <div className={styles.ordersPage}>

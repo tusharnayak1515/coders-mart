@@ -16,8 +16,8 @@ import styles from "../../styles/profile.module.css";
 const Profile = () => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const { user, profile } = useSelector(state => state.userReducer,shallowEqual);
-  const { seller } = useSelector(state => state.sellerReducer,shallowEqual);
+  const { user } = useSelector(state => state.userReducer,shallowEqual);
+  const { seller, profile } = useSelector(state => state.sellerReducer,shallowEqual);
 
   const onLogout = (e)=> {
     e.preventDefault();
@@ -26,20 +26,20 @@ const Profile = () => {
 
   const onEditProfileClick = (e)=> {
     e.preventDefault();
-    router.push("/user/editprofile");
+    router.push("/seller/editprofile");
   }
 
   const onEditAddressClick = (e)=> {
     e.preventDefault();
-    router.push("/user/editaddress");
+    router.push("/seller/editaddress");
   }
 
   useEffect(() => {
-    if(seller) {
-      router.replace("/seller/profile");
+    if(user) {
+      router.replace("/user/profile");
     }
     else if (!seller && !user) {
-      router.replace("/");
+      router.replace("/seller/login");
     }
   }, [user, seller, router]);
 
@@ -55,8 +55,8 @@ const Profile = () => {
       </Head>
 
       <div className={styles.profile_top_div}>
-        {user && <h3 className={styles.greet}>Hey! {profile?.name.split(" ")[0]}</h3>}
-        <Link href="/user/orders"><button className={styles.user_orders_btn}>Orders</button></Link>
+        {profile && <h3 className={styles.greet}>Hey! {profile?.name.split(" ")[0]}</h3>}
+        {/* <Link href="/user/orders"><button className={styles.user_orders_btn}>Orders</button></Link> */}
       </div>
 
       <div className={styles.account_settings_div}>
@@ -115,8 +115,8 @@ export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async (context) => {
     const mycookie = context?.req?.headers?.cookie || "";
     const cookieObj = cookie.parse(mycookie);
-    if (cookieObj.cm_user_token) {
-      await store.dispatch(actionCreators.userProfile(cookieObj.cm_user_token));
+    if (cookieObj.cm_seller_token) {
+      await store.dispatch(actionCreators.sellerProfile(cookieObj.cm_seller_token));
     }
   }
 );

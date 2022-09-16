@@ -14,10 +14,9 @@ const schema = joi.object({
         'ratings.max': '{#label} should be at most {#max}!',
         'ratings.required': '{#label} cannot be empty!',
     }),
-    review: joi.string().min(5).max(100).required().messages({
+    review: joi.string().min(5).max(100).allow("").messages({
         'review.min': '{#label} should contain at least {#min} characters!',
         'review.max': '{#label} should contain at most {#max} characters!',
-        'review.required': '{#label} cannot be empty!',
     }),
     productId: joi.string().length(24).required().messages({
         'productId.length': '{#label} must be of {#length} characters!',

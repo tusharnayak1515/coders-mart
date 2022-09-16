@@ -16,12 +16,12 @@ const schema = joi.object({
         'email.required': '{#email} cannot be empty!'
     }),
     address: joi.object().keys({
-        street: joi.string(),
-        city: joi.string(),
-        district: joi.string(),
-        state: joi.string(),
-        country: joi.string(),
-        pincode: joi.number()
+        street: joi.string().allow(""),
+        city: joi.string().allow(""),
+        district: joi.string().allow(""),
+        state: joi.string().allow(""),
+        country: joi.string().allow(""),
+        pincode: joi.number().allow("")
     }).required().messages({
         'address.required': '{#label} cannot be empty!',
     }),
@@ -55,7 +55,7 @@ const handler = async (req, res)=> {
                 }
             }
 
-            seller = await Seller.findByIdAndUpdate(sellerId, {name: name, email: email}, {new: true})
+            seller = await Seller.findByIdAndUpdate(sellerId, {name: name, email: email, phone: phone, address: address}, {new: true})
                 .select("-password");
             
             success = true;

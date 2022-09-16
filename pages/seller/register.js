@@ -62,7 +62,7 @@ const Register = () => {
 
   useEffect(() => {
     if (seller) {
-      router.replace("/");
+      router.replace("/seller/dashboard");
     }
   }, [seller, router]);
 
@@ -77,7 +77,7 @@ const Register = () => {
         <meta name="keywords" content="nextjs, e-commerce, coders-mart" />
       </Head>
 
-      <h3 className={styles.head}>Join Us for the best experience!</h3>
+      <h3 className={styles.head}>Join and grow with us as a seller!</h3>
       <form className={styles.form_div} onSubmit={onSubmitHandler}>
         <div className={styles.input_div}>
           <input
@@ -102,19 +102,22 @@ const Register = () => {
             onChange={onChangeHandler}
           />
 
-          <p className={styles.otherText} style={{ alignSelf: "flex-end" }}>
-            Have an account?{" "}
-            <Link href="/seller/login">
-              <span className={styles.otherLink}>Login</span>
-            </Link>
-          </p>
+          <div className={styles.flex_div}>
+            <p className={styles.otherText} style={{ alignSelf: "flex-end" }}>
+              Old User?{" "}
+              <Link href="/seller/login">
+                <span className={styles.otherLink}>Login</span>
+              </Link>
+            </p>
 
-          <p className={styles.otherRole}>
-            Shop with Us?{" "}
-            <Link href="/user/register">
-              <span className={styles.otherLink}>Register</span>
-            </Link>
-          </p>
+            <p className={styles.otherRole}>
+              Shop with Us?{" "}
+              <Link href="/user/register">
+                <span className={styles.otherLink}>Register</span>
+              </Link>
+            </p>
+          </div>
+
         </div>
 
         <div className={styles.btn_div}>

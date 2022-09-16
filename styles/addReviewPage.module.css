@@ -1,0 +1,79 @@
+.addReviewPage {
+    min-height: 80vh;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: white;
+}
+
+.addReviewPage .rating_div {
+    width: 100%;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* background-color: rgb(190, 190, 255); */
+}
+
+.addReviewPage .rating_header {
+    color: black;
+    font-weight: 500;
+    margin-bottom: 0.7rem;
+}
+
+.addReviewPage .rating_div .stars_div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* background-color: orange; */
+}
+
+.addReviewPage .rating_div .stars_div .star_icon {
+    font-size: 2rem;
+}
+
+.addReviewPage .reviewForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* background-color: orchid; */
+}
+
+.addReviewPage .reviewForm .pair_div {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* background-color: orange; */
+}
+
+.addReviewPage .reviewForm .pair_div textarea {
+    height: 30vh;
+    width: 100%;
+    resize: none;
+    padding: 0.5rem 1rem;
+    color: black;
+    font-size: 1.1rem;
+    border: 0.1rem solid lightgrey;
+    border-radius: 0.2rem;
+    background-color: white;
+}
+
+.addReviewPage .reviewForm .pair_div textarea:focus {
+    border: 0.1rem solid limegreen;
+}
+
+.addReviewPage .reviewForm button {
+    align-self: flex-end;
+    padding: 0.7rem 1.5rem;
+    color: white;
+    font-size: 1rem;
+    border: 0.1rem solid green;
+    border-radius: 0.2rem;
+    background-color: green;
+}

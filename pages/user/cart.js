@@ -22,6 +22,7 @@ const Cart = () => {
     (state) => state.userReducer,
     shallowEqual
   );
+  const { seller } = useSelector(state => state.sellerReducer,shallowEqual);
   const { cart } = useSelector((state) => state.cartReducer, shallowEqual);
   const [orderDetails, setOrderDetails] = useState({
     products: [],
@@ -36,10 +37,13 @@ const Cart = () => {
   };
 
   useEffect(() => {
-    if (!user) {
+    if(seller) {
+      router.replace("/seller/dashboard");
+    }
+    else if (!seller && !user) {
       router.replace("/");
     }
-  }, [user, router]);
+  }, [user, seller, router]);
 
   useEffect(() => {
     let p = 0;

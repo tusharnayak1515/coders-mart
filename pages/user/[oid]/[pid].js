@@ -13,13 +13,17 @@ import styles from "../../../styles/orderDetails.module.css";
 const OrderDetails = () => {
   const router = useRouter();
   const { user } = useSelector(state => state.userReducer,shallowEqual);
+  const { seller } = useSelector(state => state.sellerReducer,shallowEqual);
   const { order } = useSelector(state => state.orderReducer,shallowEqual);
   const { product } = useSelector(state => state.productReducer,shallowEqual);
   let orderDate = new Date(order?.createdAt);
   let deliveryDate = new Date(order?.date);
 
   useEffect(() => {
-    if (!user) {
+    if(seller) {
+      router.replace("/seller/dashboard");
+    }
+    else if (!seller && !user) {
       router.replace("/");
     }
   }, [user, router]);

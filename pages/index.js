@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { wrapper } from "../redux/store";
 import { actionCreators } from "../redux";
-import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import { shallowEqual, useSelector } from "react-redux";
 const Products = dynamic(()=> import("../components/Products"), {ssr: true});
 const Footer = dynamic(()=> import("../components/Footer"), {ssr: true});
 import AdCarousel from "../components/AdCarousel";
@@ -18,12 +19,15 @@ import clothing from "../public/static/images/clothing.jpg";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
-  const dispatch = useDispatch();
+  const router = useRouter();
+  const {seller} = useSelector(state=> state.sellerReducer,shallowEqual);
   const {products} = useSelector(state=> state.productReducer,shallowEqual);
 
   useEffect(()=> {
-    dispatch(actionCreators.getallProducts());
-  }, [dispatch]);
+    if(seller) {
+      router.replace("/seller/dashboard");
+    }
+  }, [seller, router]);
 
   return (
     <div className={styles.container}>
