@@ -1,4 +1,4 @@
-.addReviewPage {
+.review_page {
     min-height: 80vh;
     width: 100%;
     padding: 1rem;
@@ -8,7 +8,7 @@
     background-color: white;
 }
 
-.addReviewPage .rating_div {
+.review_page .rating_div {
     width: 100%;
     margin: 1rem 0;
     display: flex;
@@ -17,13 +17,13 @@
     /* background-color: rgb(190, 190, 255); */
 }
 
-.addReviewPage .rating_header {
+.review_page .rating_header {
     color: black;
     font-weight: 500;
     margin-bottom: 0.7rem;
 }
 
-.addReviewPage .rating_div .stars_div {
+.review_page .rating_div .stars_div {
     width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -31,11 +31,12 @@
     /* background-color: orange; */
 }
 
-.addReviewPage .rating_div .stars_div .star_icon {
+.review_page .rating_div .stars_div .star_icon {
     font-size: 2rem;
+    cursor: pointer;
 }
 
-.addReviewPage .reviewForm {
+.review_page .reviewForm {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -43,7 +44,7 @@
     /* background-color: orchid; */
 }
 
-.addReviewPage .reviewForm .pair_div {
+.review_page .reviewForm .pair_div {
     width: 100%;
     margin-bottom: 1.5rem;
     display: flex;
@@ -52,7 +53,7 @@
     /* background-color: orange; */
 }
 
-.addReviewPage .reviewForm .pair_div textarea {
+.review_page .reviewForm .pair_div textarea {
     height: 30vh;
     width: 100%;
     resize: none;
@@ -64,16 +65,41 @@
     background-color: white;
 }
 
-.addReviewPage .reviewForm .pair_div textarea:focus {
+.review_page .reviewForm .pair_div textarea:focus {
     border: 0.1rem solid limegreen;
 }
 
-.addReviewPage .reviewForm button {
-    align-self: flex-end;
+.review_page .reviewForm .btn_div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* background-color: orange; */
+}
+
+.review_page .reviewForm button {
+    margin: 0 1rem;
     padding: 0.7rem 1.5rem;
     color: white;
     font-size: 1rem;
     border: 0.1rem solid green;
     border-radius: 0.2rem;
     background-color: green;
+}
+
+.review_page .reviewForm button:hover {
+    color: green;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+}
+
+.review_page .reviewForm .delete_btn {
+    border: 0.1rem solid red;
+    background-color: red;
+}
+
+.review_page .reviewForm .delete_btn:hover {
+    color: red;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
 }

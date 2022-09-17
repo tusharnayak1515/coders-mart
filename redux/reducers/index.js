@@ -51,7 +51,7 @@ const masterReducer = (state,action)=> {
             },
             reviewReducer: {
                 reviews: [...new Set(action.payload.reviewReducer.reviews, state.reviewReducer.reviews)],
-                review: state.reviewReducer.review ? state.reviewReducer.review : action.payload.reviewReducer.review,
+                review: action.payload.reviewReducer.review ? action.payload.reviewReducer.review : state.reviewReducer.review,
                 isLoading: state.reviewReducer.isLoading
             },
             otpReducer: {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { AiFillStar, AiFillLike, AiFillDislike } from 'react-icons/ai';
 import { BsThreeDotsVertical } from 'react-icons/bs';
@@ -8,12 +8,18 @@ import { actionCreators } from '../redux';
 import styles from "../styles/review.module.css";
 
 const ReviewItem = ({review}) => {
+  const router = useRouter();
   const dispatch = useDispatch();
   const {user, profile} = useSelector(state=>state.userReducer,shallowEqual);
   const {seller} = useSelector(state=>state.sellerReducer,shallowEqual);
   const [title, setTitle] = useState("");
 
   const isLiked = review.likes.includes(profile?._id);
+
+  const onMenuClick = (e)=> {
+    e.preventDefault();
+    router.push(`/reviews/edit/${review._id}`);
+  }
 
   const onLike = (e)=> {
     e.preventDefault();
@@ -38,7 +44,7 @@ const ReviewItem = ({review}) => {
     else if(review.ratings >=4 && review.ratings <= 5) {
       setTitle("Awesome");
     }
-  }, [])
+  }, []);
 
   return (
     <div className={styles.review}>
@@ -58,7 +64,7 @@ const ReviewItem = ({review}) => {
           <AiFillLike className={styles.review_action_icons} onClick={onLike} style={{color: isLiked ? "limegreen" : "grey"}} />
           <span className={styles.review_likes_count}>{review.likes.length}</span>
           <AiFillDislike className={styles.review_action_icons} onClick={onUnLike} />
-          <BsThreeDotsVertical className={styles.review_action_icons} />
+          {profile?._id === review.user._id && <BsThreeDotsVertical className={styles.review_action_icons} onClick={onMenuClick} />}
         </div>}
       </div>
     </div>
