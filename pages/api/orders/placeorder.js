@@ -70,7 +70,11 @@ const handler = async (req, res)=> {
                 let sellerId = product.seller.toString();
                 let seller = await Seller.findById(sellerId);
                 let earning = seller.earning + product.price;
-                seller = await Seller.findByIdAndUpdate(sellerId, {earning: earning}, {new: true});
+                let newSale = {
+                    date: new Date(),
+                    money: product.price
+                }
+                seller = await Seller.findByIdAndUpdate(sellerId, {earning: earning, $push: {sale: newSale}}, {new: true});
                 product = await Product.findByIdAndUpdate(product._id.toString(), {quantity: product.quantity - 1}, {new: true});
             }
 

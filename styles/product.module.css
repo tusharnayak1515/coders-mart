@@ -46,7 +46,21 @@
 }
 
 .product h5 {
+    margin-bottom: 0.5rem;
+    color: black;
     font-weight: 600;
+}
+
+.product .product_stock {
+    color: green;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.product .no_stock {
+    color: red;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
 /* Media Queries */

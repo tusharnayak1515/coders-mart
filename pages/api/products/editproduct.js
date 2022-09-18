@@ -24,7 +24,7 @@ const schema = joi.object({
     brand: joi.string().required().messages({
         'brand.required': '{#label} cannot be empty!',
     }),
-    price: joi.string().required().messages({
+    price: joi.required().messages({
         'price.required': '{#label} cannot be empty!',
     }),
     category: joi.string().valid('electronics','eyecare','books','clothing').required().messages({
@@ -68,7 +68,7 @@ const handler = async (req, res)=> {
 
             let myproduct = null;
             if(category === "clothing") {
-                if((gender in ["men","women","unisex"]) && (size in ["xs","s","m","l","xl","xxl","free"])){
+                if((["men", "women", "unisex"].indexOf(gender) !== -1) && (["xs", "s", "m", "l", "xl", "xxl", "free"].indexOf(size) !== -1)){
                     myproduct = {
                         id: id,
                         description: description,
@@ -83,7 +83,7 @@ const handler = async (req, res)=> {
                 }
                 else {
                     success = false;
-                    if(!gender in ["men","women","unisex"]) {
+                    if(["men", "women", "unisex"].indexOf(gender) === -1) {
                         return res.json({success, error: "Invalid gender!"});
                     }
                     else {

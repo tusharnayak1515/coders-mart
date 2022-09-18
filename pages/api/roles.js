@@ -25,7 +25,8 @@ const roles = (function () {
     .readAny("reviews")
     .createOwn("products")
     .updateOwn("products")
-    .deleteOwn("products");
+    .deleteOwn("products")
+    .readOwn("store");
 
   return ac;
 })();

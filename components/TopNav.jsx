@@ -47,7 +47,7 @@ const TopNav = () => {
   return (
     <div className={styles.topnav}>
       <div className={styles.logoDiv}>
-        <Link href="/">
+        <Link href={user ? "/" : "/seller/dashboard"}>
           <h2 className={styles.logo}>CodersMart</h2>
         </Link>
 
@@ -77,16 +77,16 @@ const TopNav = () => {
             </Link>
           )}
           {seller && (
-            <Link href="/products/addproduct">
+            <Link href="/seller/dashboard">
               <a>
-                <IoMdAdd className={styles.menu_icons} />
+                <FaThLarge className={styles.menu_icons} />
               </a>
             </Link>
           )}
           {seller && (
-            <Link href="/seller/dashboard">
+            <Link href="/products/addproduct">
               <a>
-                <FaThLarge className={styles.menu_icons} />
+                <IoMdAdd className={styles.menu_icons} />
               </a>
             </Link>
           )}

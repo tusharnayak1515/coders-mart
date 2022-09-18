@@ -6,7 +6,7 @@ import no_result from "../public/static/images/no_products.png";
 
 import styles from "../styles/products.module.css";
 
-const Products = ({ limit, searchedProducts, categorisedProducts, products }) => {
+const Products = ({ limit, searchedProducts, categorisedProducts, products, store }) => {
   return (
     <Fragment>
       {(!searchedProducts && products && limit) && (
@@ -25,7 +25,7 @@ const Products = ({ limit, searchedProducts, categorisedProducts, products }) =>
         <div className={styles.products}>
           {products?.map((product) => {
             return (
-              <Product key={product._id} product={product} />
+              <Product key={product._id} product={product} store={store} />
             );
           })}
         </div>

@@ -1,0 +1,13 @@
+.earning_div {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: orange; */
+}
+
+.earning_div .money {
+    color: green;
+}

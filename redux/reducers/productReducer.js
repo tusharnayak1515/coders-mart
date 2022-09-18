@@ -36,6 +36,20 @@ const productReducer = (state=initState,action)=> {
             isLoading: false
         }
     }
+    else if(action.type === "get-store") {
+        const {products,error} = action.payload;
+        if(error) {
+            return {
+                ...state,
+                isLoading: false
+            }
+        }
+        return {
+            ...state,
+            products: products,
+            isLoading: false
+        }
+    }
     else if(action.type === "search-products") {
         const {products,error} = action.payload;
         if(error) {

@@ -1,30 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { actionCreators } from "../redux";
 import { toast } from "react-toastify";
 import { FaImage, FaTrash } from "react-icons/fa";
 
 import styles from "../styles/productForm.module.css";
 
-const ProductForm = () => {
+const ProductForm = ({product}) => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const { seller } = useSelector((state) => state.sellerReducer, shallowEqual);
   const [productDetails, setProductDetails] = useState({
-    name: "",
-    description: "",
-    brand: "",
-    price: "",
-    category: "electronics",
-    quantity: 1,
-    gender: "unisex",
-    size: "free",
-    image: "",
+    id: product ? product?._id : undefined,
+    name: product ? product?.name : "",
+    description: product ? product?.description : "",
+    brand: product ? product?.brand : "",
+    price: product ? product?.price : "",
+    category: product ? product?.category : "electronics",
+    quantity: product ? product?.quantity : 1,
+    gender: product ? product?.gender : "unisex",
+    size: product ? product?.size : undefined,
+    image: product ? product?.image : "",
   });
 
-  const [productImg, setProductImg] = useState("");
+  const [productImg, setProductImg] = useState(product ? product?.image : "");
 
   const onChangeHandler = (e) => {
     e.preventDefault();
@@ -65,16 +65,20 @@ const ProductForm = () => {
       description.length >= 5 &&
       description.length <= 100 &&
       brand.trim().length > 0 &&
-      price.length > 0 &&
       parseInt(price) > 0 &&
       ["electronics", "eyeware", "books", "clothing"].indexOf(category) !==
         -1 &&
       quantity >= 1 &&
       ["men", "women", "unisex"].indexOf(gender) !== -1 &&
-      ["xs", "s", "m", "l", "xl", "xxl", "free"].indexOf(size) !== -1
+      (!size || (size && ["xs", "s", "m", "l", "xl", "xxl", "free"].indexOf(size) !== -1))
     ) {
-      dispatch(actionCreators.addProduct(productDetails));
-      router.push("/");
+      if(product) {
+        dispatch(actionCreators.editProduct(productDetails));
+      }
+      else {
+        dispatch(actionCreators.addProduct(productDetails));
+      }
+      router.back();
     } else {
       if (name.length < 3 || name.length > 25) {
         toast.warn("Name should be of minimum 3 and maximum 25 characters!", {
@@ -109,7 +113,7 @@ const ProductForm = () => {
           draggable: true,
           progress: undefined,
         });
-      } else if (price.length === 0 || parseInt(price) <= 0) {
+      } else if (parseInt(price) <= 0) {
         toast.warn("Price cannot be empty and must be greater than 0!", {
           position: "top-right",
           autoClose: 3000,
@@ -167,12 +171,6 @@ const ProductForm = () => {
       }
     }
   };
-
-  useEffect(() => {
-    if (!seller) {
-      router.replace("/");
-    }
-  }, [seller, router]);
 
   return (
     <div className={styles.productForm}>

@@ -112,7 +112,7 @@ const ProductPage = () => {
             <p className={styles.product_description}>{product?.description}</p>
             {product?.size && <h3 className={styles.product_size}>Size: <span>{product?.size}</span></h3>}
             <h2 className={styles.product_price}>₹{product?.price}</h2>
-            <h3 className={styles.product_quantity}>Hurry! Only {product?.quantity} left!</h3>
+            <h3 className={styles.product_quantity}>{product?.quantity !== 0 ? `Hurry! Only ${product?.quantity} left!` : `Out of stock`}</h3>
             <p className={styles.deliveryText}>FREE Delivery</p>
             <Rating ratings={ratings} reviews={reviews} />
           </div>

@@ -1,25 +1,34 @@
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 import styles from "../styles/product.module.css";
 
-const Product = ({product}) => {
+const Product = ({ product, store }) => {
   return (
-    <Link href={`/products/product/${product._id}`}>
+    <Link
+      href={
+        store
+          ? `/products/editproduct/${product?._id}`
+          : `/products/product/${product._id}`
+      }
+    >
       <a>
         <div className={styles.product}>
           <div className={styles.product_image}>
-              <Image src={product.image} alt={product.name} layout="fill" />
+            <Image src={product.image} alt={product.name} layout="fill" />
           </div>
-          {/* {product.name.length < 15 ? <p className={styles.product_name}>{product.name}</p> : <p className={styles.product_name}>{product.name.substring(0,15)}...</p>} */}
           <p className={styles.product_name}>{product.name}</p>
           <h5>₹ {product.price}</h5>
+          {store && product?.quantity === 0 ? (
+            <p className={styles.no_stock}>Out of stock</p>
+          ) : (
+            store  && <p className={styles.product_stock}>In Stock: {product?.quantity}</p>
+          )}
         </div>
       </a>
     </Link>
-    
-  )
-}
+  );
+};
 
-export default Product
+export default Product;

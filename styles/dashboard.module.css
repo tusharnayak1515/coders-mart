@@ -1,0 +1,158 @@
+.dashboardPage {
+    min-height: 80vh;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(235, 235, 235);
+}
+
+.dashboardPage .analytics_container {
+    min-height: 80vh;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: repeat(4,1fr);
+    grid-gap: 1rem;
+    /* background-color: orange; */
+}
+
+.dashboardPage .analytics_container .analytics_div {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: none;
+    border-radius: 0.3rem;
+    box-shadow: 0.01rem 0.01rem 0.3rem 0.1rem rgba(0, 0, 0, 0.534);
+    background-color: white;
+}
+
+.dashboardPage .analytics_container .my_store {
+    cursor: pointer;
+}
+
+.dashboardPage .analytics_container .analytics_div .left_div {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* background-color: orchid; */
+}
+
+.dashboardPage .analytics_container .analytics_div .left_div h3 {
+    color: black;
+    margin-bottom: 0.5rem;
+}
+
+.dashboardPage .analytics_container .analytics_div .left_div b {
+    color: green;
+}
+
+.dashboardPage .analytics_container .analytics_div .right_div {
+    position: relative;
+    height: 3rem;
+    width: 3rem;
+}
+
+.dashboardPage .earning_history_div {
+    width: 90%;
+    margin: 2rem auto;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 0.1rem solid lightgrey;
+    border-radius: 0.3rem;
+    box-shadow: 0.01rem 0.01rem 0.3rem 0.1rem rgba(0, 0, 0, 0.534);
+    background-color: white;
+}
+
+.dashboardPage .earning_history_div h3 {
+    color: black;
+    margin: 1rem 0 0.5rem 0;
+}
+
+.dashboardPage .earning_history_div .top_div {
+    width: 100%;
+    margin-bottom: 0.3rem;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: rgb(234, 234, 234);
+}
+
+/* Media Queries */
+
+@media only screen and (min-width: 481px) and (max-width: 600px) {
+
+    .dashboardPage .analytics_container {
+        width: 80%;
+    }
+
+    .dashboardPage .earning_history_div {
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 720px) {
+
+    .dashboardPage .analytics_container {
+        min-height: 40vh;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 721px) and (max-width: 900px) {
+
+    .dashboardPage .analytics_container {
+        min-height: 40vh;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
+
+    .dashboardPage {
+        min-height: 90vh;
+    }
+
+    .dashboardPage .analytics_container {
+        min-height: 40vh;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 1.5rem;
+    }
+
+    .dashboardPage .analytics_div {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1201px) {
+
+    .dashboardPage {
+        min-height: 90vh;
+        padding: 2rem;
+    }
+
+    .dashboardPage .analytics_container {
+        min-height: 20vh;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: 1fr;
+        grid-gap: 1.5rem;
+    }
+
+    .dashboardPage .analytics_div {
+        width: 100%;
+    }
+}

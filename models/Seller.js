@@ -48,6 +48,18 @@ const SellerSchema = new Schema({
         type: Number,
         default: 0
     },
+    sale: [
+        {
+            date: {
+                type: Date,
+                default: null
+            },
+            money: {
+                type: Number,
+                default: null
+            }
+        }
+    ],
     role: {
         type: String,
         default: "seller",

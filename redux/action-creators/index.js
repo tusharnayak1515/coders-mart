@@ -960,6 +960,64 @@ export const changeSellerPassword = ({oldpassword, newpassword, confirmpassword}
     } 
 }
 
+
+export const getStore = (token)=> async (dispatch)=> {
+    dispatch({
+        type: "product-loading"
+    });
+
+    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    try {
+        const res = await axios.get(`${url}/api/auth/seller/products`,{headers: {cm_seller_token: token}});
+
+        if(res.data.success) {
+            if(typeof window !== "undefined") {
+                localStorage.setItem("cm_products", JSON.stringify(res.data.products));
+            }
+            dispatch({
+                type: "get-store",
+                payload: {
+                    products: res.data.products,
+                }
+            });
+        }
+
+        if(res.data.error) {
+            dispatch({
+                type: "get-store",
+                payload: {
+                    error: res.data.error
+                }
+            });
+            toast.error(res.data.error, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+    } catch (error) {
+        dispatch({
+            type: "get-store",
+            payload: {
+              error: error,
+            }
+        });
+        toast.error(error, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    } 
+}
+
 // *******************************Product Section********************************** \\
 
 export const getallProducts = ()=> async (dispatch)=> {

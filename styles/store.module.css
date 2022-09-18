@@ -1,0 +1,16 @@
+.storePage {
+    min-height: 80vh;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+.storePage .store_header {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    color: black;
+    font-weight: 500;
+}
