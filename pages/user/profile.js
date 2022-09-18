@@ -104,7 +104,7 @@ const Profile = () => {
       </div>
 
       <div className={styles.profile_bottom_div}>
-          <button className={styles.logout_btn} onClick={onLogout}>Logout</button>
+        <button className={styles.logout_btn} onClick={onLogout}>Logout</button>
       </div>
     </div>
   )};
