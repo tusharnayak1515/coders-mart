@@ -6,7 +6,7 @@ import { actionCreators } from "../redux";
 import { IoMdSearch } from "react-icons/io";
 import { BsFillCartFill } from "react-icons/bs";
 import { FaUserAlt, FaThLarge } from "react-icons/fa";
-import { BiLogOut } from "react-icons/bi";
+import { RiShutDownLine } from "react-icons/ri";
 import { IoMdAdd } from "react-icons/io";
 
 import styles from "../styles/topnav.module.css";
@@ -103,7 +103,7 @@ const TopNav = () => {
           )}
           {(user || seller) && (
             <a onClick={onLogout}>
-              <BiLogOut className={`${styles.menu_icons} ${styles.logout_btn}`} />
+              <RiShutDownLine className={`${styles.menu_icons} ${styles.logout_btn}`} />
             </a>
           )}
         </div>

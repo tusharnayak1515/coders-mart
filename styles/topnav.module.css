@@ -76,7 +76,7 @@
 }
 
 .topnav .logoDiv .menuDiv .menu_icons:hover {
-    color: limegreen;
+    color: yellow;
     transition: all 0.2s ease-in-out;
 }
 
