@@ -16,6 +16,7 @@ const TopNav = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.userReducer, shallowEqual);
   const { seller } = useSelector((state) => state.sellerReducer, shallowEqual);
+  const { cart } = useSelector((state) => state.cartReducer, shallowEqual);
   const [name, setName] = useState("");
 
   const onNameChange = (e)=> {
@@ -58,11 +59,14 @@ const TopNav = () => {
         
         <div className={styles.menuDiv}>
           {user && (
-            <Link href="/user/cart">
-              <a>
-                <BsFillCartFill className={styles.menu_icons} />
-              </a>
-            </Link>
+            <div className={`${styles.cart_icon}`}>
+              {<Link href="/user/cart"><a className={styles.cart_count}>{cart?.products.length}</a></Link>}
+              <Link href="/user/cart">
+                <a>
+                  <BsFillCartFill className={styles.menu_icons} />
+                </a>
+              </Link>
+            </div>
           )}
           {user && (
             <Link href="/user/profile">
@@ -73,7 +77,7 @@ const TopNav = () => {
           )}
           {!user && !seller && (
             <Link href="/user/login">
-              <a className={styles.menu_icons}>Login</a>
+              <a className={styles.menu_icons} style={{fontSize: "1.5rem"}}>Login</a>
             </Link>
           )}
           {seller && (

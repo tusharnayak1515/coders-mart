@@ -35,6 +35,7 @@
     color: whitesmoke;
     display: flex;
     flex-wrap: wrap;
+    cursor: pointer;
 }
 
 .footer .footer_links .columnDiv p:hover {

@@ -30,14 +30,45 @@
 
 .topnav .logoDiv .menuDiv {
     padding: 0.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     /* background-color: orange; */
 }
 
 .topnav .logoDiv .menuDiv .menu_icons {
+    position: relative;
     margin-right: 1rem;
     color: white;
     font-size: 1.3rem;
     cursor: pointer;
+}
+
+.topnav .logoDiv .menuDiv .cart_icon {
+    position: relative;
+    margin-right: 1rem;
+    /* background-color: yellowgreen; */
+}
+
+.topnav .logoDiv .menuDiv .cart_icon.menu_icons {
+    margin-right: 0;
+}
+
+.topnav .logoDiv .menuDiv .cart_count {
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    right: auto;
+    height: 1.2rem;
+    width: 1.2rem;
+    color: white;
+    font-size: 0.8rem;
+    text-align: center;
+    border: 0.01rem solid white;
+    border-radius: 50%;
+    z-index: 400;
+    cursor: pointer;
+    background-color: red;
 }
 
 .topnav .logoDiv .menuDiv .logout_btn {
@@ -97,10 +128,6 @@
 
 @media only screen and (min-width: 481px) and (max-width: 600px) {
 
-    .topnav .logoDiv .logo {
-        font-size: 1.7rem;
-    }
-
     .topnav .logoDiv .menuDiv .menu_icons {
         font-size: 1.5rem;
     }
@@ -111,10 +138,6 @@
 }
 
 @media only screen and (min-width: 601px) and (max-width: 900px) {
-
-    .topnav .logoDiv .logo {
-        font-size: 2rem;
-    }
 
     .topnav .logoDiv .menuDiv .menu_icons {
         font-size: 1.6rem;
@@ -147,10 +170,6 @@
     .topnav .logoDiv {
         margin: 0;
         justify-content: space-around;
-    }
-
-    .topnav .logoDiv .logo {
-        font-size: 1.7rem;
     }
 
     .topnav .logoDiv .menuDiv .menu_icons {

@@ -10,7 +10,8 @@ const handler = async (req, res)=> {
         try {
             const searchname = req.query.name;
             const searchedProducts = await Product.find({name: new RegExp(searchname, "i")})
-                .populate("seller", "_id name");
+                .populate("seller", "_id name")
+                .sort("-createdAt");
 
             success = true;
             return res.status(200).json({success, searchedProducts});

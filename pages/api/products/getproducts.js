@@ -10,7 +10,8 @@ const handler = async (req, res)=> {
         try {
             const category = req.query.category;
             const categorisedProducts = await Product.find({category: category})
-                .populate("seller", "_id name");
+                .populate("seller", "_id name")
+                .sort("-createdAt");
 
             success = true;
             return res.status(200).json({success, categorisedProducts});

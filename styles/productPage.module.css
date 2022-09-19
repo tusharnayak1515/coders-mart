@@ -1,6 +1,7 @@
 .productPage {
     min-height: 100vh;
     width: 100%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -9,6 +10,7 @@
 
 .productPage .product_topDiv {
     width: 100%;
+    margin: 0 auto;
     margin-bottom: 0.5rem;
     display: flex;
     flex-direction: column;
@@ -19,7 +21,7 @@
 .productPage .product_img_div {
     position: relative;
     height: 20rem;
-    width: 95%;
+    width: 90%;
     margin: 0.5rem auto;
     margin-bottom: 1rem;
     padding: 0.5rem 1rem;
@@ -33,7 +35,9 @@
 }
 
 .productPage .product_details_div {
-    padding: 0 1rem;
+    width: 90%;
+    margin: 0 auto;
+    /* background-color: orange; */
 }
 
 .productPage .product_details_div .product_name {
@@ -103,6 +107,7 @@
     bottom: 0;
     height: 7vh;
     width: 100%;
+    margin: 0 auto;
     border-top: 0.1rem solid limegreen;
 }
 
@@ -120,4 +125,86 @@
     color: green;
     background-color: white;
     transition: all 0.2s ease-in-out;
+}
+
+/* Media Queries */
+
+@media only screen and (min-width: 481px) and (max-width: 600px) {
+
+    .productPage .product_topDiv {
+        width: 95%;
+    }
+
+    .productPage .product_img_div {
+        height: 23rem;
+        width: 90%;
+    }
+
+    .productPage .add_to_cart_div {
+        width: 95%;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 720px) {
+
+    .productPage .product_topDiv {
+        width: 80%;
+    }
+
+    .productPage .product_img_div {
+        height: 23rem;
+        width: 90%;
+    }
+
+    .productPage .add_to_cart_div {
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: 721px) and (max-width: 900px) {
+
+    .productPage .product_topDiv {
+        width: 70%;
+    }
+
+    .productPage .product_img_div {
+        height: 25rem;
+        width: 90%;
+    }
+
+    .productPage .add_to_cart_div {
+        width: 70%;
+    }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
+
+    .productPage .product_topDiv {
+        width: 60%;
+    }
+
+    .productPage .product_img_div {
+        height: 27rem;
+        width: 90%;
+    }
+
+    .productPage .add_to_cart_div {
+        width: 60%;
+    }
+}
+
+@media only screen and (min-width: 1201px) {
+
+    .productPage .product_topDiv {
+        width: 50%;
+    }
+
+    .productPage .product_img_div {
+        height: 30rem;
+        width: 90%;
+    }
+
+    .productPage .add_to_cart_div {
+        width: 50%;
+    }
 }

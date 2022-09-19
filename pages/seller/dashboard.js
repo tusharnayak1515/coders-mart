@@ -123,7 +123,7 @@ const Dashboard = () => {
           <b>Earning</b>
         </div>
 
-        {profile?.sale.map((sale, index) => {
+        {profile && [...profile?.sale].reverse().map((sale, index) => {
           return <EarningHistory key={index} sale={sale} />;
         })}
       </div>

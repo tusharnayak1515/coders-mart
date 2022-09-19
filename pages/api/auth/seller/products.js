@@ -19,7 +19,8 @@ const handler = async (req, res)=> {
             }
 
             const products = await Product.find({seller: sellerId})
-                .populate("seller", "_id name");
+                .populate("seller", "_id name")
+                .sort("-createdAt");
 
             success = true;
             return res.status(200).json({success, products});

@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import * as cookie from "cookie";
 import { wrapper } from "../redux/store";
 import { actionCreators } from "../redux";
 import { shallowEqual, useSelector } from "react-redux";
@@ -93,4 +94,9 @@ export default function Home() {
 
 export const getServerSideProps = wrapper.getServerSideProps((store)=> async (context)=> {
   await store.dispatch(actionCreators.getallProducts());
+  const mycookie = context?.req?.headers?.cookie || "";
+  const cookieObj = cookie.parse(mycookie);
+  if (cookieObj.cm_user_token) {
+    await store.dispatch(actionCreators.getCart(cookieObj.cm_user_token));
+  }
 });

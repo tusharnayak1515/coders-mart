@@ -1,5 +1,6 @@
 .review {
     width: 100%;
+    margin: 0 auto;
     padding: 0.5rem 1rem;
     display: flex;
     flex-direction: column;
@@ -9,7 +10,7 @@
 
 .review .review_top_div {
     width: 100%;
-    margin: 0.5rem 0;
+    margin: 0.5rem auto;
     padding: 0;
     display: flex;
     justify-content: flex-start;
@@ -31,6 +32,8 @@
 }
 
 .review .reviewText {
+    width: 100%;
+    margin: 0 auto;
     margin-bottom: 0.5rem;
     color: black;
     font-size: 0.9rem;
@@ -43,6 +46,7 @@
 
 .review .flex_div {
     width: 100%;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -70,4 +74,102 @@
 
 .review .flex_div .review_actions_div .review_likes_count {
     color: grey;
+}
+
+/* Media Queries */
+
+@media only screen and (min-width: 481px) and (max-width: 600px) {
+
+    .review {
+        width: 100%;
+    }
+    
+    .review .review_top_div {
+        padding: 0 0.5rem;
+    }
+
+    .review .reviewText {
+        padding: 0 0.5rem;
+    }
+
+    .review .flex_div {
+        padding: 0 0.5rem;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 720px) {
+
+    .review {
+        width: 100%;
+    }
+    
+    .review .review_top_div {
+        padding: 0 0.5rem;
+    }
+
+    .review .reviewText {
+        padding: 0 0.5rem;
+    }
+
+    .review .flex_div {
+        padding: 0 0.5rem;
+    }
+}
+
+@media only screen and (min-width: 721px) and (max-width: 900px) {
+
+    .review {
+        width: 100%;
+        /* padding: 0.5rem 0; */
+    }
+    
+    .review .review_top_div {
+        padding: 0 0.5rem;
+    }
+
+    .review .reviewText {
+        padding: 0 0.5rem;
+    }
+
+    .review .flex_div {
+        padding: 0 0.5rem;
+    }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
+
+    .review {
+        width: 100%;
+    }
+    
+    .review .review_top_div {
+        padding: 0 0.6rem;
+    }
+
+    .review .reviewText {
+        padding: 0 0.6rem;
+    }
+
+    .review .flex_div {
+        padding: 0 0.6rem;
+    }
+}
+
+@media only screen and (min-width: 1201px) {
+
+    .review {
+        width: 100%;
+    }
+
+    .review .review_top_div {
+        padding: 0 0.8rem;
+    }
+
+    .review .reviewText {
+        padding: 0 0.8rem;
+    }
+
+    .review .flex_div {
+        padding: 0 0.8rem;
+    }
 }

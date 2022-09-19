@@ -1,6 +1,7 @@
 .login_register {
     height: 80vh;
     width: 100%;
+    margin: 0 auto;
     /* padding: 0 1rem; */
     padding-top: 2rem;
     display: flex;
@@ -11,14 +12,16 @@
 
 .login_register .head {
     width: 100%;
-    padding-left: 1rem;
+    margin: 0 auto;
     margin-bottom: 1.5rem;
+    padding-left: 1rem;
     color: black;
     /* background-color: lime; */
 }
 
 .login_register .form_div {
     width: 100%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -37,10 +40,11 @@
 
 .login_register .form_div .input_div input {
     width: 100%;
+    margin: 0 auto;
     margin-bottom: 1rem;
     padding: 0.7rem 1rem;
     color: black;
-    font-size: 1.1rem;
+    font-size: 1rem;
     border: 0.1rem solid lightgrey;
     border-radius: 0.3rem;
 }
@@ -118,4 +122,95 @@
     color: limegreen;
     background-color: white;
     transition: all 0.2s ease-in-out;
+}
+
+/* Media Queries */
+
+@media only screen and (min-width: 481px) and (max-width: 600px) {
+
+    .login_register .head {
+        width: 80%;
+    }
+
+    .login_register .form_div {
+        width: 80%;
+    }
+
+    .login_register .form_div .btn_div {
+        border: none;
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 720px) {
+
+    .login_register .head {
+        width: 65%;
+    }
+
+    .login_register .form_div {
+        width: 65%;
+    }
+
+    .login_register .form_div .btn_div {
+        border: none;
+        width: 65%;
+    }
+}
+
+@media only screen and (min-width: 721px) and (max-width: 900px) {
+
+    .login_register .head {
+        width: 55%;
+    }
+
+    .login_register .form_div {
+        width: 55%;
+    }
+
+    .login_register .form_div .btn_div {
+        position: static;
+        margin-top: 2rem;
+        padding: 0 1rem;
+        border: none;
+        /* background-color: orange; */
+    }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
+
+    .login_register .head {
+        width: 40%;
+    }
+
+    .login_register .form_div {
+        width: 40%;
+    }
+
+    .login_register .form_div .btn_div {
+        position: static;
+        margin-top: 2rem;
+        padding: 0 1rem;
+        border: none;
+        /* background-color: orange; */
+    }
+}
+
+@media only screen and (min-width: 1201px) {
+
+    .login_register .head {
+        width: 30%;
+    }
+
+    .login_register .form_div {
+        width: 30%;
+    }
+
+    .login_register .form_div .btn_div {
+        position: static;
+        margin-top: 2rem;
+        padding: 0 1rem;
+        border: none;
+        /* background-color: orange; */
+    }
 }

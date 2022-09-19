@@ -40,7 +40,8 @@ const handler = async (req, res)=> {
             product = await Product.findByIdAndDelete(productId, {new: true});
             
             const products = await Product.find()
-                .populate("seller", "_id name");
+                .populate("seller", "_id name")
+                .sort("-createdAt");
 
             success = true;
             return res.status(200).json({success, products});
