@@ -101,7 +101,7 @@ const ReviewForm = ({product,review}) => {
 
   return (
     <div className={styles.review_page}>
-        <div className={styles.rating_div}>
+      <div className={styles.rating_div}>
         <h2 className={styles.rating_header}>Rate this product</h2>
         <div className={styles.stars_div}>
           {stars.map((_, index) => {

@@ -25,19 +25,19 @@ const EditReviewPage = () => {
 
   return (
     <div>
-        <Head>
-            <title>Edit Review</title>
-            <meta
-            name="description"
-            content="Coders-Mart is an e-commerce webapp made using NEXT JS."
-            />
-            <meta
-            name="keywords"
-            content={`nextjs, e-commerce, coders-mart, edit review, reviews`}
-            />
-        </Head>
+      <Head>
+          <title>Edit Review</title>
+          <meta
+          name="description"
+          content="Coders-Mart is an e-commerce webapp made using NEXT JS."
+          />
+          <meta
+          name="keywords"
+          content={`nextjs, e-commerce, coders-mart, edit review, reviews`}
+          />
+      </Head>
 
-        <ReviewForm review={review} />
+      <ReviewForm review={review} />
     </div>
   )
 }
