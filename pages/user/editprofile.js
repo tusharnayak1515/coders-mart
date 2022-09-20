@@ -9,7 +9,7 @@ import { actionCreators } from "../../redux";
 import { toast } from 'react-toastify';
 import { BiArrowBack } from 'react-icons/bi';
 
-import styles from "../../styles/editprofile.module.css";
+import styles from "../../styles/editProfile.module.css";
 
 const Editprofile = () => {
   const router = useRouter();

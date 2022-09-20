@@ -1,5 +1,5 @@
 .editProfilePage {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -8,8 +8,10 @@
 }
 
 .editProfilePage .editProfile_top_div {
+    position: relative;
     height: 35vh;
     width: 100%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -51,6 +53,7 @@
 .editProfilePage .editProfile_form_div {
     height: 55vh;
     width: 100%;
+    margin: 0 auto;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -98,10 +101,11 @@
 .editProfilePage .editProfile_bottom_div {
     height: 10vh;
     width: 100%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    border-top: 0.1rem solid lightgrey;
+    border-top: 0.1rem solid limegreen;
     /* background-color: orangered; */
 }
 
@@ -117,4 +121,112 @@
 .editProfilePage .editProfile_bottom_div .actions:hover {
     color: rgb(2, 169, 2);
     transition: all 0.2s ease-in-out;
+}
+
+/* Media Queries */
+
+@media only screen and (min-width: 601px) and (max-width: 720px) {
+
+    .editProfilePage .editProfile_top_div {
+        height: 40vh;
+    }
+
+    .editProfilePage .editProfile_top_div .dpDiv {
+        height: 8rem;
+        width: 8rem;
+    }
+
+    .editProfilePage .editProfile_form_div {
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: 721px) and (max-width: 900px) {
+
+    .editProfilePage .editProfile_top_div {
+        height: 45vh;
+    }
+
+    .editProfilePage .editProfile_top_div .dpDiv {
+        height: 9rem;
+        width: 9rem;
+    }
+
+    .editProfilePage .editProfile_form_div {
+        width: 75%;
+    }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
+
+    .editProfilePage .editProfile_top_div {
+        width: 65%;
+        border-bottom: 0.1rem solid limegreen;
+        background-color: white;
+    }
+
+    .editProfilePage .editProfile_top_div .dpDiv {
+        height: 10rem;
+        width: 10rem;
+        border: 0.2rem solid limegreen;
+    }
+
+    .editProfilePage .editProfile_form_div {
+        width: 65%;
+    }
+
+    .editProfilePage .editProfile_bottom_div {
+        width: 65%;
+    }
+
+    .editProfilePage .editProfile_top_div .back_btn_div {
+        top: 10%;
+        left: 0%;
+    }
+
+    .editProfilePage .editProfile_top_div .back_btn_div .back_btn {
+        color: green;
+        font-size: 2rem;
+    }
+    
+    .editProfilePage .editProfile_top_div .back_btn_div .back_btn:hover {
+        color: rgb(0, 171, 0);
+    }
+}
+
+@media only screen and (min-width: 1201px) {
+
+    .editProfilePage .editProfile_top_div {
+        width: 60%;
+        border-bottom: 0.1rem solid limegreen;
+        background-color: white;
+    }
+
+    .editProfilePage .editProfile_top_div .dpDiv {
+        height: 10.5rem;
+        width: 10.5rem;
+        border: 0.2rem solid limegreen;
+    }
+
+    .editProfilePage .editProfile_form_div {
+        width: 60%;
+    }
+
+    .editProfilePage .editProfile_bottom_div {
+        width: 60%;
+    }
+
+    .editProfilePage .editProfile_top_div .back_btn_div {
+        top: 10%;
+        left: 0%;
+    }
+
+    .editProfilePage .editProfile_top_div .back_btn_div .back_btn {
+        color: green;
+        font-size: 2rem;
+    }
+    
+    .editProfilePage .editProfile_top_div .back_btn_div .back_btn:hover {
+        color: rgb(0, 171, 0);
+    }
 }

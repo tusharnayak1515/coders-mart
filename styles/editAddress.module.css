@@ -19,7 +19,14 @@
 
 .editAddress .editAddress_top_div .back_btn {
     color: white;
+    font-size: 1.3rem;
     margin-right: 1rem;
+    cursor: pointer;
+}
+
+.editAddress .editAddress_top_div .back_btn:hover {
+    color: yellow;
+    transition: all 0.2s ease-in-out;
 }
 
 .editAddress .editAddress_top_div .editAddress_head {
@@ -30,6 +37,7 @@
 .editAddress .editAddress_form_div {
     min-height: 90vh;
     width: 100%;
+    margin: 0 auto;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -69,9 +77,93 @@
 .editAddress .editAddress_form_div .editAddress_submit_btn {
     width: 100%;
     padding: 0.7rem 1rem;
+    color: white;
     font-size: 1rem;
     border: 0.1rem solid rgb(0, 160, 0);
     border-radius: 0.2rem;
-    color: white;
     background-color: rgb(0, 160, 0);
+}
+
+.editAddress .editAddress_form_div .editAddress_submit_btn:hover {
+    color: green;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Media Queries */
+
+@media only screen and (min-width: 601px) and (max-width: 720px) {
+
+    .editAddress .editAddress_top_div .back_btn {
+        font-size: 1.5rem;
+    }
+
+    .editAddress .editAddress_top_div .editAddress_head {
+        font-size: 1.3rem;
+    }
+
+    .editAddress .editAddress_form_div {
+        width: 85%;
+    }
+
+    .editAddress .editAddress_form_div .editAddress_submit_btn {
+        padding: 0.8rem;
+    }
+}
+
+@media only screen and (min-width: 721px) and (max-width: 900px) {
+
+    .editAddress .editAddress_top_div .back_btn {
+        font-size: 1.5rem;
+    }
+
+    .editAddress .editAddress_top_div .editAddress_head {
+        font-size: 1.3rem;
+    }
+
+    .editAddress .editAddress_form_div {
+        width: 75%;
+    }
+
+    .editAddress .editAddress_form_div .editAddress_submit_btn {
+        padding: 0.8rem;
+    }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
+
+    .editAddress .editAddress_top_div .back_btn {
+        font-size: 1.7rem;
+    }
+
+    .editAddress .editAddress_top_div .editAddress_head {
+        font-size: 1.4rem;
+    }
+
+    .editAddress .editAddress_form_div {
+        width: 65%;
+    }
+
+    .editAddress .editAddress_form_div .editAddress_submit_btn {
+        padding: 0.9rem;
+    }
+}
+
+@media only screen and (min-width: 1201px) {
+
+    .editAddress .editAddress_top_div .back_btn {
+        font-size: 1.8rem;
+    }
+
+    .editAddress .editAddress_top_div .editAddress_head {
+        font-size: 1.5rem;
+    }
+
+    .editAddress .editAddress_form_div {
+        width: 60%;
+    }
+
+    .editAddress .editAddress_form_div .editAddress_submit_btn {
+        padding: 1rem;
+    }
 }
