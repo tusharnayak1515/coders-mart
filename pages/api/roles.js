@@ -16,11 +16,13 @@ const roles = (function () {
     .updateOwn("likes")
     .readOwn("profile")
     .updateOwn("profile")
+    .updateOwn("password")
     .deleteOwn("profile");
-
-  ac.grant("seller")
+    
+    ac.grant("seller")
     .readOwn("profile")
     .updateOwn("profile")
+    .updateOwn("password")
     .deleteOwn("profile")
     .readAny("reviews")
     .createOwn("products")

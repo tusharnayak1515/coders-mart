@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 import { BiArrowBack } from 'react-icons/bi';
 
 import styles from "../../styles/editProfile.module.css";
+import PasswordModal from '../../components/PasswordModal';
 
 const Editprofile = () => {
   const router = useRouter();
@@ -30,11 +31,18 @@ const Editprofile = () => {
     }
   });
 
+  const [show, setShow] = useState(false);
+
   const onChangeHandler = (e)=> {
     e.preventDefault();
     const {name, value} = e.target;
     setUserDetails({...userDetails, [name]: value});
   }
+
+  const passwordChangeClick = (e) => {
+    e.preventDefault();
+    setShow(true);
+  };
 
   const onSubmitHandler = (e)=> {
     e.preventDefault();
@@ -95,6 +103,7 @@ const Editprofile = () => {
             <meta name="keywords" content={`nextjs, e-commerce, coders-mart, edit profile, ${profile?.name}`} />
         </Head>
 
+        {show && <PasswordModal setShow={setShow} />}
         <div className={styles.editProfile_top_div}>
             <div className={styles.back_btn_div}>
                 <BiArrowBack className={styles.back_btn} onClick={onBackClick} />
@@ -126,7 +135,7 @@ const Editprofile = () => {
         </form>
 
         <div className={styles.editProfile_bottom_div}>
-            <h3 className={styles.actions}>Change Password</h3>
+            <h3 className={styles.actions} onClick={passwordChangeClick}>Change Password</h3>
         </div>
     </div>
   )

@@ -36,13 +36,6 @@ const otpReducer = (state=initState,action)=> {
         }
     }
     else if(action.type === "reset-otp-status") {
-        const {error} = action.payload;
-        if(error) {
-            return {
-                ...state,
-                isLoading: false
-            }
-        }
         return {
             ...state,
             otp: null,

@@ -27,6 +27,7 @@ export default function Home() {
   const {products} = useSelector(state=> state.productReducer,shallowEqual);
 
   useEffect(()=> {
+    dispatch(actionCreators.getallProducts());
     if(seller) {
       router.replace("/seller/dashboard");
     }

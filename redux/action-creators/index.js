@@ -438,14 +438,14 @@ export const editUserProfile = ({name,email,phone,address})=> async (dispatch)=>
     }
 }
 
-export const changeUserPassword = ({oldpassword, newpassword, confirmpassword})=> async (dispatch)=> {
+export const changeUserPassword = ({oldPassword, newPassword, confirmPassword})=> async (dispatch)=> {
     dispatch({
         type: "user-loading"
     });
 
     const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
     try {
-        const res = await axios.put(`${url}/api/auth/user/changepassword`, {oldpassword, newpassword, confirmpassword});
+        const res = await axios.put(`${url}/api/auth/user/changepassword`, {oldPassword, newPassword, confirmPassword});
 
         if(res.data.success) {
             dispatch({
@@ -897,14 +897,14 @@ export const editSellerProfile = ({name,email,phone,address})=> async (dispatch)
     }
 }
 
-export const changeSellerPassword = ({oldpassword, newpassword, confirmpassword})=> async (dispatch)=> {
+export const changeSellerPassword = ({oldPassword, newPassword, confirmPassword})=> async (dispatch)=> {
     dispatch({
         type: "seller-loading"
     });
 
     const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
     try {
-        const res = await axios.put(`${url}/api/auth/seller/changepassword`, {oldpassword, newpassword, confirmpassword});
+        const res = await axios.put(`${url}/api/auth/seller/changepassword`, {oldPassword, newPassword, confirmPassword});
 
         if(res.data.success) {
             dispatch({

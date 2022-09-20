@@ -101,6 +101,19 @@ const userReducer = (state=initState,action)=> {
             isLoading: false
         }
     }
+    else if(action.type === "send-user-email") {
+        const {error} = action.payload;
+        if(error) {
+            return {
+                ...state,
+                isLoading: false
+            }
+        }
+        return {
+            ...state,
+            isLoading: false
+        }
+    }
     else if(action.type === "logout") {
         return {
             ...state,

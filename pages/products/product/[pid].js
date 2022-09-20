@@ -86,6 +86,11 @@ const ProductPage = () => {
   }, [user, cart?.products.length]);
 
   useEffect(()=> {
+    dispatch(actionCreators.getProduct(router.query.pid));
+    dispatch(actionCreators.getAllReviews(router.query.pid));
+    if(user) {
+      dispatch(actionCreators.getAllOrders());
+    }
     return ()=> {
       dispatch(actionCreators.resetProduct());
     }

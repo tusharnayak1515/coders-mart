@@ -39,6 +39,7 @@ const handler = async (req, res)=> {
                 otp: otp,
                 expiry: new Date().getTime() + 30000
             });
+            
             const mailOptions = {
                 from: process.env.NODE_MAILER_EMAIL,
                 to: email,

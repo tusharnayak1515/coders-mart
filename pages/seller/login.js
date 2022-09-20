@@ -89,7 +89,7 @@ const Login = () => {
             onChange={onChangeHandler}
           />
 
-          <Link href="/user/forgotpassword">
+          <Link href="/seller/forgotpassword">
             <p className={styles.forgot_password}>Forgot Password?</p>
           </Link>
 

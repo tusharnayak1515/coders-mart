@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import * as cookie from "cookie";
 import { wrapper } from "../../redux/store";
 import { actionCreators } from "../../redux";
+const PasswordModal = dynamic(()=> import("../../components/PasswordModal"));
 import { toast } from 'react-toastify';
 import { BiArrowBack } from 'react-icons/bi';
 
@@ -30,11 +32,18 @@ const Editprofile = () => {
     }
   });
 
+  const [show, setShow] = useState(false);
+
   const onChangeHandler = (e)=> {
     e.preventDefault();
     const {name, value} = e.target;
     setUserDetails({...userDetails, [name]: value});
   }
+
+  const passwordChangeClick = (e) => {
+    e.preventDefault();
+    setShow(true);
+  };
 
   const onSubmitHandler = (e)=> {
     e.preventDefault();
@@ -95,6 +104,7 @@ const Editprofile = () => {
             <meta name="keywords" content={`nextjs, e-commerce, coders-mart, edit profile, ${profile?.name}`} />
         </Head>
 
+        {show && <PasswordModal setShow={setShow} />}
         <div className={styles.editProfile_top_div}>
             <div className={styles.back_btn_div}>
                 <BiArrowBack className={styles.back_btn} onClick={onBackClick} />
@@ -126,7 +136,7 @@ const Editprofile = () => {
         </form>
 
         <div className={styles.editProfile_bottom_div}>
-            <h3 className={styles.actions}>Change Password</h3>
+            <h3 className={styles.actions} onClick={passwordChangeClick}>Change Password</h3>
         </div>
     </div>
   )
