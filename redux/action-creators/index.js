@@ -1349,16 +1349,21 @@ export const editProduct = ({id,name,description,brand,price,category,quantity,g
     });
 
     let myimg = null;
-    if(image !== "") {
-        const data = new FormData();
-        data.append("file", image);
-        data.append("upload_preset", "coders_mart");
-        data.append("cloud_name", "alpha2625");
-        const response = await axios.post("https://api.cloudinary.com/v1_1/alpha2625/image/upload", data);
-        myimg = response.data.secure_url;
+    if(typeof image === "string" && image !== "") {
+        myimg = image;
     }
     else {
-        myimg = "https://cdn1.vectorstock.com/i/thumb-large/46/50/missing-picture-page-for-website-design-or-mobile-vector-27814650.jpg";
+        if(image !== "") {
+            const data = new FormData();
+            data.append("file", image);
+            data.append("upload_preset", "coders_mart");
+            data.append("cloud_name", "alpha2625");
+            const response = await axios.post("https://api.cloudinary.com/v1_1/alpha2625/image/upload", data);
+            myimg = response.data.secure_url;
+        }
+        else {
+            myimg = "https://cdn1.vectorstock.com/i/thumb-large/46/50/missing-picture-page-for-website-design-or-mobile-vector-27814650.jpg";
+        }
     }
 
     const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
