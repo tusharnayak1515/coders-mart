@@ -6,6 +6,7 @@ import { wrapper } from "../redux/store";
 import Nprogress from "nprogress";
 Nprogress.configure({ showSpinner: false, easing: 'ease', speed: 1000, parent: 'html' });
 const TopNav = dynamic(()=> import("../components/TopNav"), {ssr: false});
+import LoadingSpinner from "../components/LoadingSpinner";
 import { ToastContainer } from "react-toastify";
 
 import "../styles/globals.css";
@@ -40,6 +41,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
 
       <TopNav />
+      {loading && <LoadingSpinner />}
       {!loading && <Component {...pageProps} />}
       {domLoaded && <ToastContainer />}
     </>

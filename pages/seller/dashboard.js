@@ -40,22 +40,25 @@ const Dashboard = () => {
       router.replace("/");
     } else if (!seller) {
       router.replace("/seller/login");
-    } else {
+    } else if(seller) {
       dispatch(actionCreators.sellerProfile());
       dispatch(actionCreators.getStore());
-      let available = 0;
-      let unavailable = 0;
-      for (let i = 0; i < products?.length; i++) {
-        if (products[i]?.quantity > 0) {
-          available += 1;
-        } else {
-          unavailable += 1;
-        }
-      }
-      setIn_stock(available);
-      setOut_of_stock(unavailable);
     }
-  }, [user, seller, router, profile?.sold, products?.length, dispatch]);
+  }, [user, seller, router, dispatch]);
+
+  useEffect(()=> {
+    let available = 0;
+    let unavailable = 0;
+    for (let i = 0; i < products?.length; i++) {
+      if (products[i]?.quantity > 0) {
+        available += 1;
+      } else {
+        unavailable += 1;
+      }
+    }
+    setIn_stock(available);
+    setOut_of_stock(unavailable);
+  }, [profile?.sold, products?.length]);
 
   return (
     <div className={styles.dashboardPage}>

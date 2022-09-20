@@ -781,7 +781,7 @@ export const sellerLogin = ({email,password})=> async (dispatch)=> {
 export const sellerProfile = (token)=> async (dispatch)=> {
     const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
     try {
-        const res = await axios.get(`${url}/api/auth/seller/profile`,{headers: {cm_user_token: token}});
+        const res = await axios.get(`${url}/api/auth/seller/profile`,{headers: {cm_seller_token: token}});
         if(typeof window !== "undefined") {
             localStorage.setItem("cm_seller_profile", JSON.stringify(res.data.seller));
         }

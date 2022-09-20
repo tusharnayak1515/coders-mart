@@ -15,7 +15,7 @@ const Store = () => {
   const dispatch = useDispatch();
   const {user} = useSelector(state=> state.userReducer,shallowEqual);
   const {seller} = useSelector(state=> state.sellerReducer,shallowEqual);
-  const {products} = useSelector(state=> state.productReducer,shallowEqual);
+  const {products, isLoading} = useSelector(state=> state.productReducer,shallowEqual);
 
   useEffect(()=> {
     if(user) {
@@ -28,6 +28,10 @@ const Store = () => {
       dispatch(actionCreators.getStore());
     }
   }, [user, seller, router, dispatch]);
+
+  if(isLoading) {
+    return <LoadingSpinner />
+  }
 
   return (
     <div className={styles.storePage}>

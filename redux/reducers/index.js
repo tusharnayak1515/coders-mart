@@ -22,12 +22,12 @@ const rootReducer = combineReducers({
 const masterReducer = (state,action)=> {
     if(action.type === HYDRATE) {
         // console.log("state: ",state.orderReducer.orders);
-        // console.log("action.payload: ",action.payload.productReducer.product);
+        // console.log("action.payload: ",action.payload.orderReducer.orders);
         const nextState = {
             ...state,
             userReducer: {
                 user: state.userReducer.user ? state.userReducer.user : action.payload.userReducer.user,
-                profile: state.userReducer.profile ? state.userReducer.profile : action.payload.userReducer.profile,
+                profile: state.userReducer.profile ? state.userReducer.profile : state.userReducer.profile,
                 isLoading: state.userReducer.isLoading
             },
             sellerReducer: {

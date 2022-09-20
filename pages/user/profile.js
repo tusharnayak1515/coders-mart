@@ -2,10 +2,12 @@ import React, { useEffect} from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import * as cookie from "cookie";
 import { wrapper } from "../../redux/store";
 import { actionCreators } from "../../redux";
+const GreetUser = dynamic(()=> import("../../components/GreetUser"), {ssr: false});
 import { FaAngleRight, FaUser } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
 import { CgNotes } from "react-icons/cg";
@@ -58,7 +60,7 @@ const Profile = () => {
       </Head>
 
       <div className={styles.profile_top_div}>
-        {profile && <h3 className={styles.greet}>Hey! {profile?.name.split(" ")[0]}</h3>}
+        <GreetUser profile={profile} />
         <Link href="/user/orders"><button className={styles.user_orders_btn}>Orders</button></Link>
       </div>
 

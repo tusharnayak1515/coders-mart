@@ -8,6 +8,7 @@ import * as cookie from "cookie";
 import { actionCreators } from "../../redux";
 import { wrapper } from "../../redux/store";
 const Order = dynamic(() => import("../../components/Order"), { ssr: true });
+import LoadingSpinner from "../../components/LoadingSpinner";
 import empty_bag from "../../public/logo.png";
 
 import styles from "../../styles/orders.module.css";
@@ -17,7 +18,7 @@ const Orders = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.userReducer, shallowEqual);
   const { seller } = useSelector((state) => state.sellerReducer, shallowEqual);
-  const { orders } = useSelector((state) => state.orderReducer, shallowEqual);
+  const { orders, isLoading } = useSelector((state) => state.orderReducer, shallowEqual);
 
   useEffect(() => {
     if (seller) {
@@ -28,6 +29,10 @@ const Orders = () => {
       dispatch(actionCreators.getAllOrders());
     }
   }, [user, seller, router, dispatch]);
+
+  if(isLoading) {
+    return <LoadingSpinner />
+  }
 
   return (
     <div className={styles.ordersPage}>

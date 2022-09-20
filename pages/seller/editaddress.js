@@ -154,7 +154,7 @@ const Editaddress = () => {
       <div className={styles.editAddress_top_div}>
         <BiArrowBack className={styles.back_btn} onClick={onBackClick} />
         {/* Logo  */}
-        <h3 className={styles.editAddress_head}>Delivery Address</h3>
+        <h3 className={styles.editAddress_head}>Seller Address</h3>
       </div>
 
       <form className={styles.editAddress_form_div} onSubmit={onSubmitHandler}>
