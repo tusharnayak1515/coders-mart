@@ -43,7 +43,10 @@ const Cart = () => {
     else if (!seller && !user) {
       router.replace("/");
     }
-  }, [user, seller, router]);
+    else {
+      dispatch(actionCreators.getCart());
+    }
+  }, [user, seller, router, dispatch]);
 
   useEffect(() => {
     let p = 0;

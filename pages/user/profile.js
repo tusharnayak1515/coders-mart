@@ -41,7 +41,10 @@ const Profile = () => {
     else if (!seller && !user) {
       router.replace("/");
     }
-  }, [user, seller, router]);
+    else {
+      dispatch(actionCreators.userProfile());
+    }
+  }, [user, seller, router, dispatch]);
 
   return( 
     <div className={styles.profilePage}>
@@ -55,7 +58,7 @@ const Profile = () => {
       </Head>
 
       <div className={styles.profile_top_div}>
-        {user && <h3 className={styles.greet}>Hey! {profile?.name.split(" ")[0]}</h3>}
+        {profile && <h3 className={styles.greet}>Hey! {profile?.name.split(" ")[0]}</h3>}
         <Link href="/user/orders"><button className={styles.user_orders_btn}>Orders</button></Link>
       </div>
 

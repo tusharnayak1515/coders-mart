@@ -68,6 +68,7 @@ const orderReducer = (state=initState,action)=> {
         return {
             ...state,
             orders: null,
+            order: null,
             isLoading: false
         }
     }

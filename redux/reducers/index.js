@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
 
 const masterReducer = (state,action)=> {
     if(action.type === HYDRATE) {
-        // console.log("state: ",state.orderReducer);
+        // console.log("state: ",state.orderReducer.orders);
         // console.log("action.payload: ",action.payload.productReducer.product);
         const nextState = {
             ...state,

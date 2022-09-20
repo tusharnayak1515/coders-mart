@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { shallowEqual, useSelector } from "react-redux";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import * as cookie from "cookie";
 import { wrapper } from "../../redux/store";
 import { actionCreators } from "../../redux";
@@ -18,10 +19,10 @@ import inStock from "../../public/static/images/in_stock.png";
 import outOfStock from "../../public/static/images/out_of_stock.webp";
 
 import styles from "../../styles/dashboard.module.css";
-import Link from "next/link";
 
 const Dashboard = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
   const { user } = useSelector((state) => state.userReducer, shallowEqual);
   const { seller, profile } = useSelector(
     (state) => state.sellerReducer,
@@ -40,6 +41,8 @@ const Dashboard = () => {
     } else if (!seller) {
       router.replace("/seller/login");
     } else {
+      dispatch(actionCreators.sellerProfile());
+      dispatch(actionCreators.getStore());
       let available = 0;
       let unavailable = 0;
       for (let i = 0; i < products?.length; i++) {
@@ -52,7 +55,7 @@ const Dashboard = () => {
       setIn_stock(available);
       setOut_of_stock(unavailable);
     }
-  }, [user, seller, router, profile?.sold, products?.length]);
+  }, [user, seller, router, profile?.sold, products?.length, dispatch]);
 
   return (
     <div className={styles.dashboardPage}>

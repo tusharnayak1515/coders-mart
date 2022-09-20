@@ -41,7 +41,10 @@ const Profile = () => {
     else if (!seller && !user) {
       router.replace("/seller/login");
     }
-  }, [user, seller, router]);
+    else {
+      dispatch(actionCreators.sellerProfile());
+    }
+  }, [user, seller, router, dispatch]);
 
   return( 
     <div className={styles.profilePage}>

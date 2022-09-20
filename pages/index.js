@@ -7,7 +7,7 @@ import dynamic from "next/dynamic";
 import * as cookie from "cookie";
 import { wrapper } from "../redux/store";
 import { actionCreators } from "../redux";
-import { shallowEqual, useSelector } from "react-redux";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 const Products = dynamic(()=> import("../components/Products"), {ssr: true});
 const Footer = dynamic(()=> import("../components/Footer"), {ssr: true});
 import AdCarousel from "../components/AdCarousel";
@@ -21,12 +21,17 @@ import styles from "../styles/Home.module.css";
 
 export default function Home() {
   const router = useRouter();
+  const dispatch = useDispatch();
+  const {user} = useSelector(state=> state.userReducer,shallowEqual);
   const {seller} = useSelector(state=> state.sellerReducer,shallowEqual);
   const {products} = useSelector(state=> state.productReducer,shallowEqual);
 
   useEffect(()=> {
     if(seller) {
       router.replace("/seller/dashboard");
+    }
+    else if(user) {
+      dispatch(actionCreators.getAllOrders());
     }
   }, [seller, router]);
 
@@ -98,5 +103,6 @@ export const getServerSideProps = wrapper.getServerSideProps((store)=> async (co
   const cookieObj = cookie.parse(mycookie);
   if (cookieObj.cm_user_token) {
     await store.dispatch(actionCreators.getCart(cookieObj.cm_user_token));
+    await store.dispatch(actionCreators.getAllOrders(cookieObj.cm_user_token));
   }
 });

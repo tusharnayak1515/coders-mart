@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
-import { shallowEqual, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import * as cookie from "cookie";
 import { wrapper } from '../../redux/store';
 import { actionCreators } from '../../redux';
@@ -12,18 +12,22 @@ import styles from "../../styles/store.module.css";
 
 const Store = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
   const {user} = useSelector(state=> state.userReducer,shallowEqual);
   const {seller} = useSelector(state=> state.sellerReducer,shallowEqual);
   const {products} = useSelector(state=> state.productReducer,shallowEqual);
 
   useEffect(()=> {
     if(user) {
-        router.replace("/");
+      router.replace("/");
     }
     else if(!seller) {
-        router.replace("/seller/login");
+      router.replace("/seller/login");
     }
-  }, [user, seller, router]);
+    else {
+      dispatch(actionCreators.getStore());
+    }
+  }, [user, seller, router, dispatch]);
 
   return (
     <div className={styles.storePage}>

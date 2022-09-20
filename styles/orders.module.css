@@ -7,6 +7,28 @@
     background-color: rgb(235, 235, 235);
 }
 
+.ordersPage .no_orders {
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: limegreen; */
+}
+
+.ordersPage .no_orders .empty_bag_img_div {
+    position: relative;
+    height: 10rem;
+    width: 10rem;
+    margin-bottom: 2rem;
+}
+
+.ordersPage .no_orders h2 {
+    margin-bottom: 0.5rem;
+    color: black;
+    font-weight: 500;
+}
+
 /* Media Queries */
 
 @media only screen and (min-width: 481px) and (max-width: 600px) {
