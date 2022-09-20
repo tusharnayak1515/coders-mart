@@ -4,6 +4,7 @@ import grantAccess from "../../../middlewares/grantAccess";
 
 import Order from "../../../models/Order";
 import User from "../../../models/User";
+import Product from "../../../models/Product";
 
 const handler = async (req, res)=> {
     connectToMongo();

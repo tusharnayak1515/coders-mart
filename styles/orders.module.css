@@ -4,5 +4,35 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: white;
+    background-color: rgb(235, 235, 235);
+}
+
+/* Media Queries */
+
+@media only screen and (min-width: 481px) and (max-width: 600px) {
+
+    .ordersPage {
+        padding-top: 0.5rem;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 720px) {
+
+    .ordersPage {
+        padding-top: 0.7rem;
+    }
+}
+
+@media only screen and (min-width: 721px) {
+
+    .ordersPage {
+        padding-top: 1rem;
+    }
+}
+
+@media only screen and (min-width: 901px) {
+
+    .ordersPage {
+        min-height: 90vh;
+    }
 }
