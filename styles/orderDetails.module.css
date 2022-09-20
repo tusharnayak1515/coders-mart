@@ -9,6 +9,7 @@
 
 .orderDetailsPage .order_id_div {
     width: 100%;
+    margin: 0 auto;
     padding: 1rem;
     border-bottom: 0.1rem solid lightgrey;
     background-color: white;
@@ -22,6 +23,7 @@
 
 .orderDetailsPage .order_product_details {
     width: 100%;
+    margin: 0 auto;
     margin-bottom: 0.5rem;
     padding: 1rem;
     display: flex;
@@ -53,8 +55,8 @@
 
 .orderDetailsPage .order_product_details .product_flex_div .product_img_div {
     position: relative;
-    height: 4rem;
-    width: 4rem;
+    height: 4.5rem;
+    width: 4.5rem;
     border: 0.1rem solid limegreen;
 }
 
@@ -71,12 +73,12 @@
 
 .orderDetailsPage .order_status_div {
     width: 100%;
+    margin: 0 auto;
     margin-bottom: 0.5rem;
     padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    border-bottom: 0.1rem solid lightgrey;
     background-color: white;
 }
 
@@ -98,6 +100,7 @@
 
 .orderDetailsPage .shipping_details_div {
     width: 100%;
+    margin: 0 auto;
     margin-bottom: 0.5rem;
     display: flex;
     flex-direction: column;
@@ -109,7 +112,7 @@
     width: 100%;
     padding: 1rem;
     color: grey;
-    border-bottom: 0.1rem solid lightgrey;
+    border-bottom: 0.1rem solid limegreen;
 }
 
 .orderDetailsPage .shipping_details_div .destination_div {
@@ -135,10 +138,10 @@
 
 .orderDetailsPage .order_price_details_div {
     width: 100%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    border-bottom: 0.1rem solid lightgrey;
     background-color: white;
 }
 
@@ -156,4 +159,138 @@
 
 .orderDetailsPage .order_price_details_div .price_flex_div .order_price {
     color: green;
+}
+
+/* Media Queries */
+
+@media only screen and (min-width: 601px) and (max-width: 720px) {
+
+    .orderDetailsPage .order_id_div {
+        width: 90%;
+        border: none;
+        margin: 0.5rem auto;
+    }
+
+    .orderDetailsPage .order_product_details {
+        width: 90%;
+        border: none;
+    }
+
+    .orderDetailsPage .order_product_details .product_flex_div .product_img_div {
+        height: 5rem;
+        width: 5rem;
+    }
+
+    .orderDetailsPage .order_status_div {
+        width: 90%;
+    }
+
+    .orderDetailsPage .shipping_details_div {
+        width: 90%;
+    }
+
+    .orderDetailsPage .order_price_details_div {
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 721px) and (max-width: 900px) {
+
+    .orderDetailsPage .order_id_div {
+        width: 85%;
+        border: none;
+        margin: 0.5rem auto;
+    }
+
+    .orderDetailsPage .order_product_details {
+        width: 85%;
+        border: none;
+    }
+
+    .orderDetailsPage .order_product_details .product_flex_div .product_img_div {
+        height: 5.5rem;
+        width: 5.5rem;
+    }
+
+    .orderDetailsPage .order_status_div {
+        width: 85%;
+    }
+
+    .orderDetailsPage .shipping_details_div {
+        width: 85%;
+    }
+
+    .orderDetailsPage .order_price_details_div {
+        width: 85%;
+    }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
+
+    .orderDetailsPage .order_id_div {
+        width: 80%;
+        margin: 0.6rem auto;
+        border: none;
+    }
+
+    .orderDetailsPage .order_product_details {
+        width: 80%;
+        margin-bottom: 0.6rem;
+        border: none;
+    }
+
+    .orderDetailsPage .order_product_details .product_flex_div .product_img_div {
+        height: 6rem;
+        width: 6rem;
+    }
+    
+    .orderDetailsPage .order_status_div {
+        width: 80%;
+        margin-bottom: 0.6rem;
+    }
+    
+    .orderDetailsPage .shipping_details_div {
+        width: 80%;
+        margin-bottom: 0.6rem;
+    }
+    
+    .orderDetailsPage .order_price_details_div {
+        width: 80%;
+        margin-bottom: 0.6rem;
+    }
+}
+
+@media only screen and (min-width: 1201px) {
+
+    .orderDetailsPage .order_id_div {
+        width: 75%;
+        margin: 0.7rem auto;
+        border: none;
+    }
+
+    .orderDetailsPage .order_product_details {
+        width: 75%;
+        margin-bottom: 0.7rem;
+        border: none;
+    }
+
+    .orderDetailsPage .order_product_details .product_flex_div .product_img_div {
+        height: 6.5rem;
+        width: 6.5rem;
+    }
+    
+    .orderDetailsPage .order_status_div {
+        width: 75%;
+        margin-bottom: 0.7rem;
+    }
+    
+    .orderDetailsPage .shipping_details_div {
+        width: 75%;
+        margin-bottom: 0.7rem;
+    }
+    
+    .orderDetailsPage .order_price_details_div {
+        width: 75%;
+        margin-bottom: 0.7rem;
+    }
 }

@@ -58,7 +58,6 @@
     position: absolute;
     top: -20%;
     left: 50%;
-    right: auto;
     height: 1.2rem;
     width: 1.2rem;
     color: white;
@@ -99,10 +98,6 @@
     border-radius: 0.2rem;
 }
 
-/* .topnav .searchDiv input:focus {
-    border: 0.1rem solid limegreen;
-} */
-
 .topnav .searchIcon {
     position: absolute;
     top: 15%;
@@ -126,10 +121,29 @@
 
 /* Media Queries */
 
+@media only screen and (max-width: 480px) {
+
+    .topnav .logoDiv .menuDiv .cart_count {
+        top: -25%;
+        left: 25%;
+        height: 1rem;
+        width: 1rem;
+        font-size: 0.7rem;
+    }
+}
+
 @media only screen and (min-width: 481px) and (max-width: 600px) {
 
     .topnav .logoDiv .menuDiv .menu_icons {
         font-size: 1.5rem;
+    }
+
+    .topnav .logoDiv .menuDiv .cart_count {
+        top: -20%;
+        left: 25%;
+        height: 1.1rem;
+        width: 1.1rem;
+        font-size: 0.7rem;
     }
     
     .topnav .logoDiv .menuDiv .logout_btn {
@@ -141,6 +155,10 @@
 
     .topnav .logoDiv .menuDiv .menu_icons {
         font-size: 1.6rem;
+    }
+
+    .topnav .logoDiv .menuDiv .cart_count {
+        left: 25%;
     }
     
     .topnav .logoDiv .menuDiv .logout_btn {

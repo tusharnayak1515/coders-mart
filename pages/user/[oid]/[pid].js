@@ -43,7 +43,7 @@ const OrderDetails = () => {
         <p>Order ID - {order?._id}</p>
       </div>
 
-      <Link href={`/products/${product?._id}`}>
+      <Link href={`/products/product/${product?._id}`}>
         <div className={styles.order_product_details}>
           <div className={styles.product_flex_div}>
             <h3 className={styles.product_name}>{product?.name}</h3>
@@ -89,7 +89,7 @@ const OrderDetails = () => {
         <p className={styles.shipping_head}>Price Details</p>
         <div className={styles.price_flex_div}>
           <p className={styles.order_price_text}>Price</p>
-          <p className={styles.order_price}>₹ {product?.price}</p>
+          <b className={styles.order_price}>₹ {product?.price}</b>
         </div>
       </div>
 
