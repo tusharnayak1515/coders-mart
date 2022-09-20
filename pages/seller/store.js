@@ -38,7 +38,9 @@ const Store = () => {
 
         <h1 className={styles.store_header}>My Store</h1>
 
-        <Products products={products} store={true} />
+        <div className={styles.store_container}>
+          <Products products={products} store={true} />
+        </div>
     </div>
   )
 }

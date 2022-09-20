@@ -14,3 +14,19 @@
     color: black;
     font-weight: 500;
 }
+
+.storePage .store_container {
+    width: 100%;
+    border: 0.1rem solid lightgrey;
+    background-color: rgb(232, 232, 232);
+}
+
+/* Media Queries */
+
+@media only screen and (min-width: 900px) {
+
+    .storePage .store_container {
+        padding: 1rem;
+        background-color: white;
+    }
+}
