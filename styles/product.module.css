@@ -97,6 +97,7 @@
 
     .product .product_image {
         height: 8rem;
+        width: 90%;
     }
 }
 
