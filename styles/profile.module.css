@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Karla&family=Lora:wght@600&family=Rubik&display=swap');
+
 .profilePage {
     min-height: 80vh;
     width: 100%;
@@ -21,6 +23,7 @@
 
 .profilePage .profile_top_div .greet {
     color: black;
+    font-family: 'Karla', sans-serif;
     font-weight: 600;
 }
 
@@ -28,6 +31,7 @@
     padding: 0.3rem 0.5rem;
     color: #244d61;
     font-size: 0.9rem;
+    font-family: 'Rubik', sans-serif;
     border: 0.1rem solid #244d61;
     border-radius: 0.2rem;
     background-color: white;
@@ -53,6 +57,7 @@
 .profilePage .box_head {
     margin-bottom: 1rem;
     color: black;
+    font-family: 'Lora', serif;
     font-weight: 600;
 }
 
@@ -67,6 +72,7 @@
 
 .profilePage .profile_flex_div .left {
     color: black;
+    font-family: 'Cabin', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -112,6 +118,7 @@
     padding: 0.7rem 1rem;
     color: orangered;
     font-size: 1.1rem;
+    font-family: 'Rubik', sans-serif;
     border: 0.1rem solid orangered;
     border-radius: 0.3rem;
     background-color: white;
@@ -174,6 +181,10 @@
         margin-top: 0.5rem;
     }
 
+    .profilePage .profile_top_div .user_orders_btn {
+        font-size: 1rem;
+    }
+
     .profilePage .account_settings_div {
         width: 60%;
     }
@@ -199,6 +210,10 @@
         margin-top: 1rem;
     }
 
+    .profilePage .profile_top_div .user_orders_btn {
+        font-size: 1rem;
+    }
+
     .profilePage .account_settings_div {
         width: 45%;
     }
@@ -222,6 +237,10 @@
     .profilePage .profile_top_div {
         width: 40%;
         margin-top: 1rem;
+    }
+
+    .profilePage .profile_top_div .user_orders_btn {
+        font-size: 1rem;
     }
 
     .profilePage .account_settings_div {

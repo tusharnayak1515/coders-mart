@@ -89,7 +89,7 @@ const OrderDetails = () => {
         <p className={styles.shipping_head}>Price Details</p>
         <div className={styles.price_flex_div}>
           <p className={styles.order_price_text}>Price</p>
-          <b className={styles.order_price}>₹ {product?.price}</b>
+          <p className={styles.order_price}>₹ {product?.price}</p>
         </div>
       </div>
 

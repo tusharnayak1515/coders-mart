@@ -9,7 +9,7 @@ const ShippingAddress = ({profile}) => {
         <div className={styles.user_location}>
             <p className={styles.user_name_pincode}>
                 Deliver to: <span>{profile?.name.substring(0, 10)}...,</span>
-                <span>{profile?.address.pincode}</span>
+                <b>{profile?.address.pincode}</b>
             </p>
             <p className={styles.street_details}>
                 {profile?.address.street.substring(0, 30)}...

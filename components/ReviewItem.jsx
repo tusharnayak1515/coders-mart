@@ -50,8 +50,8 @@ const ReviewItem = ({review}) => {
     <div className={styles.review}>
       <div className={styles.review_top_div}>
         <div className={styles.rating_box}>
-            <h5>{review.ratings}</h5>
-            <AiFillStar className={styles.star_icon} />
+          <h5>{review.ratings}</h5>
+          <AiFillStar className={styles.star_icon} />
         </div>
         <h4>{title}</h4>
       </div>

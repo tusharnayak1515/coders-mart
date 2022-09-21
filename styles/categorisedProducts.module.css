@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
 .categorisedProductPage {
     min-height: 80vh;
     width: 100%;
@@ -7,11 +9,12 @@
 }
 
 .categorisedProductPage .header {
-    color: black;
     width: 100%;
     margin: 0 auto;
     margin-bottom: 1.5rem;
     padding: 0 1rem;
+    color: black;
+    font-family: 'Libre Baskerville', serif;
     /* background-color: white; */
     /* background-color: orange; */
 }

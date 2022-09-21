@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass&family=Rubik&display=swap');
+
 .cartProductDetails {
     width: 100%;
     display: flex;
@@ -35,6 +37,7 @@
 
 .cartProductDetails .cartProduct .product_info_div p {
     color: black;
+    font-family: 'Overpass', sans-serif;
 }
 
 .cartProductDetails .cartProduct .product_info_div .cartProduct_name {
@@ -43,7 +46,7 @@
 
 .cartProductDetails .cartProduct .product_info_div .cartProduct_description {
     margin-bottom: 0.5rem;
-    color: rgb(90, 90, 90);
+    color: #244d61;
     font-size: 0.9rem;
 }
 
@@ -57,12 +60,13 @@
 }
 
 .cartProductDetails .cartProduct .product_info_div .cartProduct_price {
+    font-family: 'Rubik', sans-serif;
     margin-bottom: 0.5rem;
     font-weight: 500;
 }
 
 .cartProductDetails .cartProduct .product_info_div .cartProduct_delivery {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
 }
 
 .cartProductDetails .cartProduct .product_info_div .cartProduct_delivery span {
@@ -85,6 +89,7 @@
     padding: 0.6rem 2rem;
     color: white;
     font-size: 1rem;
+    font-family: 'Rubik', sans-serif;
     border: 0.1rem solid red;
     border-radius: 0.3rem;
     background-color: orangered;

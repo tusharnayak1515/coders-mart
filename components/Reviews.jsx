@@ -71,12 +71,12 @@ const Reviews = () => {
   return (
     <div className={styles.reviews}>
         <div className={styles.reviews_top_div}>
-            <h3 className={styles.reviews_head}>Ratings &amp; Reviews</h3>
-            <button className={styles.rate_btn} onClick={onRate}>Rate Product</button>
+          <h3 className={styles.reviews_head}>Ratings &amp; Reviews</h3>
+          <button className={styles.rate_btn} onClick={onRate}>Rate Product</button>
         </div>
 
         {reviews && reviews?.length === 0 ? <p className={styles.no_reviews}>No Reviews</p> : reviews?.map((review)=> {
-            return <ReviewItem key={review._id} review={review} />
+          return <ReviewItem key={review._id} review={review} />
         })}
 
     </div>

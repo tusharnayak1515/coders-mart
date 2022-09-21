@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
 .delivery_details_div {
     width: 100%;
     margin: 0 auto;
@@ -14,6 +16,7 @@
     margin: 0 auto;
     padding: 1rem;
     color: black;
+    font-family: 'Rubik', sans-serif;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -32,6 +35,7 @@
 .delivery_details_div .deliver_to .add_address {
     padding: 0.3rem 0.5rem;
     color: #244d61;
+    font-family: 'Rubik', sans-serif;
     border: 0.1rem solid #244d61;
     border-radius: 0.2rem;
     background-color: white;
@@ -48,6 +52,7 @@
     margin: 0 auto;
     padding: 1rem;
     color: black;
+    font-family: 'Rubik', sans-serif;
     display: flex;
     justify-content: flex-start;
     align-items: center;

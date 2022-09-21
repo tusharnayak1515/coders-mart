@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Rubik&display=swap');
+
 .reviews {
     width: 100%;
     margin: 0 auto;
@@ -17,13 +19,15 @@
 
 .reviews .reviews_top_div .reviews_head {
     color: black;
-    font-weight: 600;
+    font-family: 'Lora', serif;
+    font-weight: 500;
     /* background-color: red; */
 }
 
 .reviews .reviews_top_div .rate_btn {
     padding: 0.3rem 1rem;
     color: #244d61;
+    font-family: 'Rubik', sans-serif;
     border: 0.1rem solid #244d61;
     border-radius: 0.3rem;
     background-color: white;

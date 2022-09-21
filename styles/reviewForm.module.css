@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Lora:wght@500&family=Rubik&display=swap');
+
 .review_page {
     min-height: 80vh;
     width: 100%;
@@ -19,6 +21,7 @@
 
 .review_page .rating_header {
     color: black;
+    font-family: 'Lora', serif;
     font-weight: 500;
     margin-bottom: 0.7rem;
 }
@@ -61,7 +64,8 @@
     padding: 0.5rem 1rem;
     color: black;
     font-size: 1.1rem;
-    border: 0.1rem solid lightgrey;
+    font-family: 'Cabin', sans-serif;
+    border: 0.1rem solid #244d61;
     border-radius: 0.2rem;
     background-color: white;
 }
@@ -83,6 +87,7 @@
     padding: 0.7rem 1.5rem;
     color: white;
     font-size: 1rem;
+    font-family: 'Rubik', sans-serif;
     border: 0.1rem solid #244d61;
     border-radius: 0.2rem;
     background-color: #244d61;
@@ -104,7 +109,6 @@
     background-color: white;
     transition: all 0.2s ease-in-out;
 }
-
 
 /* Media Queries */
 

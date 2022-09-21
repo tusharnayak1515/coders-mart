@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Inter&family=Lora:wght@500&family=Rubik:wght@400;500&display=swap');
+
 .orderDetailsPage {
     min-height: 80vh;
     width: 100%;
@@ -18,6 +20,7 @@
 .orderDetailsPage .order_id_div p {
     color: #244d61;
     font-size: 0.8rem;
+    font-family: 'Lora', serif;
     font-weight: 500;
 }
 
@@ -44,6 +47,7 @@
 .orderDetailsPage .order_product_details .product_flex_div .product_name {
     width: 70%;
     color: black;
+    font-family: 'Lora', serif;
     font-weight: 500;
     display: flex;
     justify-content: flex-start;
@@ -63,10 +67,12 @@
     margin: 0.3rem 0;
     color: #244d61;
     font-size: 0.8rem;
+    font-family: 'Cabin', sans-serif;
 }
 
 .orderDetailsPage .order_product_details .product_price {
     color: black;
+    font-family: 'Rubik', sans-serif;
     font-weight: 500;
 }
 
@@ -85,6 +91,7 @@
 .orderDetailsPage .order_status_div .status_pair {
     margin-bottom: 1rem;
     color: black;
+    font-family: 'Cabin', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -92,11 +99,13 @@
 
 .orderDetailsPage .order_status_div .status_pair .order_text {
     color: black;
+    font-family: 'Cabin', sans-serif;
 }
 
 .orderDetailsPage .order_status_div .status_pair .order_dates {
-    color: grey;
+    color: #244d61;
     font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
 }
 
 .orderDetailsPage .shipping_details_div {
@@ -113,6 +122,7 @@
     width: 100%;
     padding: 1rem;
     color: #244d61;
+    font-family: 'Cabin', sans-serif;
     border-bottom: 0.1rem solid #0295a9;
 }
 
@@ -125,12 +135,14 @@
 .orderDetailsPage .shipping_details_div .destination_div h4 {
     margin-bottom: 0.5rem;
     color: black;
+    font-family: 'Rubik', sans-serif;
     font-weight: 500;
     /* background-color: orange; */
 }
 
 .orderDetailsPage .shipping_details_div .destination_div p {
     color: black;
+    font-family: 'Inter', sans-serif;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -157,10 +169,13 @@
 
 .orderDetailsPage .order_price_details_div .price_flex_div .order_price_text {
     color: black;
+    font-family: 'Lora', serif;
 }
 
 .orderDetailsPage .order_price_details_div .price_flex_div .order_price {
     color: #244d61;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
 }
 
 /* Media Queries */

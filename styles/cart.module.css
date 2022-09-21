@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&family=Overpass&family=Rubik&display=swap');
+
 .cartPage {
     min-height: 80vh;
     width: 100%;
@@ -30,21 +32,22 @@
 .cartPage .location_div .user_location p {
     color: black;
     font-size: 0.9rem;
+    font-family: 'Rubik', sans-serif;
     /* background-color: red; */
 }
 
-.cartPage .location_div .user_location .user_name_pincode span {
+.cartPage .location_div .user_location .user_name_pincode b {
     margin-left: 0.2rem;
-    font-weight: 500;
 }
 
 .cartPage .location_div .user_location .street_details {
-    color: grey;
+    color: #244d61;
 }
 
 .cartPage .location_div .change_address_btn {
     padding: 0.5rem 0.7rem;
     color: #244d61;
+    font-family: 'Rubik', sans-serif;
     border: 0.1rem solid #244d61;
     border-radius: 0.2rem;
     background-color: white;
@@ -83,12 +86,13 @@
 .cartPage .empty_cart h3 {
     margin-bottom: 0.5rem;
     color: black;
-    font-weight: 500;
+    font-family: 'Jost', sans-serif;
 }
 
 .cartPage .empty_cart p {
-    color: grey;
+    color: #244d61;
     font-size: 0.9rem;
+    font-family: 'Overpass', sans-serif;
 }
 
 .cartPage .placeOrder_div {
@@ -106,6 +110,7 @@
 }
 
 .cartPage .placeOrder_div h2 {
+    font-family: 'Rubik', sans-serif;
     font-weight: 500;
 }
 
@@ -114,6 +119,7 @@
     padding: 0.5rem 1rem;
     color: white;
     font-size: 1rem;
+    font-family: 'Rubik', sans-serif;
     border: 0.1rem solid #244d61;
     border-radius: 0.2rem;
     background-color: #244d61;
@@ -183,6 +189,10 @@
         width: 75%;
     }
 
+    .cartPage .location_div .change_address_btn {
+        font-size: 1rem;
+    }
+
     .cartPage .products_container {
         width: 75%;
     }
@@ -206,6 +216,10 @@
 
     .cartPage .location_div {
         width: 65%;
+    }
+
+    .cartPage .location_div .change_address_btn {
+        font-size: 1rem;
     }
 
     .cartPage .products_container {
@@ -235,6 +249,10 @@
 
     .cartPage .location_div {
         width: 55%;
+    }
+
+    .cartPage .location_div .change_address_btn {
+        font-size: 1rem;
     }
 
     .cartPage .products_container {

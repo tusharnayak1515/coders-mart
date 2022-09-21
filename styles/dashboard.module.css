@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Mukta&family=Rubik&display=swap');
+
 .dashboardPage {
     min-height: 80vh;
     width: 100%;
@@ -43,12 +45,15 @@
 }
 
 .dashboardPage .analytics_container .analytics_div .left_div h3 {
-    color: black;
     margin-bottom: 0.5rem;
+    color: black;
+    font-family: 'Rubik', sans-serif;
 }
 
 .dashboardPage .analytics_container .analytics_div .left_div b {
     color: #244d61;
+    font-size: 1.1rem;
+    font-family: 'Mukta', sans-serif;
 }
 
 .dashboardPage .analytics_container .analytics_div .right_div {
@@ -72,6 +77,7 @@
 
 .dashboardPage .earning_history_div h3 {
     color: black;
+    font-family: 'Rubik', sans-serif;
     margin: 1rem 0 0.5rem 0;
 }
 
@@ -80,6 +86,7 @@
     margin-bottom: 0.3rem;
     padding: 0.5rem;
     color: black;
+    font-family: 'Merriweather', serif;
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Lora&family=Rubik&display=swap');
+
 .editProfilePage {
     min-height: 100vh;
     width: 100%;
@@ -71,8 +73,9 @@
 }
 
 .editProfilePage .editProfile_form_div .edit_pair label {
-    color: #244d61;
     margin-bottom: 0.5rem;
+    color: #244d61;
+    font-family: 'Cabin', sans-serif;
 }
 
 .editProfilePage .editProfile_form_div .edit_pair input {
@@ -80,6 +83,7 @@
     padding: 0.5rem 0;
     color: black;
     font-size: 1rem;
+    font-family: 'Lora', serif;
     border: none;
     border-bottom: 0.1rem solid lightgrey;
     background-color: white;
@@ -90,6 +94,7 @@
     margin-bottom: 0.5rem;
     color: #244d61;
     font-size: 1.3rem;
+    font-family: 'Rubik', sans-serif;
     border: none;
     background-color: white;
 }
@@ -115,6 +120,7 @@
     text-align: center;
     padding: 1rem;
     color: #244d61;
+    font-family: 'Rubik', sans-serif;
     font-weight: normal;
     cursor: pointer;
 }

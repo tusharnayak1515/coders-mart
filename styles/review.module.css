@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Mukta&family=Rubik&display=swap');    
+
 .review {
     width: 100%;
     margin: 0 auto;
@@ -12,6 +14,7 @@
     width: 100%;
     margin: 0.5rem auto;
     padding: 0;
+    font-family: 'Lora', serif;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -23,6 +26,7 @@
     margin-right: 0.5rem;
     padding: 0.3rem;
     color: white;
+    font-family: 'Rubik', sans-serif;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -37,6 +41,7 @@
     margin-bottom: 0.5rem;
     color: black;
     font-size: 0.9rem;
+    font-family: 'Mukta', sans-serif;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -56,6 +61,7 @@
 .review .flex_div .review_user_name {
     color: #244d61;
     font-size: 0.85rem;
+    font-family: 'Lora', serif;
     font-weight: 500;
 }
 
@@ -72,8 +78,14 @@
     cursor: pointer;
 }
 
+.review .flex_div .review_actions_div .review_action_icons:hover {
+    color: #0295a9 !important;
+    transition: all 0.2s ease-in-out;
+}
+
 .review .flex_div .review_actions_div .review_likes_count {
-    color: grey;
+    color: #244d61;
+    font-family: 'Lora', serif;
 }
 
 /* Media Queries */
