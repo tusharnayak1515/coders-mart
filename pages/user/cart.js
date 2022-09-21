@@ -44,6 +44,7 @@ const Cart = () => {
       router.replace("/");
     }
     else {
+      dispatch(actionCreators.userProfile());
       dispatch(actionCreators.getCart());
     }
   }, [user, seller, router, dispatch]);
