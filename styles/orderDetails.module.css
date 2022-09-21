@@ -11,12 +11,12 @@
     width: 100%;
     margin: 0 auto;
     padding: 1rem;
-    border-bottom: 0.1rem solid lightgrey;
+    border-bottom: 0.1rem solid #0295a9;
     background-color: white;
 }
 
 .orderDetailsPage .order_id_div p {
-    color: grey;
+    color: #244d61;
     font-size: 0.8rem;
     font-weight: 500;
 }
@@ -29,7 +29,6 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    border-bottom: 0.1rem solid lightgrey;
     cursor: pointer;
     background-color: white;
 }
@@ -57,12 +56,12 @@
     position: relative;
     height: 4.5rem;
     width: 4.5rem;
-    border: 0.1rem solid limegreen;
+    border: 0.1rem solid #0295a9;
 }
 
 .orderDetailsPage .order_product_details .product_seller_name {
     margin: 0.3rem 0;
-    color: grey;
+    color: #244d61;
     font-size: 0.8rem;
 }
 
@@ -113,8 +112,8 @@
 .orderDetailsPage .shipping_head {
     width: 100%;
     padding: 1rem;
-    color: grey;
-    border-bottom: 0.1rem solid limegreen;
+    color: #244d61;
+    border-bottom: 0.1rem solid #0295a9;
 }
 
 .orderDetailsPage .shipping_details_div .destination_div {
@@ -161,7 +160,7 @@
 }
 
 .orderDetailsPage .order_price_details_div .price_flex_div .order_price {
-    color: green;
+    color: #244d61;
 }
 
 /* Media Queries */

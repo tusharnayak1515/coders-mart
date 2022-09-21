@@ -110,7 +110,7 @@ const ReviewForm = ({product,review}) => {
                 key={index}
                 className={styles.star_icon}
                 style={{
-                  color: (val || reviewDetails.ratings) > index ? "green" : "grey",
+                  color: (val || reviewDetails.ratings) > index ? "#2095a9" : "grey",
                 }}
                 onClick={(e) => onRateClick(e, index + 1)}
                 onMouseOver={(e)=> onStarHover(e,index+1)}

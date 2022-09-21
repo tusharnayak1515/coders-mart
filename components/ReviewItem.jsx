@@ -61,7 +61,7 @@ const ReviewItem = ({review}) => {
       <div className={styles.flex_div}>
         <span className={styles.review_user_name}>{review.user.name}</span>
         {(user && !seller) && <div className={styles.review_actions_div}>
-          <AiFillLike className={styles.review_action_icons} onClick={onLike} style={{color: isLiked ? "limegreen" : "grey"}} />
+          <AiFillLike className={styles.review_action_icons} onClick={onLike} style={{color: isLiked ? "#244d61" : "grey"}} />
           <span className={styles.review_likes_count}>{review.likes.length}</span>
           <AiFillDislike className={styles.review_action_icons} onClick={onUnLike} />
           {profile?._id === review.user._id && <BsThreeDotsVertical className={styles.review_action_icons} onClick={onMenuClick} />}

@@ -11,7 +11,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 0.1rem solid limegreen;
+    border-bottom: 0.1rem solid #0295a9;
     /* background-color: red; */
 }
 
@@ -23,10 +23,16 @@
 
 .reviews .reviews_top_div .rate_btn {
     padding: 0.3rem 1rem;
-    color: green;
-    background-color: white;
-    border: 0.1rem solid limegreen;
+    color: #244d61;
+    border: 0.1rem solid #244d61;
     border-radius: 0.3rem;
+    background-color: white;
+}
+
+.reviews .reviews_top_div .rate_btn:hover {
+    color: white;
+    background-color: #244d61;
+    transition: all 0.2s ease-in-out
 }
 
 .reviews .no_reviews {

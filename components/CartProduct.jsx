@@ -28,7 +28,7 @@ const CartProduct = ({product}) => {
             </div>
 
             <div className={styles.product_info_div}>
-                <p className={styles.cartProduct_name}>{product?.name.substring(0,10)}....</p>
+                <p className={styles.cartProduct_name}>{product?.name}</p>
                 <p className={styles.cartProduct_description}>{product?.description.substring(0,25)}...</p>
                 {product?.size && <p className={styles.cartProduct_size}>Size: <span>{product?.size}</span></p>}
                 <p className={styles.cartProduct_price}>₹ {product?.price}</p>

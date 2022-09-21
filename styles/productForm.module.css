@@ -42,7 +42,7 @@
 }
 
 .productForm .product_form_div .pair_div input:focus, .productForm .product_form_div .pair_div textarea:focus, .productForm .product_form_div .pair_div select:focus {
-    border: 0.1rem solid limegreen;
+    border: 0.1rem solid #0295a9;
 }
 
 .productForm .product_form_div .pair_div textarea {
@@ -95,13 +95,13 @@
     padding: 0.7rem 1rem;
     color: white;
     font-size: 1.2rem;
-    border: 0.1rem solid limegreen;
+    border: 0.1rem solid #244d61;
     border-radius: 0.3rem;
-    background-color: limegreen;
+    background-color: #244d61;
 }
 
 .productForm .product_form_div .btn_div .submit_btn:hover {
-    color: limegreen;
+    color: #244d61;
     background-color: white;
     transition: all 0.2s ease-in-out;
 }

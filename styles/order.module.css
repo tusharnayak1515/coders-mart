@@ -20,7 +20,7 @@
     position: relative;
     height: 5rem;
     width: 5rem;
-    border: 0.1rem solid limegreen;
+    border: 0.1rem solid #0295a9;
 }
 
 .order .orderItem .order_status {
@@ -35,17 +35,17 @@
 
 .order .orderItem .order_product_price {
     display: none;
-    color: green;
+    color: #244d61;
 }
 
 .order .orderItem .order_action_btn {
-    color: grey;
+    color: #244d61;
     font-size: 1.3rem;
     cursor: pointer;
 }
 
 .order .orderItem .order_action_btn:hover {
-    color: rgb(158, 158, 158);
+    color: #0295a9;
 }
 
 /* Media Queries */

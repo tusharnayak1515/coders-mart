@@ -25,7 +25,7 @@
     margin: 0.5rem auto;
     margin-bottom: 1rem;
     padding: 0.5rem 1rem;
-    border: 0.1rem solid limegreen;
+    border: 0.1rem solid #0295a9;
     border-radius: 0.3rem;
 }
 
@@ -95,7 +95,7 @@
     align-items: center;
     border: none;
     border-radius: 0.2rem;
-    background-color: green;
+    background-color: #0295a9;
 }
 
 .productPage .product_details_div .product_rating_div .rating_count {
@@ -108,7 +108,7 @@
     height: 7vh;
     width: 100%;
     margin: 0 auto;
-    border-top: 0.1rem solid limegreen;
+    border-top: 0.1rem solid #244d61;
 }
 
 .productPage .add_to_cart_div button {
@@ -118,11 +118,11 @@
     font-size: 1.1rem;
     text-transform: uppercase;
     border: none;
-    background-color: limegreen;
+    background-color: #244d61;
 }
 
 .productPage .add_to_cart_div button:hover {
-    color: green;
+    color: #244d61;
     background-color: white;
     transition: all 0.2s ease-in-out;
 }

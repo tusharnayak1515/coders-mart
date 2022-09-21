@@ -17,7 +17,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    border-bottom: 0.1rem solid limegreen;
+    border-bottom: 0.1rem solid #0295a9;
     /* background-color: orange; */
 }
 
@@ -31,15 +31,16 @@
 
 .delivery_details_div .deliver_to .add_address {
     padding: 0.3rem 0.5rem;
-    color: green;
-    border: 0.1rem solid limegreen;
+    color: #244d61;
+    border: 0.1rem solid #244d61;
     border-radius: 0.2rem;
     background-color: white;
 }
 
 .delivery_details_div .deliver_to .add_address:hover {
     color: white;
-    background-color: limegreen;
+    background-color: #244d61;
+    transition: all 0.2s ease-in-out;
 }
 
 .delivery_details_div .delivery_time_div {
@@ -53,7 +54,7 @@
 }
 
 .delivery_details_div .delivery_time_div .delivery_icon {
-    color: green;
+    color: #244d61;
     font-size: 1.5rem;
     margin-right: 1rem;
 }

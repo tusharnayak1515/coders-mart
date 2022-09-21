@@ -67,7 +67,7 @@
 }
 
 .review_page .reviewForm .pair_div textarea:focus {
-    border: 0.1rem solid limegreen;
+    border: 0.1rem solid #0295a9;
 }
 
 .review_page .reviewForm .btn_div {
@@ -83,24 +83,24 @@
     padding: 0.7rem 1.5rem;
     color: white;
     font-size: 1rem;
-    border: 0.1rem solid green;
+    border: 0.1rem solid #244d61;
     border-radius: 0.2rem;
-    background-color: green;
+    background-color: #244d61;
 }
 
 .review_page .reviewForm button:hover {
-    color: green;
+    color: #244d61;
     background-color: white;
     transition: all 0.2s ease-in-out;
 }
 
 .review_page .reviewForm .delete_btn {
-    border: 0.1rem solid red;
-    background-color: red;
+    border: 0.1rem solid orangered;
+    background-color: orangered;
 }
 
 .review_page .reviewForm .delete_btn:hover {
-    color: red;
+    color: orangered;
     background-color: white;
     transition: all 0.2s ease-in-out;
 }

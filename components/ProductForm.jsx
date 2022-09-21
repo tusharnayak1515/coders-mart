@@ -196,7 +196,7 @@ const ProductForm = ({product}) => {
             style={{
               border:
                 productImg !== ""
-                  ? "0.1rem solid limegreen"
+                  ? "0.1rem solid #0295a9"
                   : "0.1rem solid lightgrey",
             }}
           >

@@ -7,7 +7,7 @@
     grid-template-columns: repeat(4,1fr);
     grid-column-gap: 5rem;
     grid-row-gap: 5rem;
-    border: 0.1rem solid lightgrey;
+    border: 0.1rem solid #244d61;
     background-color: white;
 }
 

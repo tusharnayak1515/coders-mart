@@ -22,7 +22,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-bottom: 0.1rem solid limegreen;
+  border-bottom: 0.1rem solid #0295a9;
   background-color: white;
   /* background-color: greenyellow; */
 }
@@ -53,7 +53,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 0.1rem solid limegreen;
+  border-bottom: 0.1rem solid #0295a9;
   background-color: white;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .main .heading_div .view_all {
-  color: green;
+  color: #244d61;
 }
 
 .main .heading_div .view_all:hover {

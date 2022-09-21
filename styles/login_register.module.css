@@ -46,19 +46,19 @@
     padding: 0.7rem 1rem;
     color: black;
     font-size: 1rem;
-    border: 0.1rem solid lightgrey;
+    border: 0.1rem solid #244d61;
     border-radius: 0.3rem;
     background-color: white;
 }
 
 .login_register .form_div .input_div input:focus {
-    border: 0.1rem solid #75fd92;
+    border: 0.1rem solid #0295a9;
 }
 
 .login_register .form_div .input_div .forgot_password {
     margin-bottom: 1rem;
     align-self: flex-end;
-    color: green;
+    color: #244d61;
     font-weight: bold;
     cursor: pointer;
     /* background-color: orange; */
@@ -85,13 +85,13 @@
 }
 
 .login_register .form_div .input_div .otherLink {
-    color: green;
+    color: #244d61;
     font-weight: bold;
     cursor: pointer;
 }
 
 .login_register .form_div .input_div .otherLink:hover {
-    color: rgb(0, 166, 0);
+    color: #3b7197;
     transition: all 0.2s ease-in-out;
 }
 
@@ -115,13 +115,13 @@
     padding: 0.7rem 1rem;
     color: white;
     font-size: 1.1rem;
-    border: 0.1rem solid limegreen;
+    border: 0.1rem solid #244d61;
     border-radius: 0.2rem;
-    background-color: limegreen;
+    background-color: #244d61;
 }
 
 .login_register .form_div .btn_div button:hover {
-    color: limegreen;
+    color: #244d61;
     background-color: white;
     transition: all 0.2s ease-in-out;
 }

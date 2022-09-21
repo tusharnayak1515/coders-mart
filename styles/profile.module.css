@@ -26,16 +26,16 @@
 
 .profilePage .profile_top_div .user_orders_btn {
     padding: 0.3rem 0.5rem;
-    color: green;
+    color: #244d61;
     font-size: 0.9rem;
-    border: 0.1rem solid limegreen;
+    border: 0.1rem solid #244d61;
     border-radius: 0.2rem;
     background-color: white;
 }
 
 .profilePage .profile_top_div .user_orders_btn:hover {
     color: white;
-    background-color: limegreen;
+    background-color: #244d61;
     transition: all 0.2s ease-in-out;
 }
 
@@ -74,18 +74,18 @@
 
 .profilePage .profile_flex_div .left .settings_icons {
     margin-right: 1rem;
-    color: green;
+    color: #244d61;
     font-size: 1.2rem;
 }
 
 .profilePage .profile_flex_div .settings_action_icons {
-    color: grey;
+    color: #244d61;
     font-size: 1.2rem;
     cursor: pointer;
 }
 
 .profilePage .profile_flex_div .settings_action_icons:hover {
-    color: rgb(163, 163, 163);
+    color: #0295a9;
     transition: all 0.2s ease-in-out;
 }
 

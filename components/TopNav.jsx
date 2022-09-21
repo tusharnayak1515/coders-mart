@@ -48,7 +48,7 @@ const TopNav = () => {
   return (
     <div className={styles.topnav}>
       <div className={styles.logoDiv}>
-        <Link href={user ? "/" : "/seller/dashboard"}>
+        <Link href={seller ? "/seller/dashboard" : "/"}>
           <h2 className={styles.logo}>CodersMart</h2>
         </Link>
 

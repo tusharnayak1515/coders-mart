@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    border-bottom: 0.1rem solid limegreen;
+    border-bottom: 0.1rem solid #0295a9;
 }
 
 .review .review_top_div {
@@ -28,7 +28,7 @@
     align-items: center;
     border: none;
     border-radius: 0.2rem;
-    background-color: green;
+    background-color: #0295a9;
 }
 
 .review .reviewText {
@@ -54,7 +54,7 @@
 }
 
 .review .flex_div .review_user_name {
-    color: grey;
+    color: #244d61;
     font-size: 0.85rem;
     font-weight: 500;
 }
