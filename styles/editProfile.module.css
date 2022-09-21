@@ -160,8 +160,6 @@
 @media only screen and (min-width: 901px) and (max-width: 1200px) {
 
     .editProfilePage .editProfile_top_div {
-        width: 65%;
-        border-bottom: 0.1rem solid limegreen;
         background-color: white;
     }
 
@@ -172,16 +170,18 @@
     }
 
     .editProfilePage .editProfile_form_div {
+        height: 52vh;
         width: 65%;
     }
 
     .editProfilePage .editProfile_bottom_div {
         width: 65%;
+        border: none;
     }
 
     .editProfilePage .editProfile_top_div .back_btn_div {
         top: 10%;
-        left: 0%;
+        left: 5%;
     }
 
     .editProfilePage .editProfile_top_div .back_btn_div .back_btn {
@@ -197,8 +197,9 @@
 @media only screen and (min-width: 1201px) {
 
     .editProfilePage .editProfile_top_div {
-        width: 60%;
-        border-bottom: 0.1rem solid limegreen;
+        width: 100%;
+        padding: 1rem;
+        /* border-bottom: 0.1rem solid limegreen; */
         background-color: white;
     }
 
@@ -209,16 +210,18 @@
     }
 
     .editProfilePage .editProfile_form_div {
+        height: 47vh;
         width: 60%;
     }
 
     .editProfilePage .editProfile_bottom_div {
         width: 60%;
+        border: none;
     }
 
     .editProfilePage .editProfile_top_div .back_btn_div {
         top: 10%;
-        left: 0%;
+        left: 5%;
     }
 
     .editProfilePage .editProfile_top_div .back_btn_div .back_btn {
