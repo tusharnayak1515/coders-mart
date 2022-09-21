@@ -123,7 +123,7 @@ const ProductPage = () => {
           </div>
         </div>
 
-        <DeliveryDate />
+        {user && <DeliveryDate />}
 
         <Reviews />
 
