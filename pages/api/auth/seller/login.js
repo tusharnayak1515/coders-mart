@@ -16,21 +16,8 @@ const schema = joi.object({
     }),
     password: joiPassword
             .string()
-            .min(8)
-            .minOfUppercase(1)
-            .minOfLowercase(1)
-            .minOfSpecialCharacters(1)
-            .minOfNumeric(1)
-            .noWhiteSpaces()
             .required()
             .messages({
-                'password.min': '{#label} should contain at least {#min} characters!',
-                'password.minOfUppercase': '{#label} should contain at least {#min} uppercase character!',
-                'password.minOfSpecialCharacters':
-                      '{#label} should contain at least {#min} special character!',
-                'password.minOfLowercase': '{#label} should contain at least {#min} lowercase character!',
-                'password.minOfNumeric': '{#label} should contain at least {#min} numeric character!',
-                'password.noWhiteSpaces': '{#label} should not contain white spaces!',
                 'password.required': '{#label} cannot be empty!',
             })
 });
