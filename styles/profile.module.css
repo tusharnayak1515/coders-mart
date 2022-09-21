@@ -66,6 +66,7 @@
 }
 
 .profilePage .profile_flex_div .left {
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
