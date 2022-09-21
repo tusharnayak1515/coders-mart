@@ -1,6 +1,7 @@
 .categorisedProductPage {
     min-height: 80vh;
     width: 100%;
+    padding-top: 1.5rem;
     /* background-color: rgb(235, 235, 235); */
     background-color: white;
 }
@@ -8,7 +9,8 @@
 .categorisedProductPage .header {
     color: black;
     width: 100%;
-    margin: 1.5rem auto;
+    margin: 0 auto;
+    margin-bottom: 1.5rem;
     padding: 0 1rem;
     /* background-color: white; */
     /* background-color: orange; */
