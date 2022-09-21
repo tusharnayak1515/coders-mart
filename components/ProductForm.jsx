@@ -46,7 +46,13 @@ const ProductForm = ({product}) => {
     setProductImg("");
   };
 
-  const onAddProduct = (e) => {
+  const onDeleteProduct = (e)=> {
+    e.preventDefault();
+    dispatch(actionCreators.deleteProduct(profuct?._id));
+    router.replace("/seller/store");
+  }
+
+  const onSubmitHandler = (e) => {
     e.preventDefault();
     const {
       name,
@@ -174,7 +180,7 @@ const ProductForm = ({product}) => {
 
   return (
     <div className={styles.productForm}>
-      <form className={styles.product_form_div} onSubmit={onAddProduct}>
+      <form className={styles.product_form_div} onSubmit={onSubmitHandler}>
         <div className={styles.pair_div}>
           <label htmlFor="image">Image</label>
           <input
@@ -320,6 +326,7 @@ const ProductForm = ({product}) => {
 
         <div className={styles.btn_div}>
           <button className={styles.submit_btn}>Submit</button>
+          {product && <button className={styles.product_delete_btn} onClick={onDeleteProduct}>Delete</button>}
         </div>
       </form>
     </div>

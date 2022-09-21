@@ -106,6 +106,23 @@
     transition: all 0.2s ease-in-out;
 }
 
+.productForm .product_form_div .btn_div .product_delete_btn {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.7rem 1rem;
+    color: white;
+    font-size: 1.2rem;
+    border: 0.1rem solid orangered;
+    border-radius: 0.3rem;
+    background-color: orangered;
+}
+
+.productForm .product_form_div .btn_div .product_delete_btn:hover {
+    color: orangered;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+}
+
 /* Media Queries */
 
 @media only screen and (min-width: 481px) and (max-width: 600px) {
