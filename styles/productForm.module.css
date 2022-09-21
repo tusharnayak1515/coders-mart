@@ -65,6 +65,7 @@
 }
 
 .productForm .product_form_div .pair_div .image_preview .image_icon {
+    color: black;
     font-size: 5rem;
     cursor: pointer;
 }
