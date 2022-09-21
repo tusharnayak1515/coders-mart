@@ -25,6 +25,7 @@
 
 .order .orderItem .order_status {
     width: 40%;
+    color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
