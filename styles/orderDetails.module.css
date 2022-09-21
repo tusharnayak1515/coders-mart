@@ -84,6 +84,7 @@
 
 .orderDetailsPage .order_status_div .status_pair {
     margin-bottom: 1rem;
+    color: black;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -129,6 +130,7 @@
 }
 
 .orderDetailsPage .shipping_details_div .destination_div p {
+    color: black;
     display: flex;
     justify-content: flex-start;
     align-items: center;
