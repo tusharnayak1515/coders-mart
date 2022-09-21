@@ -29,6 +29,7 @@
 .product .product_name {
     width: 100%;
     margin-bottom: 0.5rem;
+    color: black;
     font-size: 0.85rem;
     font-family: 'Ubuntu', sans-serif;
     /* background-color: orange; */
