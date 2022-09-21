@@ -51,7 +51,7 @@
 }
 
 .editProfilePage .editProfile_form_div {
-    height: 55vh;
+    min-height: 55vh;
     width: 100%;
     margin: 0 auto;
     padding: 1rem;
@@ -170,7 +170,7 @@
     }
 
     .editProfilePage .editProfile_form_div {
-        height: 52vh;
+        min-height: 52vh;
         width: 65%;
     }
 
@@ -210,7 +210,7 @@
     }
 
     .editProfilePage .editProfile_form_div {
-        height: 47vh;
+        min-height: 47vh;
         width: 60%;
     }
 
