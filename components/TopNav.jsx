@@ -31,7 +31,7 @@ const TopNav = () => {
 
   const onSearch = (e)=> {
     e.preventDefault();
-    if(name !== "") {
+    if(name.replace(/\s/g,'').trim() !== "") {
       router.push(`/products/search/${name}`)
     }
   }
