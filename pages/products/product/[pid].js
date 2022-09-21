@@ -89,6 +89,7 @@ const ProductPage = () => {
     dispatch(actionCreators.getProduct(router.query.pid));
     dispatch(actionCreators.getAllReviews(router.query.pid));
     if(user) {
+      dispatch(actionCreators.userProfile());
       dispatch(actionCreators.getAllOrders());
     }
     return ()=> {
