@@ -83,7 +83,7 @@ const ProductPage = () => {
         setIsInCart(false);
       }
     }
-  }, [user, cart?.products.length]);
+  }, [user, cart?.products.length, product?._id]);
 
   useEffect(()=> {
     dispatch(actionCreators.getProduct(router.query.pid));
@@ -94,7 +94,7 @@ const ProductPage = () => {
     return ()=> {
       dispatch(actionCreators.resetProduct());
     }
-  }, []);
+  }, [user, router, dispatch]);
 
   return (
     <div className={styles.productPage}>

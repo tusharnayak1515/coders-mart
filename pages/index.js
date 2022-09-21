@@ -34,7 +34,7 @@ export default function Home() {
     else if(user) {
       dispatch(actionCreators.getCart());
     }
-  }, [seller, router, dispatch]);
+  }, [user, seller, router, dispatch]);
 
   return (
     <div className={styles.container}>

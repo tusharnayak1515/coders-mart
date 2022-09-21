@@ -39,7 +39,7 @@ const ResetPassword = ({myotp}) => {
     return () => {
       dispatch(actionCreators.resetStatus());
     };
-  }, [user, otp, router]);
+  }, [user, seller, otp, router, dispatch]);
 
   return (
     <div className={styles.passwordreset}>

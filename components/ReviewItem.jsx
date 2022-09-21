@@ -44,7 +44,7 @@ const ReviewItem = ({review}) => {
     else if(review.ratings >=4 && review.ratings <= 5) {
       setTitle("Awesome");
     }
-  }, []);
+  }, [review.ratings]);
 
   return (
     <div className={styles.review}>

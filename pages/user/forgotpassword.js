@@ -61,7 +61,7 @@ const ForgotPassword = () => {
     else if(seller) {
         router.replace("/seller/dashboard");
     }
-  }, [user, router]);
+  }, [user, seller, router]);
 
   useEffect(() => {
     if (isLoading) {

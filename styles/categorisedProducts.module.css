@@ -22,7 +22,7 @@
 
 /* Media Queries */
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
 
     .categorisedProductPage {
         display: flex;
@@ -39,6 +39,28 @@
     .categorisedProductPage .products_container {
         min-height: 100vh;
         width: 85%;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: 1201px) {
+
+    .categorisedProductPage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        background-color: rgb(235, 235, 235);
+    }
+
+    .categorisedProductPage .header {
+        width: 95%;
+        padding: 0;
+    }
+
+    .categorisedProductPage .products_container {
+        min-height: 100vh;
+        width: 95%;
         margin: 0 auto;
     }
 }

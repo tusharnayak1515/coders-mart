@@ -66,7 +66,7 @@ const Reviews = () => {
         }
       }
     }
-  }, [orders?.length]);
+  }, [orders?.length, product?._id]);
 
   return (
     <div className={styles.reviews}>

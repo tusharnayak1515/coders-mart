@@ -13,11 +13,13 @@ const CategorisedProducts = () => {
   const dispatch = useDispatch();
   const {products} = useSelector(state=> state.productReducer,shallowEqual);
 
-  // useEffect(()=> {
-  //   return ()=> {
-  //     dispatch(actionCreators.resetCategorisedProducts());
-  //   }
-  // }, []);
+  useEffect(()=> {
+    dispatch(actionCreators.getCategorisedProducts(router.query.cname));
+
+    return ()=> {
+      dispatch(actionCreators.resetCategorisedProducts());
+    }
+  }, [router, dispatch]);
 
   return (
     <div className={styles.categorisedProductPage}>
@@ -42,7 +44,6 @@ export default CategorisedProducts;
 
 export const getServerSideProps = wrapper.getServerSideProps((store)=> async (context)=> {
   const {params} = context;
-  console.log(params.cname);
   if(params.cname !== "") {
     await store.dispatch(actionCreators.getCategorisedProducts(params.cname));
   }

@@ -29,9 +29,9 @@ const AdCarousel = () => {
     }, 2500);
     setMyArr([...myArr, myArr[index]]);
     return () => {
-        if(changeSlide) {
-            clearInterval(changeSlide);
-        }
+      if(changeSlide) {
+          clearInterval(changeSlide);
+      }
     };
   }, [length, updateIndex, index]);
 

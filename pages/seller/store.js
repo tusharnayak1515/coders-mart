@@ -6,7 +6,8 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import * as cookie from "cookie";
 import { wrapper } from '../../redux/store';
 import { actionCreators } from '../../redux';
-const Products = dynamic(()=> import("../../components/Products"));
+const Products = dynamic(()=> import("../../components/Products"), {ssr: true});
+const LoadingSpinner = dynamic(()=> import("../../components/LoadingSpinner"), {ssr: false});
 
 import styles from "../../styles/store.module.css";
 

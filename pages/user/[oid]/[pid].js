@@ -23,10 +23,10 @@ const OrderDetails = () => {
     if(seller) {
       router.replace("/seller/dashboard");
     }
-    else if (!seller && !user) {
+    else if (!user) {
       router.replace("/");
     }
-  }, [user, router]);
+  }, [user, seller, router]);
 
   return (
     <div className={styles.orderDetailsPage}>
