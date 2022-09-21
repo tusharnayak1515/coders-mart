@@ -51,7 +51,7 @@
 }
 
 .editProfilePage .editProfile_form_div {
-    height: 55vh;
+    height: 100%;
     width: 100%;
     margin: 0 auto;
     padding: 1rem;
@@ -87,6 +87,7 @@
 
 .editProfilePage .editProfile_form_div .editProfile_submit_btn {
     align-self: center;
+    margin-bottom: 0.5rem;
     color: green;
     font-size: 1.3rem;
     border: none;

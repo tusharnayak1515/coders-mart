@@ -34,9 +34,11 @@
 .productForm .product_form_div .pair_div input, .productForm .product_form_div .pair_div textarea, .productForm .product_form_div .pair_div select {
     width: 100%;
     padding: 0.5rem 1rem;
+    color: black;
     font-size: 1.1rem;
     border: 0.1rem solid lightgrey;
     border-radius: 0.3rem;
+    background-color: white;
 }
 
 .productForm .product_form_div .pair_div input:focus, .productForm .product_form_div .pair_div textarea:focus, .productForm .product_form_div .pair_div select:focus {
