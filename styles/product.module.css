@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&family=Ubuntu&display=swap');
+
 .product {
     height: 100%;
     width: 100%;
@@ -6,8 +8,6 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    /* border: 0.1rem solid limegreen; */
-    /* border-radius: 0.2rem; */
     cursor: pointer;
     background-color: white;
     /* background-color: orange; */
@@ -19,20 +19,10 @@
     transition: all 0.2s ease-in-out;
 }
 
-/* .producteven {
-    border-right: 0.1rem solid limegreen;
-    border-bottom: 0.1rem solid limegreen;
-}
-
-.productodd {
-    border-bottom: 0.1rem solid limegreen;
-} */
-
 .product .product_image {
     position: relative;
     height: 9rem;
     width: 100%;
-    /* border: 0.1rem solid limegreen; */
     margin-bottom: 0.5rem;
 }
 
@@ -40,15 +30,14 @@
     width: 100%;
     margin-bottom: 0.5rem;
     font-size: 0.85rem;
-    /* text-align: center; */
-    font-weight: 500;
+    font-family: 'Ubuntu', sans-serif;
     /* background-color: orange; */
 }
 
 .product h5 {
     margin-bottom: 0.5rem;
     color: black;
-    font-weight: 600;
+    font-family: 'Rubik', sans-serif;
 }
 
 .product .product_stock {

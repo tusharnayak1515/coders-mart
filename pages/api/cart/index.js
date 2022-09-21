@@ -11,7 +11,16 @@ const handler = async (req, res)=> {
         let success = false;
         try {
             const userId = req.user.id;
-            const cart = await Cart.findOne({user: userId})
+            let cart = await Cart.findOne({user: userId})
+
+            for (let i = 0; i < cart.products.length; i++) {
+                let product = await Product.findById(cart.products[i].toString());
+                if(!product) {
+                    cart = await Cart.findByIdAndUpdate(cart._id.toString(), {$pull: {products: cart.products[i].toString()}}, {new: true});
+                }
+            }
+
+            cart = await Cart.findById(cart._id.toString())
                 .populate("products");
 
             success = true;
