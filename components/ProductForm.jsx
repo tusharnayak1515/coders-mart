@@ -48,7 +48,7 @@ const ProductForm = ({product}) => {
 
   const onDeleteProduct = (e)=> {
     e.preventDefault();
-    dispatch(actionCreators.deleteProduct(profuct?._id));
+    dispatch(actionCreators.deleteProduct(product?._id));
     router.replace("/seller/store");
   }
 
