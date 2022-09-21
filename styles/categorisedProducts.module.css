@@ -6,6 +6,7 @@
 }
 
 .categorisedProductPage .header {
+    color: black;
     width: 100%;
     margin: 1.5rem auto;
     padding: 0 1rem;
@@ -25,6 +26,7 @@
 @media only screen and (min-width: 901px) and (max-width: 1200px) {
 
     .categorisedProductPage {
+        min-height: 90vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -37,7 +39,7 @@
     }
 
     .categorisedProductPage .products_container {
-        min-height: 100vh;
+        min-height: 90vh;
         width: 85%;
         margin: 0 auto;
     }
@@ -46,6 +48,7 @@
 @media only screen and (min-width: 1201px) {
 
     .categorisedProductPage {
+        min-height: 90vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -59,7 +62,7 @@
     }
 
     .categorisedProductPage .products_container {
-        min-height: 100vh;
+        min-height: 90vh;
         width: 95%;
         margin: 0 auto;
     }
