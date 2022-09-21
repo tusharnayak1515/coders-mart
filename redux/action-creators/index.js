@@ -1806,6 +1806,8 @@ export const placeOrder = ({products,destination})=> async (dispatch)=> {
         type: "order-loading"
     });
 
+    console.log(products);
+
     const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
     try {
         const res = await axios.post(`${url}/api/orders/placeorder`, {products,destination});

@@ -64,8 +64,8 @@ const Cart = () => {
     for (let i = 0; i < cart?.products.length; i++) {
       myProducts.push(cart?.products[i]._id);
     }
-    // setOrderDetails({ ...orderDetails, products: myProducts });
-    setOrderDetails((prevState)=> prevState.products = myProducts);
+    // eslint-disable-next-line
+    setOrderDetails({ ...orderDetails, products: myProducts });
   }, [cart?.products.length]);
 
   return (
