@@ -3,6 +3,7 @@ import fetchUser from "../../../middlewares/fetchUser";
 import grantAccess from "../../../middlewares/grantAccess";
 
 import Cart from "../../../models/Cart";
+import Product from "../../../models/Product";
 
 const handler = async (req, res)=> {
     connectToMongo();

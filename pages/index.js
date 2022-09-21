@@ -32,6 +32,7 @@ export default function Home() {
       router.replace("/seller/dashboard");
     }
     else if(user) {
+      dispatch(actionCreators.userProfile());
       dispatch(actionCreators.getCart());
     }
   }, [user, seller, router, dispatch]);
@@ -104,5 +105,6 @@ export const getServerSideProps = wrapper.getServerSideProps((store)=> async (co
   const cookieObj = cookie.parse(mycookie);
   if (cookieObj.cm_user_token) {
     await store.dispatch(actionCreators.getCart(cookieObj.cm_user_token));
+    await store.dispatch(actionCreators.userProfile(cookieObj.cm_user_token));
   }
 });

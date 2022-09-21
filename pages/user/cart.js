@@ -11,6 +11,9 @@ import { wrapper } from "../../redux/store";
 const CartProduct = dynamic(() => import("../../components/CartProduct"), {
   ssr: false,
 });
+const ShippingAddress = dynamic(() => import("../../components/ShippingAddress"), {
+  ssr: false,
+});
 import empty_bag from "../../public/static/images/empty_cart.jpeg";
 
 import styles from "../../styles/cart.module.css";
@@ -44,7 +47,6 @@ const Cart = () => {
       router.replace("/");
     }
     else {
-      dispatch(actionCreators.userProfile());
       dispatch(actionCreators.getCart());
     }
   }, [user, seller, router, dispatch]);
@@ -87,21 +89,7 @@ const Cart = () => {
       </Head>
 
       {cart?.products.length !== 0 && (
-        <div className={styles.location_div}>
-          <div className={styles.user_location}>
-            <p className={styles.user_name_pincode}>
-              Deliver to: <span>{profile?.name.substring(0, 10)}...,</span>
-              <span>{profile?.address.pincode}</span>
-            </p>
-            <p className={styles.street_details}>
-              {profile?.address.street.substring(0, 30)}...
-            </p>
-          </div>
-
-          <Link href="/user/editaddress">
-            <button className={styles.change_address_btn}>Change</button>
-          </Link>
-        </div>
+        <ShippingAddress profile={profile} />
       )}
 
       {cart?.products.length === 0 ? (
