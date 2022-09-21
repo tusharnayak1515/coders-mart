@@ -22,8 +22,8 @@ const EarningHistory = ({sale}) => {
   
   return (
     <div className={styles.earning_div}>
-        <b>{formattedTime}</b>
-        <b className={styles.money}>₹ {sale?.money}</b>
+      <b>{formattedTime}</b>
+      <b className={styles.money}>₹ {sale?.money}</b>
     </div>
   )
 }
