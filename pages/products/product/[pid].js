@@ -137,15 +137,22 @@ export default ProductPage;
 export const getServerSideProps = wrapper.getServerSideProps((store)=> async (context)=> {
     const {params} = context;
     await store.dispatch(actionCreators.getProduct(params.pid));
-    await store.dispatch(actionCreators.getAllReviews(params.pid));
-    const mycookie = context?.req?.headers?.cookie || "";
-    const cookieObj = cookie.parse(mycookie);
-    if (cookieObj.cm_user_token) {
-      await store.dispatch(actionCreators.userProfile(cookieObj.cm_user_token));
-      await store.dispatch(actionCreators.getCart(cookieObj.cm_user_token));
-      await store.dispatch(actionCreators.getAllOrders(cookieObj.cm_user_token));
+    if(store.getState().productReducer.product) {
+      await store.dispatch(actionCreators.getAllReviews(params.pid));
+      const mycookie = context?.req?.headers?.cookie || "";
+      const cookieObj = cookie.parse(mycookie);
+      if (cookieObj.cm_user_token) {
+        await store.dispatch(actionCreators.userProfile(cookieObj.cm_user_token));
+        await store.dispatch(actionCreators.getCart(cookieObj.cm_user_token));
+        await store.dispatch(actionCreators.getAllOrders(cookieObj.cm_user_token));
+      }
+      else if(cookieObj.cm_seller_token) {
+        await store.dispatch(actionCreators.sellerProfile(cookieObj.cm_seller_token));
+      }
     }
-    else if(cookieObj.cm_seller_token) {
-      await store.dispatch(actionCreators.sellerProfile(cookieObj.cm_seller_token));
+    else {
+      return {
+        notFound: true
+      };
     }
 });

@@ -9,6 +9,11 @@ const handler = async (req, res)=> {
         let success = false;
         try {
             const productId = req.query.product;
+            if(productId.length != 24) {
+                success = false;
+                return res.json({success, error: "Invalid product Id"});
+            }
+            
             let product = await Product.findById(productId);
             if(!product) {
                 success = false;
