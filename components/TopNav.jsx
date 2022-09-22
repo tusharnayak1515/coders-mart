@@ -59,7 +59,7 @@ const TopNav = () => {
         
         <div className={styles.menuDiv}>
           {user && (
-            <div className={`${styles.cart_icon}`}>
+            <div className={styles.cart_icon}>
               <Link href="/user/cart"><a className={styles.cart_count}>{cart ? cart?.products.length : 0}</a></Link>
               <Link href="/user/cart">
                 <a>
