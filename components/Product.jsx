@@ -19,6 +19,7 @@ const Product = ({ product, store }) => {
             <Image src={product.image} alt={product.name} layout="fill" />
           </div>
           <p className={styles.product_name}>{product.name}</p>
+          <p className={styles.product_category}>{product.category[0].toUpperCase()+product.category.slice(1)}</p>
           <h5>₹ {product.price}</h5>
           {store && product?.quantity === 0 ? (
             <p className={styles.no_stock}>Out of stock</p>

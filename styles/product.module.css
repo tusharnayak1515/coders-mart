@@ -35,6 +35,14 @@
     /* background-color: orange; */
 }
 
+.product .product_category {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    color: #244d61;
+    font-size: 0.85rem;
+    font-family: 'Rubik', sans-serif;
+}
+
 .product h5 {
     margin-bottom: 0.5rem;
     color: black;
@@ -125,6 +133,10 @@
     }
 
     .product .product_name {
+        font-size: 0.9rem;
+    }
+
+    .product .product_category {
         font-size: 0.9rem;
     }
 }

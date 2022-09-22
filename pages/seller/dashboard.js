@@ -63,7 +63,7 @@ const Dashboard = () => {
   return (
     <div className={styles.dashboardPage}>
       <Head>
-        <title>Seller Dashboard</title>
+        <title>Dashboard</title>
         <meta
           name="description"
           content="Coders-Mart is an e-commerce webapp made using NEXT JS."
