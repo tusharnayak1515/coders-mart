@@ -12,7 +12,7 @@ const ShippingAddress = ({profile}) => {
                 <b>{profile?.address.pincode}</b>
             </p>
             <p className={styles.street_details}>
-                {profile?.address.street.substring(0, 30)}...
+                {profile?.address?.street?.substring(0, 30)}...
             </p>
         </div>
 
