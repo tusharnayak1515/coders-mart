@@ -25,7 +25,7 @@ const schema = joi.object({
     }).required().messages({
         'address.required': '{#label} cannot be empty!'
     }),
-    phone: joi.number().messages({
+    phone: joi.number().allow(null,"").messages({
         'phone.number': '{#label} must be of type number!'
     })
 });
@@ -57,7 +57,7 @@ const handler = async (req, res)=> {
                 }
             }
 
-            user = await User.findByIdAndUpdate(userId, {name: name, email: email, phone: phone, address: address}, {new: true})
+            user = await User.findByIdAndUpdate(userId, {name: name, email: email, phone: phone === "" ? null : phone, address: address}, {new: true})
                 .select("-password");
             
             success = true;

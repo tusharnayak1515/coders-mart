@@ -21,7 +21,7 @@ const Editaddress = () => {
   const [userDetails, setUserDetails] = useState({
     name: profile?.name,
     email: profile?.email,
-    phone: profile?.phone ? profile?.phone : "",
+    phone: profile?.phone ? profile?.phone : null,
     address: {
       street: profile?.address.street ? profile?.address.street : "",
       city: profile?.address.city ? profile?.address.city : "",

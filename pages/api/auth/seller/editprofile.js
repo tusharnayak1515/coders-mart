@@ -25,7 +25,7 @@ const schema = joi.object({
     }).required().messages({
         'address.required': '{#label} cannot be empty!',
     }),
-    phone: joi.number().optional()
+    phone: joi.number().allow(null,"")
 });
 
 const handler = async (req, res)=> {
