@@ -10,7 +10,7 @@ export const submitOtp = (otp)=> async (dispatch)=> {
         type: "otp-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     
     try {
         const res = await axios.post(`${url}/api/auth/verifyotp`,{otp});
@@ -74,7 +74,7 @@ export const sendUserEmail = (email)=> async (dispatch)=> {
         type: "user-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.post(`${url}/api/auth/user/sendemail`,{email});
 
@@ -137,7 +137,7 @@ export const resetUserPassword = ({otp, newpassword, confirmpassword})=> async (
         type: "user-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.put(`${url}/api/auth/user/resetpassword`,{otp,newpassword,confirmpassword});
 
@@ -200,7 +200,7 @@ export const userRegister = ({name,email,password})=> async (dispatch)=> {
         type: "user-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.post(`${url}/api/auth/user/register`,{name,email,password});
 
@@ -263,7 +263,7 @@ export const userLogin = ({email,password})=> async (dispatch)=> {
         type: "user-loading"
     });
     
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.post(`${url}/api/auth/user/login`,{email,password});
 
@@ -322,7 +322,7 @@ export const userLogin = ({email,password})=> async (dispatch)=> {
 }
 
 export const userProfile = (token)=> async (dispatch)=> {
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.get(`${url}/api/auth/user/profile`,{headers: {cm_user_token: token}});
         if(typeof window !== "undefined") {
@@ -379,7 +379,7 @@ export const editUserProfile = ({name,email,phone,address})=> async (dispatch)=>
         type: "user-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.put(`${url}/api/auth/user/editprofile`,{name, email, phone, address});
         localStorage.setItem("cm_user_profile", JSON.stringify(res.data.user));
@@ -443,7 +443,7 @@ export const changeUserPassword = ({oldPassword, newPassword, confirmPassword})=
         type: "user-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.put(`${url}/api/auth/user/changepassword`, {oldPassword, newPassword, confirmPassword});
 
@@ -531,7 +531,7 @@ export const sendSellerEmail = (email)=> async (dispatch)=> {
         type: "seller-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.post(`${url}/api/auth/seller/sendemail`,{email});
 
@@ -594,7 +594,7 @@ export const resetSellerPassword = ({otp, newpassword, confirmpassword})=> async
         type: "seller-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.put(`${url}/api/auth/seller/resetpassword`,{otp,newpassword,confirmpassword});
 
@@ -657,7 +657,7 @@ export const sellerRegister = ({name,email,password})=> async (dispatch)=> {
         type: "seller-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.post(`${url}/api/auth/seller/register`,{name,email,password});
 
@@ -720,7 +720,7 @@ export const sellerLogin = ({email,password})=> async (dispatch)=> {
         type: "seller-loading"
     });
     
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.post(`${url}/api/auth/seller/login`,{email,password});
 
@@ -779,7 +779,7 @@ export const sellerLogin = ({email,password})=> async (dispatch)=> {
 }
 
 export const sellerProfile = (token)=> async (dispatch)=> {
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.get(`${url}/api/auth/seller/profile`,{headers: {cm_seller_token: token}});
         if(typeof window !== "undefined") {
@@ -836,7 +836,7 @@ export const editSellerProfile = ({name,email,phone,address})=> async (dispatch)
         type: "seller-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.put(`${url}/api/auth/seller/editprofile`,{name, email, phone, address});
         if(typeof window !== "undefined") {
@@ -902,7 +902,7 @@ export const changeSellerPassword = ({oldPassword, newPassword, confirmPassword}
         type: "seller-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.put(`${url}/api/auth/seller/changepassword`, {oldPassword, newPassword, confirmPassword});
 
@@ -966,7 +966,7 @@ export const getStore = (token)=> async (dispatch)=> {
         type: "product-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.get(`${url}/api/auth/seller/products`,{headers: {cm_seller_token: token}});
 
@@ -1025,7 +1025,7 @@ export const getallProducts = ()=> async (dispatch)=> {
         type: "product-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.get(`${url}/api/products/`);
 
@@ -1082,7 +1082,7 @@ export const searchedProducts = (name)=> async (dispatch)=> {
         type: "product-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.get(`${url}/api/products/searchproduct?name=${name}`);
         if(typeof window !== "undefined") {
@@ -1139,7 +1139,7 @@ export const getCategorisedProducts = (category)=> async (dispatch)=> {
         type: "product-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.get(`${url}/api/products/getproducts?category=${category}`);
         if(typeof window !== "undefined") {
@@ -1196,7 +1196,7 @@ export const getProduct = (id)=> async (dispatch)=> {
         type: "product-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.get(`${url}/api/products/getproduct?product=${id}`);
 
@@ -1281,7 +1281,7 @@ export const addProduct = ({name,description,brand,price,category,quantity,gende
         myimg = "https://cdn1.vectorstock.com/i/thumb-large/46/50/missing-picture-page-for-website-design-or-mobile-vector-27814650.jpg";
     }
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.post(`${url}/api/products/addproduct`, {name,description,brand,price,category,quantity,gender,size,image: myimg});
 
@@ -1366,7 +1366,7 @@ export const editProduct = ({id,name,description,brand,price,category,quantity,g
         }
     }
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.put(`${url}/api/products/editproduct`, {id,name,description,brand,price,category,quantity,gender,size,image:myimg});
 
@@ -1433,7 +1433,7 @@ export const deleteProduct = (id)=> async (dispatch)=> {
         type: "product-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.delete(`${url}/api/products/deleteproduct?product=${id}`);
 
@@ -1502,7 +1502,7 @@ export const getCart = (token)=> async (dispatch)=> {
         type: "cart-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.get(`${url}/api/cart/`, {headers: {cm_user_token: token}});
 
@@ -1559,7 +1559,7 @@ export const addToCart = (id)=> async (dispatch)=> {
         type: "cart-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.put(`${url}/api/cart/addtocart`, {id});
 
@@ -1626,7 +1626,7 @@ export const removeFromCart = (id)=> async (dispatch)=> {
         type: "cart-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.put(`${url}/api/cart/removefromcart`, {id});
 
@@ -1695,7 +1695,7 @@ export const getAllOrders = (token)=> async (dispatch)=> {
         type: "order-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.get(`${url}/api/orders/`, {headers: {cm_user_token: token}});
 
@@ -1752,7 +1752,7 @@ export const getOrder = ({id,token})=> async (dispatch)=> {
         type: "order-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.get(`${url}/api/orders/getorder?order=${id}`, {headers: {cm_user_token: token}});
 
@@ -1808,7 +1808,7 @@ export const placeOrder = ({products,destination})=> async (dispatch)=> {
 
     console.log(products);
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.post(`${url}/api/orders/placeorder`, {products,destination});
 
@@ -1879,7 +1879,7 @@ export const getAllReviews = (id)=> async (dispatch)=> {
         type: "review-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.get(`${url}/api/reviews?product=${id}`);
 
@@ -1933,7 +1933,7 @@ export const getReview = ({id,token})=> async (dispatch)=> {
         type: "review-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.get(`${url}/api/reviews/getreview?review=${id}`, {headers: {cm_user_token: token}});
 
@@ -1987,7 +1987,7 @@ export const addReview = ({ratings, review, productId})=> async (dispatch)=> {
         type: "review-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.post(`${url}/api/reviews/addreview`, {ratings, review, productId});
 
@@ -2051,7 +2051,7 @@ export const editReview = ({ratings, review, id})=> async (dispatch)=> {
         type: "review-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.put(`${url}/api/reviews/editreview`, {ratings, review, id});
 
@@ -2115,7 +2115,7 @@ export const deleteReview = (id)=> async (dispatch)=> {
         type: "review-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.delete(`${url}/api/reviews/deletereview?review=${id}`);
 
@@ -2179,7 +2179,7 @@ export const likeReview = (id)=> async (dispatch)=> {
         type: "review-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.put(`${url}/api/reviews/likereview`,{id});
 
@@ -2234,7 +2234,7 @@ export const unlikeReview = (id)=> async (dispatch)=> {
         type: "review-loading"
     });
 
-    const url = process.env.NODE_ENV === "production" ? "https://coders-mart.vercel.app" : "http://localhost:3000";
+    const url = process.env.NODE_ENV === "production" ? "coders-mart-production.up.railway.app" : "http://localhost:3000";
     try {
         const res = await axios.put(`${url}/api/reviews/unlikereview`,{id});
 
